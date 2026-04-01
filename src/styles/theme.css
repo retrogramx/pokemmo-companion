@@ -110,6 +110,23 @@ body {
     margin-bottom: 8px;
 }
 
+.hidden-item-img-wrap {
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: zoom-in;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hidden-item-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.1s ease;
+    user-select: none;
+}
+
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }

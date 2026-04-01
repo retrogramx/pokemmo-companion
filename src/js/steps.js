@@ -1066,10 +1066,66 @@ function showHiddenItemPopout(itemName, imageUrl) {
   header.appendChild(closeBtn);
   popout.appendChild(header);
 
+  // Zoomable image container
+  var imgWrap = document.createElement('div');
+  imgWrap.className = 'hidden-item-img-wrap';
+
   var img = document.createElement('img');
   img.src = imageUrl;
-  img.style.cssText = 'width:100%;height:auto;border-radius:4px;display:block;';
-  popout.appendChild(img);
+  img.className = 'hidden-item-img';
+  img.draggable = false;
+  imgWrap.appendChild(img);
+  popout.appendChild(imgWrap);
+
+  // Zoom hint
+  var zoomHint = document.createElement('div');
+  zoomHint.style.cssText = 'font-size:9px;color:var(--text-muted);text-align:center;margin-top:4px;';
+  zoomHint.textContent = 'scroll to zoom \u00b7 drag to pan';
+  popout.appendChild(zoomHint);
+
+  // Zoom + pan state
+  var scale = 1;
+  var panX = 0, panY = 0;
+  var isDragging = false;
+  var dragStartX = 0, dragStartY = 0;
+  var panStartX = 0, panStartY = 0;
+
+  function updateTransform() {
+    img.style.transform = 'scale(' + scale + ') translate(' + (panX / scale) + 'px,' + (panY / scale) + 'px)';
+  }
+
+  imgWrap.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var delta = e.deltaY > 0 ? -0.15 : 0.15;
+    scale = Math.max(0.5, Math.min(5, scale + delta));
+    if (scale <= 1) { panX = 0; panY = 0; }
+    updateTransform();
+    zoomHint.textContent = Math.round(scale * 100) + '%';
+  });
+
+  imgWrap.addEventListener('mousedown', function(e) {
+    if (scale <= 1) return;
+    isDragging = true;
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
+    panStartX = panX;
+    panStartY = panY;
+    imgWrap.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', function onMove(e) {
+    if (!isDragging) return;
+    panX = panStartX + (e.clientX - dragStartX);
+    panY = panStartY + (e.clientY - dragStartY);
+    updateTransform();
+  });
+
+  document.addEventListener('mouseup', function onUp() {
+    if (!isDragging) return;
+    isDragging = false;
+    imgWrap.style.cursor = scale > 1 ? 'grab' : 'zoom-in';
+  });
 
   overlay.appendChild(popout);
   document.body.appendChild(overlay);
