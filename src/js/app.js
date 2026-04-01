@@ -40,19 +40,12 @@ function toggleMode() {
 }
 
 function hide() {
-  appEl.classList.add('hidden');
-  pillEl.classList.add('visible');
-  // Shrink window to pill size
-  resizeWindow(120, 44);
+  // Actually hide the native window — use Ctrl+Shift+G to bring it back
+  setWindowVisible(false);
 }
 
 function show() {
-  appEl.classList.remove('hidden');
-  pillEl.classList.remove('visible');
-  const size = currentMode === 'compact'
-    ? { w: 360, h: 200 }
-    : { w: 360, h: 520 };
-  resizeWindow(size.w, size.h);
+  setWindowVisible(true);
 }
 
 function showMap() {
@@ -87,9 +80,11 @@ document.addEventListener('mousedown', (e) => {
 
 // Listen for Tauri hotkey events
 if (window.__TAURI__) {
+  let isHidden = false;
   window.__TAURI__.event.listen('hotkey-toggle', () => {
-    if (appEl.classList.contains('hidden')) show();
-    else hide();
+    isHidden = !isHidden;
+    if (isHidden) hide();
+    else show();
   });
   window.__TAURI__.event.listen('hotkey-complete', () => {
     window.__steps.completeCurrent();
