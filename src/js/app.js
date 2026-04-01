@@ -94,12 +94,13 @@ async function closeApp() {
     const profile = window.__profiles && window.__profiles.getActiveProfile();
     if (win && profile) {
       const pos = await win.outerPosition();
-      const size = await win.innerSize();
-      profile.windowPosition = { x: pos.x, y: pos.y };
-      profile.windowSize = { width: size.width, height: size.height };
+      const size = await win.outerSize();
+      const scale = await win.scaleFactor();
+      // Convert physical pixels to logical pixels for restore
+      profile.windowPosition = { x: Math.round(pos.x / scale), y: Math.round(pos.y / scale) };
+      profile.windowSize = { width: Math.round(size.width / scale), height: Math.round(size.height / scale) };
       profile.windowMode = currentMode;
       await window.__profiles.saveActiveProfile();
-      console.log('Saved window state:', profile.windowPosition, profile.windowSize);
     }
   } catch (e) {
     console.warn('Save before close failed:', e);
