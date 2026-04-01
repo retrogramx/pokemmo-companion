@@ -103,10 +103,28 @@ async function loadRegionData() {
 }
 
 function updateHeader(locName, locDone, locTotal) {
-  document.getElementById('headerLocation').textContent = locName;
+  var locEl = document.getElementById('headerLocation');
+  var wrapEl = document.getElementById('headerLocationWrap');
+  if (locEl) locEl.textContent = locName;
 
-  var sectionEl = document.getElementById('headerProgress');
-  if (sectionEl) sectionEl.textContent = locDone + '/' + locTotal;
+  // Check if text overflows and enable marquee if so
+  if (wrapEl && locEl) {
+    wrapEl.classList.remove('marquee');
+    // Reset to measure
+    locEl.style.animation = 'none';
+    void locEl.offsetWidth;
+    locEl.style.animation = '';
+    setTimeout(function() {
+      if (locEl.scrollWidth > wrapEl.clientWidth) {
+        var distance = locEl.scrollWidth - wrapEl.clientWidth + 10;
+        locEl.style.setProperty('--marquee-distance', '-' + distance + 'px');
+        wrapEl.classList.add('marquee');
+      }
+    }, 50);
+  }
+
+  var countEl = document.getElementById('headerProgress');
+  if (countEl) countEl.textContent = locDone + '/' + locTotal;
 
   var fillEl = document.getElementById('headerProgressFill');
   if (fillEl) {

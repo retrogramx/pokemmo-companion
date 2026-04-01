@@ -44,37 +44,106 @@ button, input, select, a,
 .header {
     display: flex;
     flex-direction: column;
-    padding: 6px 12px 4px;
     background: var(--bg-panel);
-    border-bottom: 2px solid var(--border-medium);
     flex-shrink: 0;
-    gap: 4px;
+}
+
+/* Theme accent bar at top */
+.header::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--header-accent, linear-gradient(90deg, transparent 5%, var(--green) 30%, var(--blue) 70%, transparent 95%));
+    opacity: 0.6;
 }
 
 .header-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
+    padding: 10px 14px;
+    gap: 12px;
+}
+
+.header-location-wrap {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .header-location {
     font-family: var(--font-pixel);
-    font-size: 0.55rem;
+    font-size: 0.6rem;
     color: var(--green);
     line-height: 1.4;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-shadow: 0 0 8px rgba(46, 213, 115, 0.2);
+    text-shadow: 0 0 10px rgba(46, 213, 115, 0.25);
+    letter-spacing: 0.5px;
+    display: inline-block;
 }
 
-.header-left {
+/* Marquee scroll when text overflows */
+.header-location-wrap.marquee .header-location {
+    animation: marqueeScroll 8s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes marqueeScroll {
+    0%, 10% { transform: translateX(0); }
+    45%, 55% { transform: translateX(var(--marquee-distance, -30%)); }
+    90%, 100% { transform: translateX(0); }
+}
+
+/* Progress chip (RPG HP bar style) */
+.header-progress-chip {
     display: flex;
     align-items: center;
-    gap: 8px;
-    min-width: 0;
-    flex: 1;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+}
+
+.header-progress-label {
+    font-family: var(--font-pixel);
+    font-size: 0.35rem;
+    color: var(--yellow);
+}
+
+.header-progress-bar {
+    width: clamp(40px, 15vw, 80px);
+    height: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.header-progress-fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 6px rgba(46, 213, 115, 0.5);
+}
+
+.header-progress-count {
+    font-family: var(--font-pixel);
+    font-size: 0.35rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+/* Overall % chip */
+.header-progress-total {
+    font-family: var(--font-pixel);
+    font-size: 0.32rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .header-right {
@@ -82,46 +151,6 @@ button, input, select, a,
     align-items: center;
     gap: 4px;
     flex-shrink: 0;
-}
-
-/* ── Header Progress Row ── */
-.header-progress-row {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.header-progress-section {
-    font-size: 10px;
-    color: var(--text-secondary);
-    white-space: nowrap;
-    font-weight: 600;
-    min-width: 28px;
-}
-
-.header-progress-bar {
-    flex: 1;
-    height: 4px;
-    background: var(--bg-elevated);
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.header-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--green), var(--blue));
-    border-radius: 2px;
-    transition: width 0.3s ease;
-    box-shadow: 0 0 4px rgba(46, 213, 115, 0.3);
-}
-
-.header-progress-total {
-    font-family: var(--font-pixel);
-    font-size: 0.35rem;
-    color: var(--text-muted);
-    white-space: nowrap;
-    min-width: 24px;
-    text-align: right;
 }
 
 .header-btn {
@@ -146,13 +175,16 @@ button, input, select, a,
 
 /* ── Profile Dropdown ── */
 .profile-trigger {
-    font-size: 11px;
+    font-family: var(--font-pixel);
+    font-size: 0.35rem;
     color: var(--text-secondary);
     cursor: pointer;
-    padding: 2px 6px;
+    padding: 3px 6px;
     border-radius: var(--radius-sm);
     transition: color 0.15s, background 0.15s;
     white-space: nowrap;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .profile-trigger:hover {
@@ -783,7 +815,7 @@ button, input, select, a,
 .panel-overlay {
     position: absolute;
     inset: 0;
-    top: 52px;
+    top: 44px;
     bottom: 42px;
     background: var(--panel-bg, #1a1430);
     z-index: 50;
@@ -915,7 +947,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--green), var(--blue));
+    background: var(--green);
     border-radius: 3px;
     transition: width 0.3s ease;
     box-shadow: 0 0 6px rgba(46, 213, 115, 0.3);
