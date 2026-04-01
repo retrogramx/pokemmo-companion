@@ -102,6 +102,35 @@ async function loadRegionData() {
   return regionData;
 }
 
+function updateHeader(locName, locDone, locTotal) {
+  document.getElementById('headerLocation').textContent = locName;
+
+  var sectionEl = document.getElementById('headerProgress');
+  if (sectionEl) sectionEl.textContent = locDone + '/' + locTotal;
+
+  var fillEl = document.getElementById('headerProgressFill');
+  if (fillEl) {
+    var pct = locTotal > 0 ? Math.round((locDone / locTotal) * 100) : 0;
+    fillEl.style.width = pct + '%';
+  }
+
+  // Overall progress
+  var totalEl = document.getElementById('headerProgressTotal');
+  if (totalEl && regionData) {
+    var totalSteps = 0;
+    var totalDone = 0;
+    var completed = getCompletedSteps();
+    regionData.locations.forEach(function(loc, idx) {
+      totalSteps += loc.steps.length;
+      loc.steps.forEach(function(_, si) {
+        if (completed[idx + '-' + si]) totalDone++;
+      });
+    });
+    var overallPct = totalSteps > 0 ? Math.round((totalDone / totalSteps) * 100) : 0;
+    totalEl.textContent = overallPct + '%';
+  }
+}
+
 function getCompletedSteps() {
   if (!currentProfile || !currentProfile.completedSteps) return {};
   return currentProfile.completedSteps;
@@ -163,8 +192,7 @@ function renderCompact() {
   }
 
   // Update header
-  document.getElementById('headerLocation').textContent = loc.name;
-  document.getElementById('headerProgress').textContent = `${locDone}/${loc.steps.length}`;
+  updateHeader(loc.name, locDone, loc.steps.length);
 
   // Update expand bar count
   var expandCount = document.getElementById('expandBarCount');

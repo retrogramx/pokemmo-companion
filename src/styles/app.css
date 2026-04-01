@@ -43,29 +43,30 @@ button, input, select, a,
 /* ── Header (shared) ── */
 .header {
     display: flex;
+    flex-direction: column;
+    padding: 6px 12px 4px;
+    background: var(--bg-panel);
+    border-bottom: 2px solid var(--border-medium);
+    flex-shrink: 0;
+    gap: 4px;
+}
+
+.header-top {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 12px;
-    background: var(--bg-panel);
-    border-bottom: 1px solid var(--border-subtle);
     gap: 8px;
-    flex-shrink: 0;
 }
 
 .header-location {
     font-family: var(--font-pixel);
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     color: var(--green);
     line-height: 1.4;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.header-progress {
-    font-size: 11px;
-    color: var(--text-muted);
-    white-space: nowrap;
+    text-shadow: 0 0 8px rgba(46, 213, 115, 0.2);
 }
 
 .header-left {
@@ -81,6 +82,46 @@ button, input, select, a,
     align-items: center;
     gap: 4px;
     flex-shrink: 0;
+}
+
+/* ── Header Progress Row ── */
+.header-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header-progress-section {
+    font-size: 10px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    font-weight: 600;
+    min-width: 28px;
+}
+
+.header-progress-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--bg-elevated);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.header-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--blue));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 4px rgba(46, 213, 115, 0.3);
+}
+
+.header-progress-total {
+    font-family: var(--font-pixel);
+    font-size: 0.35rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    min-width: 24px;
+    text-align: right;
 }
 
 .header-btn {
@@ -742,7 +783,7 @@ button, input, select, a,
 .panel-overlay {
     position: absolute;
     inset: 0;
-    top: 40px;
+    top: 52px;
     bottom: 42px;
     background: var(--panel-bg, #1a1430);
     z-index: 50;
