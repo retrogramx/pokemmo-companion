@@ -88,24 +88,26 @@ async function restoreWindowState() {
 // --- Close app ---
 
 async function closeApp() {
-  console.log('closeApp called');
-  await saveWindowState();
-  const win = getTauriWindow();
-  if (win) {
-    console.log('Attempting destroy...');
-    try {
-      await win.destroy();
-    } catch(e) {
-      console.error('destroy failed:', e);
-      try {
-        await win.close();
-      } catch(e2) {
-        console.error('close failed:', e2);
-        window.close();
-      }
+  // Save window state + profile FIRST, then destroy
+  try {
+    const win = getTauriWindow();
+    const profile = window.__profiles && window.__profiles.getActiveProfile();
+    if (win && profile) {
+      const pos = await win.outerPosition();
+      const size = await win.innerSize();
+      profile.windowPosition = { x: pos.x, y: pos.y };
+      profile.windowSize = { width: size.width, height: size.height };
+      profile.windowMode = currentMode;
+      await window.__profiles.saveActiveProfile();
+      console.log('Saved window state:', profile.windowPosition, profile.windowSize);
     }
-  } else {
-    console.error('No tauri window, using window.close()');
+  } catch (e) {
+    console.warn('Save before close failed:', e);
+  }
+  // Now destroy
+  try {
+    await getTauriWindow().destroy();
+  } catch (e) {
     window.close();
   }
 }
