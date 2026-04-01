@@ -1,0 +1,544 @@
+/* ── App Shell ── */
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-deep);
+    overflow: hidden;
+}
+
+.app.hidden {
+    display: none;
+}
+
+/* ── Drag Handle ── */
+.drag-handle {
+    -webkit-app-region: drag;
+}
+
+.drag-handle button,
+.drag-handle a,
+.drag-handle input,
+.drag-handle select,
+.drag-handle .no-drag {
+    -webkit-app-region: no-drag;
+}
+
+/* ── Header (shared) ── */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-subtle);
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.header-location {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    color: var(--green);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-progress {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.header-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.header-btn:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+/* ── Profile Dropdown ── */
+.profile-trigger {
+    font-size: 11px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+}
+
+.profile-trigger:hover {
+    color: var(--text-primary);
+    background: var(--bg-card);
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    min-width: 180px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    padding: 4px 0;
+    display: none;
+}
+
+.profile-dropdown.open {
+    display: block;
+}
+
+.profile-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+}
+
+.profile-option:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+.profile-option .delete-btn {
+    opacity: 0;
+    color: var(--red);
+    font-size: 11px;
+    transition: opacity 0.12s;
+}
+
+.profile-option:hover .delete-btn {
+    opacity: 1;
+}
+
+.profile-option.active {
+    color: var(--green);
+}
+
+.profile-new {
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--blue);
+    cursor: pointer;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 4px;
+    transition: background 0.12s;
+}
+
+.profile-new:hover {
+    background: var(--bg-card-hover);
+}
+
+/* ── Compact Mode ── */
+.app.compact .full-only {
+    display: none;
+}
+
+.app.compact .guide-steps,
+.app.compact .footer {
+    display: none;
+}
+
+.compact-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+}
+
+.compact-step .step-circle {
+    flex-shrink: 0;
+}
+
+.compact-step .step-text {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.compact-step .done-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.compact-step .done-btn:hover {
+    background: rgba(46, 213, 115, 0.15);
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.compact-next {
+    padding: 4px 12px 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+    opacity: 0.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.expand-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 10px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.expand-bar:hover {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+}
+
+/* ── Full Mode ── */
+.app.full .compact-step,
+.app.full .compact-next,
+.app.full .expand-bar {
+    display: none;
+}
+
+.guide-steps {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 0;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+
+.step:hover {
+    background: var(--bg-card-hover);
+}
+
+.step.current {
+    border-left: 2px solid var(--blue);
+    background: var(--bg-step-current);
+    padding-left: 10px;
+}
+
+.step.done {
+    opacity: 0.4;
+}
+
+.step.done .step-circle {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+}
+
+.step-num {
+    font-size: 9px;
+    color: var(--text-muted);
+    min-width: 18px;
+    text-align: right;
+    padding-top: 2px;
+    flex-shrink: 0;
+}
+
+.step-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-medium);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    margin-top: 2px;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.step.current .step-circle {
+    border-color: var(--blue);
+    box-shadow: 0 0 6px rgba(91, 141, 239, 0.3);
+}
+
+.step-text {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.catch-tip {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    margin-top: 3px;
+    background: rgba(91, 141, 239, 0.1);
+    border-left: 2px solid var(--blue);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--text-secondary);
+}
+
+/* ── Location Divider ── */
+.location-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px 4px;
+}
+
+.location-divider .label {
+    font-family: var(--font-pixel);
+    font-size: 0.45rem;
+    color: var(--green);
+    white-space: nowrap;
+}
+
+.location-divider .line {
+    flex: 1;
+    height: 1px;
+    background: var(--border-subtle);
+}
+
+/* ── Footer ── */
+.footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-top: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+}
+
+.footer-btn {
+    flex: 1;
+    padding: 6px 0;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.footer-btn:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+.footer-btn.primary {
+    background: rgba(46, 213, 115, 0.12);
+    border-color: rgba(46, 213, 115, 0.3);
+    color: var(--green);
+}
+
+.footer-btn.primary:hover {
+    background: rgba(46, 213, 115, 0.2);
+}
+
+/* ── New Profile Modal ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal {
+    width: 280px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.modal h3 {
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.modal input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 13px;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border-color 0.15s;
+}
+
+.modal input[type="text"]:focus {
+    border-color: var(--blue);
+}
+
+.modal .starter-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal .starter-options {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.modal .starter-btn {
+    flex: 1;
+    padding: 6px 4px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.modal .starter-btn:hover {
+    border-color: var(--border-medium);
+    color: var(--text-primary);
+}
+
+.modal .starter-btn.selected {
+    border-color: var(--blue);
+    background: rgba(91, 141, 239, 0.1);
+    color: var(--blue);
+}
+
+.modal .modal-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.modal .modal-actions button {
+    padding: 6px 14px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid var(--border-subtle);
+    transition: background 0.15s, color 0.15s;
+}
+
+.modal .btn-cancel {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+}
+
+.modal .btn-cancel:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+.modal .btn-create {
+    background: rgba(91, 141, 239, 0.15);
+    border-color: rgba(91, 141, 239, 0.3);
+    color: var(--blue);
+}
+
+.modal .btn-create:hover {
+    background: rgba(91, 141, 239, 0.25);
+}
+
+/* ── Minimize Pill ── */
+.pill {
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    font-family: var(--font-pixel);
+    font-size: 0.45rem;
+    color: var(--green);
+    cursor: pointer;
+    display: none;
+    transition: background 0.15s, box-shadow 0.15s;
+    z-index: 300;
+    -webkit-app-region: no-drag;
+}
+
+.pill.visible {
+    display: block;
+}
+
+.pill:hover {
+    background: var(--bg-card-hover);
+    box-shadow: 0 2px 12px rgba(46, 213, 115, 0.15);
+}
