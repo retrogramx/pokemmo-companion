@@ -31,7 +31,7 @@ const TYPE_ABBR = {
   Grass:    'GRS',
   Electric: 'ELC',
   Ice:      'ICE',
-  Fighting: 'FGT',
+  Fighting: 'FTG',
   Poison:   'PSN',
   Ground:   'GND',
   Flying:   'FLY',

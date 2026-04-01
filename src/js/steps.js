@@ -557,6 +557,20 @@ function completeCurrent() {
   }
 }
 
+function completeSection() {
+  if (!currentProfile || !regionData) return;
+  var current = findCurrentStep();
+  if (!current) return;
+  if (!currentProfile.completedSteps) currentProfile.completedSteps = {};
+
+  var location = regionData.locations[current.location];
+  for (var i = 0; i < location.steps.length; i++) {
+    currentProfile.completedSteps[current.location + '-' + i] = true;
+  }
+  render();
+  saveProfile();
+}
+
 /**
  * Undo the last completed step (most recently checked off).
  */
@@ -643,7 +657,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // Attach to window for browser
 if (typeof window !== 'undefined') {
   window.__steps = {
-    loadRegionData, render, setProfile, completeCurrent, completeStep, undoLast, clearAll,
+    loadRegionData, render, setProfile, completeCurrent, completeStep, completeSection, undoLast, clearAll,
     getRegionData: function() { return regionData; },
     findCurrentStep: findCurrentStep,
   };

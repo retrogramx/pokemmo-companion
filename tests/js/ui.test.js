@@ -113,8 +113,8 @@ describe('TYPE_ABBR', () => {
     expect(TYPE_ABBR.Ice).toBe('ICE');
   });
 
-  it('Fighting abbreviates to FGT', () => {
-    expect(TYPE_ABBR.Fighting).toBe('FGT');
+  it('Fighting abbreviates to FTG', () => {
+    expect(TYPE_ABBR.Fighting).toBe('FTG');
   });
 
   it('Poison abbreviates to PSN', () => {

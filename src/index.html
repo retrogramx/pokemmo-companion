@@ -28,7 +28,7 @@
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                 </button>
                 <button class="header-btn no-drag" id="btnLock" onclick="window.__app.toggleDragLock()" title="Lock position">🔓</button>
-                <button class="header-btn full-only no-drag" id="btnCollapse" onclick="window.__app.toggleMode()" title="Collapse">▲</button>
+                <button class="header-btn no-drag" id="btnToggleMode" onclick="window.__app.toggleMode()" title="Expand/Collapse">▼</button>
                 <button class="header-btn no-drag" id="btnHide" onclick="window.__app.closeApp()" title="Save & close">✕</button>
             </div>
         </div>
@@ -53,7 +53,8 @@
         <div class="footer full-only">
             <button class="footer-btn" onclick="window.__steps.undoLast()" title="Undo last step">Undo</button>
             <button class="footer-btn" id="btnTypeChart" onclick="window.__app.toggleTypeChart()">Types</button>
-            <button class="footer-btn primary" onclick="window.__steps.completeCurrent()">Complete</button>
+            <button class="footer-btn primary" onclick="window.__steps.completeCurrent()">Next</button>
+            <button class="footer-btn" onclick="window.__steps.completeSection()" title="Complete all remaining steps in current location">Skip Section</button>
         </div>
     </div>
 

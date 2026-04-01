@@ -27,6 +27,10 @@ function toggleMode() {
   updateAppClasses();
   window.__steps.render();
 
+  // Update the toggle button icon
+  var btn = document.getElementById('btnToggleMode');
+  if (btn) btn.textContent = currentMode === 'compact' ? '\u25BC' : '\u25B2';
+
   const win = getTauriWindow();
   if (win) {
     const h = currentMode === 'compact' ? 200 : 520;

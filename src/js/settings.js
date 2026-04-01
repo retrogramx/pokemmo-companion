@@ -434,7 +434,7 @@ function renderPanel(panelEl) {
   panelEl.appendChild(renderSectionTitle('Display'));
 
   panelEl.appendChild(renderSliderRow(
-    'Opacity', settings.opacity, 0.8, 1.0, 0.01,
+    'Opacity', settings.opacity, 0.4, 1.0, 0.02,
     (val) => { settings.opacity = val; applyOpacity(val); save(); }
   ));
 
