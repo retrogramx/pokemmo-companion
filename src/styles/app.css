@@ -55,6 +55,14 @@
     flex: 1;
     min-width: 0;
     overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* When not marquee-ing, show ellipsis for truncation */
+.header-location-wrap:not(.marquee) .header-location {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header-location {

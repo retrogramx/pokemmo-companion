@@ -110,12 +110,22 @@ function updateHeader(locName, locDone, locTotal) {
   // Check if text overflows and enable marquee scroll
   if (wrapEl && locEl) {
     wrapEl.classList.remove('marquee');
+    // Temporarily set inline-block to measure true text width
+    locEl.style.display = 'inline-block';
+    locEl.style.overflow = 'visible';
     locEl.style.animation = 'none';
     void locEl.offsetWidth;
-    locEl.style.animation = '';
     setTimeout(function() {
-      var overflow = locEl.scrollWidth - wrapEl.clientWidth;
-      if (overflow > 5) {
+      var textWidth = locEl.scrollWidth;
+      var containerWidth = wrapEl.clientWidth;
+      // Restore styles
+      locEl.style.display = '';
+      locEl.style.overflow = '';
+      locEl.style.animation = '';
+
+      if (textWidth > containerWidth + 5) {
+        var overflow = textWidth - containerWidth;
+        locEl.style.display = 'inline-block';
         locEl.style.setProperty('--marquee-distance', '-' + (overflow + 15) + 'px');
         var duration = Math.max(4, (overflow + 15) / 25);
         locEl.style.setProperty('--marquee-duration', duration + 's');
