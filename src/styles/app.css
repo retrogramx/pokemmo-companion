@@ -507,6 +507,11 @@
     background: rgba(91, 141, 239, 0.25);
 }
 
+/* When app is hidden, make body transparent so only the pill shows */
+body:has(.app.hidden) {
+    background: transparent;
+}
+
 /* ── Minimize Pill ── */
 .pill {
     position: fixed;
