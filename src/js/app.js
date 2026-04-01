@@ -47,6 +47,10 @@ function toggleDragLock() {
     btn.title = dragUnlocked ? 'Lock position' : 'Unlock to drag';
     btn.style.color = dragUnlocked ? 'var(--blue)' : 'var(--text-secondary)';
   }
+  var header = document.getElementById('dragHeader');
+  if (header) {
+    header.style.cursor = dragUnlocked ? 'grab' : 'default';
+  }
   updateAppClasses();
 }
 
@@ -228,6 +232,9 @@ function initDragging() {
   if (!header) return;
 
   header.addEventListener('mousedown', function(e) {
+    // Don't drag if locked
+    if (!dragUnlocked) return;
+
     // Don't drag if clicking on a button or interactive element
     var target = e.target;
     while (target && target !== header) {
