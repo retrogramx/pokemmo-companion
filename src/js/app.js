@@ -51,6 +51,11 @@ function toggleDragLock() {
   if (header) {
     header.style.cursor = dragUnlocked ? 'grab' : 'default';
   }
+  // Toggle resizable via Tauri API
+  var win = getTauriWindow();
+  if (win && win.setResizable) {
+    win.setResizable(dragUnlocked).catch(function() {});
+  }
   updateAppClasses();
 }
 
