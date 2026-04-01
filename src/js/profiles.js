@@ -10,7 +10,7 @@ async function invoke(cmd, args) {
   }
   // Fallback to localStorage for dev/testing without Tauri
   const store = JSON.parse(localStorage.getItem('pmc-profiles') || '{}');
-  if (cmd === 'profiles_list') return Object.keys(store);
+  if (cmd === 'list_profiles') return Object.keys(store);
   if (cmd === 'load_profile') return store[args.name] || null;
   if (cmd === 'save_profile') { store[args.name] = args.data; localStorage.setItem('pmc-profiles', JSON.stringify(store)); return; }
   if (cmd === 'delete_profile') { delete store[args.name]; localStorage.setItem('pmc-profiles', JSON.stringify(store)); return; }
@@ -30,7 +30,7 @@ function newProfile(name, starter) {
 }
 
 async function loadProfiles() {
-  profiles = await invoke('profiles_list');
+  profiles = await invoke('list_profiles');
 }
 
 async function switchProfile(name) {

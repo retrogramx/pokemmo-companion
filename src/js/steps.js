@@ -258,19 +258,12 @@ function clearAll() {
 }
 
 /**
- * Save current profile via Tauri or localStorage.
+ * Save current profile via the profiles module.
  */
-async function saveProfile() {
+function saveProfile() {
   if (!currentProfile) return;
-  if (typeof window !== 'undefined' && window.__TAURI__) {
-    try {
-      await window.__TAURI__.core.invoke('save_profile', {
-        name: currentProfile.name,
-        data: JSON.stringify(currentProfile),
-      });
-    } catch (e) {
-      console.error('Failed to save profile:', e);
-    }
+  if (typeof window !== 'undefined' && window.__profiles) {
+    window.__profiles.saveActiveProfile();
   }
 }
 

@@ -48,8 +48,14 @@ function toggleMode() {
   window.__steps.render();
 }
 
-function hide() {
-  hideWindow();
+async function hide() {
+  // Save before closing
+  if (window.__profiles) {
+    await window.__profiles.saveActiveProfile();
+  }
+  if (window.__TAURI__) {
+    window.__TAURI__.window.getCurrentWindow().close();
+  }
 }
 
 function show() {
