@@ -567,14 +567,11 @@ function renderCardLayout(container, catches, caughtPokemon) {
     var caught = window.__catches.isCaught(caughtPokemon, c.name);
 
     if (c.top25) {
-      // Full card for top25: sprite | pokeball | info
+      // Full card for top25: pokeball | sprite | info
       var card = document.createElement('div');
       card.className = 'catch-card' + (caught ? ' caught' : '');
 
-      // Sprite
-      card.appendChild(ui.renderSpriteEl(c.dex, 'lg'));
-
-      // Pokeball toggle (between sprite and info)
+      // Pokeball toggle (left of sprite)
       (function(catchData, cardEl) {
         var pokeball = ui.renderPokeballToggle(caught, function(e) {
           e.stopPropagation();
@@ -586,6 +583,9 @@ function renderCardLayout(container, catches, caughtPokemon) {
         });
         cardEl.appendChild(pokeball);
       })(c, card);
+
+      // Sprite
+      card.appendChild(ui.renderSpriteEl(c.dex, 'lg'));
 
       // Info column
       var info = document.createElement('div');
@@ -619,14 +619,11 @@ function renderCardLayout(container, catches, caughtPokemon) {
       card.appendChild(info);
       container.appendChild(card);
     } else {
-      // Compact row for non-top25: sprite | pokeball | info
+      // Compact row for non-top25: pokeball | sprite | info
       var row = document.createElement('div');
       row.className = 'catch-row' + (caught ? ' caught' : '');
 
-      // Medium sprite
-      row.appendChild(ui.renderSpriteEl(c.dex, 'md'));
-
-      // Pokeball toggle (between sprite and info)
+      // Pokeball toggle (left of sprite)
       (function(catchData, rowEl) {
         var pokeball = ui.renderPokeballToggle(caught, function(e) {
           e.stopPropagation();
@@ -638,6 +635,9 @@ function renderCardLayout(container, catches, caughtPokemon) {
         });
         rowEl.appendChild(pokeball);
       })(c, row);
+
+      // Medium sprite
+      row.appendChild(ui.renderSpriteEl(c.dex, 'md'));
 
       // Name + type badges + stat pills
       var rowInfo = document.createElement('div');
