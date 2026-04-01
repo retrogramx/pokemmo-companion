@@ -18,12 +18,12 @@ async function resizeWindow(width, height) {
 
 async function setWindowVisible(visible) {
   if (!window.__TAURI__) return;
-  try {
-    const win = window.__TAURI__.window.getCurrentWindow();
-    if (visible) await win.show();
-    else await win.hide();
-  } catch (e) {
-    console.warn('Window visibility toggle failed:', e);
+  const win = window.__TAURI__.window.getCurrentWindow();
+  if (visible) {
+    await win.unminimize();
+    await win.setFocus();
+  } else {
+    await win.minimize();
   }
 }
 
