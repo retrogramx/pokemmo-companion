@@ -14,30 +14,17 @@
 }
 
 /* ── Drag Region ── */
-/* Locked: only header is draggable */
+/* Dragging handled via JS startDragging() — CSS approach breaks with transparent windows on macOS */
 .header {
-    -webkit-app-region: drag;
+    cursor: grab;
 }
-button, input, select, a,
-.no-drag, .profile-trigger, .profile-dropdown {
-    -webkit-app-region: no-drag;
+.header:active {
+    cursor: grabbing;
 }
 
-/* Unlocked: entire window is draggable */
+/* Unlocked visual indicator */
 .app.drag-unlocked {
-    -webkit-app-region: drag;
     border-color: rgba(91, 141, 239, 0.4);
-}
-/* Only truly interactive elements stay clickable when unlocked */
-.app.drag-unlocked button,
-.app.drag-unlocked input,
-.app.drag-unlocked .step,
-.app.drag-unlocked .expand-bar,
-.app.drag-unlocked .profile-trigger,
-.app.drag-unlocked .profile-dropdown,
-.app.drag-unlocked .footer-btn,
-.app.drag-unlocked .done-btn {
-    -webkit-app-region: no-drag;
 }
 
 /* ── Header (shared) ── */

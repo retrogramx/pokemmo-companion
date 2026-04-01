@@ -221,6 +221,33 @@ async function init() {
   await restoreWindowState();
 }
 
+// --- JS-based window dragging (CSS -webkit-app-region breaks with transparent windows on macOS) ---
+
+function initDragging() {
+  var header = document.getElementById('dragHeader');
+  if (!header) return;
+
+  header.addEventListener('mousedown', function(e) {
+    // Don't drag if clicking on a button or interactive element
+    var target = e.target;
+    while (target && target !== header) {
+      if (target.tagName === 'BUTTON' || target.tagName === 'SELECT' || target.tagName === 'INPUT' ||
+          target.classList.contains('profile-trigger') || target.classList.contains('profile-dropdown') ||
+          target.classList.contains('header-btn')) {
+        return;
+      }
+      target = target.parentElement;
+    }
+
+    var win = getTauriWindow();
+    if (win && win.startDragging) {
+      win.startDragging().catch(function() {});
+    }
+  });
+}
+
 window.__app = { toggleMode, closeApp, toggleVisibility, showMap, showCatches, toggleDragLock, toggleTypeChart, toggleSettings, toggleNav, closePanel, init };
 
-init();
+init().then(function() {
+  initDragging();
+});
