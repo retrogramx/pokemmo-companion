@@ -1,0 +1,5035 @@
+{
+  "region": "Unova",
+  "locations": [
+    {
+      "name": "NUVEMA TOWN",
+      "steps": [
+        {
+          "text": "Pick your starter Pokemon from the box (Tepig / Oshawott / Snivy)"
+        },
+        {
+          "text": "Battle Bianca, then battle Cheren"
+        },
+        {
+          "text": "Go downstairs - your mom gives you an Xtransceiver",
+          "tags": {
+            "items": [
+              "Xtransceiver"
+            ]
+          }
+        },
+        {
+          "text": "Exit house. Go to house SW and talk to Bianca. Exit. Go NW and talk to Cheren"
+        },
+        {
+          "text": "Enter the laboratory - Professor Juniper gives you a Pokedex (say yes to her 2nd question)",
+          "tags": {
+            "items": [
+              "Pokedex"
+            ]
+          }
+        },
+        {
+          "text": "Exit the lab - your mom gives you a Town Map. Head NE to Route 1",
+          "tags": {
+            "items": [
+              "Town Map"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/bf/Unova_Nuvema_Town_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 1",
+      "steps": [
+        {
+          "text": "Go north - Professor Juniper gives you x5 Pokeball",
+          "tags": {
+            "items": [
+              "x5 Pokeball"
+            ]
+          }
+        },
+        {
+          "text": "Go north - talk to the girl in the grass for a Potion",
+          "tags": {
+            "items": [
+              "Potion"
+            ]
+          }
+        },
+        {
+          "text": "Go north and talk to Bianca. Say yes and continue north to Accumula Town"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Lillipup",
+          "method": "Grass Lv.2-4",
+          "rate": "Very Common",
+          "why": "Evolves into Stoutland - Pickup ability for passive items"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/5/53/Unova_Route_1_Map.png"
+      }
+    },
+    {
+      "name": "ACCUMULA TOWN",
+      "steps": [
+        {
+          "text": "Go east to the Pokecenter and talk to Professor Juniper. Heal your Pokemon and exit"
+        },
+        {
+          "text": "Go west and talk to Cheren. Battle N",
+          "tags": {
+            "battles": [
+              "Battle N"
+            ]
+          }
+        },
+        {
+          "text": "Go in the house NW of town. 2nd floor - talk to a guy for a Pokeball. Exit and go west to Route 2",
+          "tags": {
+            "items": [
+              "Pokeball"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/4/44/Unova_Accumula_Town_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 2",
+      "steps": [
+        {
+          "text": "Go west - your mom gives you Running Shoes",
+          "tags": {
+            "items": [
+              "Running Shoes"
+            ]
+          }
+        },
+        {
+          "text": "Follow the path, pick a Potion in the grass. Fight a trainer",
+          "tags": {
+            "items": [
+              "Potion"
+            ]
+          }
+        },
+        {
+          "text": "Avoid all other trainers. Go up stairs to the right for a Potion",
+          "tags": {
+            "items": [
+              "Potion"
+            ]
+          }
+        },
+        {
+          "text": "Also get a Pokeball. Go down stairs, head north. Battle Bianca. Go north to Striaton City",
+          "tags": {
+            "items": [
+              "Pokeball"
+            ],
+            "battles": [
+              "Battle Bianca"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Purrloin",
+          "method": "Grass Lv.4-5",
+          "rate": "Very Common",
+          "why": "Dark-type, decent early game"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/12/Unova_Route_2_Map.png"
+      }
+    },
+    {
+      "name": "STRIATON CITY",
+      "steps": [
+        {
+          "text": "Go west to pick up X Speed",
+          "tags": {
+            "items": [
+              "X Speed"
+            ]
+          }
+        },
+        {
+          "text": "Enter first house - get Great Ball from first guy you see",
+          "tags": {
+            "items": [
+              "Great Ball"
+            ]
+          }
+        },
+        {
+          "text": "Exit house. Go SE - get Dusk Ball from guy in black",
+          "tags": {
+            "items": [
+              "Dusk Ball"
+            ]
+          }
+        },
+        {
+          "text": "Go in house NW of city, talk to guy south of Cheren"
+        },
+        {
+          "text": "Say: yes > antidote > awakening to get Full Heal",
+          "tags": {
+            "items": [
+              "Full Heal"
+            ]
+          }
+        },
+        {
+          "text": "Talk to Cheren, say yes 2x. Beat Cheren - get x3 Oran Berry. Exit house",
+          "tags": {
+            "battles": [
+              "Beat Cheren"
+            ],
+            "items": [
+              "x3 Oran Berry"
+            ]
+          }
+        },
+        {
+          "text": "Go east from Pokecenter, enter the gym. Gym guide gives Fresh Water",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Stand on the Pokemon type super effective to the type on the wall",
+          "tags": {
+            "tips": [
+              "Stand on the Pokemon type super effective to the type on the wall"
+            ]
+          }
+        },
+        {
+          "text": "Go north, beat 2 trainers. Beat Gym Leader - get TM Work Up",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader - get TM Work Up"
+            ]
+          }
+        },
+        {
+          "text": "Exit gym - Fennel gives you HM Cut",
+          "tags": {
+            "items": [
+              "HM Cut"
+            ]
+          }
+        },
+        {
+          "text": "Make room in your party - you can get a free gift Pokemon in the next area!",
+          "tags": {
+            "tips": [
+              "Make room in your party - you can get a free gift Pokemon in the next area!"
+            ]
+          }
+        },
+        {
+          "text": "Go NE of city to enter Dreamyard"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Basculin",
+          "method": "Surf Lv.25-35",
+          "rate": "Very Common",
+          "why": "Post-game only - decent water type"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/d/d7/Unova_Striaton_City_Map.png"
+      }
+    },
+    {
+      "name": "DREAMYARD",
+      "steps": [
+        {
+          "text": "Go east, fight 2 trainers. Talk to girl all the way east, say yes for a free Pokemon",
+          "tags": {
+            "pokemon": [
+              "free Pokemon"
+            ]
+          }
+        },
+        {
+          "text": "Go NE to pick X Defend",
+          "tags": {
+            "items": [
+              "X Defend"
+            ]
+          }
+        },
+        {
+          "text": "Go west, cut the tree. Go north, fight 2 Plasma members"
+        },
+        {
+          "text": "Go west - get Pokeball in grass. Go east and up stairs. Go west for Dream Ball",
+          "tags": {
+            "items": [
+              "Pokeball",
+              "Dream Ball"
+            ]
+          }
+        },
+        {
+          "text": "Go east for Repel. Go down stairs. Go south for Paralyze Heal",
+          "tags": {
+            "items": [
+              "Repel",
+              "Paralyze Heal"
+            ]
+          }
+        },
+        {
+          "text": "Run back to Striaton City"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Munna",
+          "method": "Grass Lv.8-10",
+          "rate": "Very Common",
+          "why": "Teleport mon alternative for Unova - fast PC returns"
+        },
+        {
+          "name": "Musharna",
+          "method": "Rustling Grass Lv.10-12",
+          "rate": "Special",
+          "why": "Already evolved Teleport user"
+        },
+        {
+          "name": "Roggenrola",
+          "method": "Rock Smash Lv.12-15",
+          "rate": "Very Common",
+          "why": "Sturdy + Stealth Rock lead potential"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/ba/Unova_Dreamyard_Map.png"
+      }
+    },
+    {
+      "name": "STRIATON CITY (REVISIT)",
+      "steps": [
+        {
+          "text": "Go in house south of gym, 2nd floor - talk to Fennel for C-Gear (say yes 2x). Also get Pal Pad",
+          "tags": {
+            "items": [
+              "C-Gear",
+              "Pal Pad"
+            ]
+          }
+        },
+        {
+          "text": "Exit house. Go NW to fountain. Go south for Pokeball. Go north to Route 3",
+          "tags": {
+            "items": [
+              "Pokeball"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Basculin",
+          "method": "Surf Lv.25-35",
+          "rate": "Very Common",
+          "why": "Post-game only - decent water type"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/d/d7/Unova_Striaton_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 3",
+      "steps": [
+        {
+          "text": "Go north, fight the twins. House north of twins has a girl that heals your Pokemon"
+        },
+        {
+          "text": "Go west from house, fight a trainer. Go west for hidden Great Ball in sandbox",
+          "tags": {
+            "hiddenItems": [
+              "hidden Great Ball"
+            ]
+          }
+        },
+        {
+          "text": "Go back to twins, go west. Fight Cheren. Get Potion in grass",
+          "tags": {
+            "battles": [
+              "Fight Cheren"
+            ],
+            "items": [
+              "Potion"
+            ]
+          }
+        },
+        {
+          "text": "Go west all the way, talk to Cheren. Say yes, enter Wellspring Cave. Battle Plasma members with Cheren",
+          "tags": {
+            "battles": [
+              "Battle Plasma members"
+            ]
+          }
+        },
+        {
+          "text": "Exit cave. Go east for Repel in grass (avoid trainer). Talk to Bianca - get x3 Heal Ball",
+          "tags": {
+            "items": [
+              "Repel",
+              "x3 Heal Ball"
+            ]
+          }
+        },
+        {
+          "text": "Go south for Antidote in grass (avoid trainer). Avoid all trainers",
+          "tags": {
+            "items": [
+              "Antidote"
+            ]
+          }
+        },
+        {
+          "text": "Get Pokeball in grass south of bridge. Go west for Awakening in grass",
+          "tags": {
+            "items": [
+              "Pokeball",
+              "Awakening"
+            ]
+          }
+        },
+        {
+          "text": "Go west to Nacrene City"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Blitzle",
+          "method": "Grass Lv.8-11",
+          "rate": "Common",
+          "why": "Fast Electric-type, good early game sweeper"
+        },
+        {
+          "name": "Pidove",
+          "method": "Grass Lv.8-11",
+          "rate": "Very Common",
+          "why": "Fly user - evolves into Unfezant"
+        },
+        {
+          "name": "Tepig",
+          "method": "Lure Lv.14",
+          "rate": "Lure Only",
+          "lure": true,
+          "why": "Starter in the wild! Fire-type if you didn't pick one"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/1f/Unova_Route_3_Map.png"
+      }
+    },
+    {
+      "name": "NACRENE CITY",
+      "steps": [
+        {
+          "text": "Go west - Cheren gives x3 Chesto Berry",
+          "tags": {
+            "items": [
+              "x3 Chesto Berry"
+            ]
+          }
+        },
+        {
+          "text": "Go west all the way - hidden Revive in train tracks",
+          "tags": {
+            "hiddenItems": [
+              "hidden Revive"
+            ]
+          }
+        },
+        {
+          "text": "Go in house SW of city, stand near ace trainer. She gives 1 of 3 items:&bull; Say Tepig = Charcoal&bull; Say Oshawott = Mystic Water&bull; Say Snivy = Miracle Seed",
+          "tags": {
+            "items": [
+              "Charcoal",
+              "Mystic Water",
+              "Miracle Seed"
+            ]
+          }
+        },
+        {
+          "text": "Optional: House east of Pokecenter - trade Petilil for Cottonee (girl up north)",
+          "tags": {
+            "tips": [
+              "Optional: House east of Pokecenter - trade Petilil for Cottonee (girl up north)"
+            ]
+          }
+        },
+        {
+          "text": "House NW of city - girl gives Soda Pop (Wednesdays only)",
+          "tags": {
+            "items": [
+              "Soda Pop"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Ultra Ball near guy with glasses",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Ultra Ball"
+            ]
+          }
+        },
+        {
+          "text": "Go NE from Pokecenter, enter gym. Fight N first",
+          "tags": {
+            "battles": [
+              "Fight N"
+            ]
+          }
+        },
+        {
+          "text": "Enter gym. First girl east can revive fossils. Go north, enter door. Gym guide gives Fresh Water",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Read books in order: bottom-left > middle-left > top-left > bottom-right > middle-right",
+          "tags": {
+            "tips": [
+              "Read books in order: bottom-left > middle-left > top-left > bottom-right > middle-right"
+            ]
+          }
+        },
+        {
+          "text": "Go down stairs. Beat Gym Leader - get TM Retaliate",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader - get TM Retaliate"
+            ]
+          }
+        },
+        {
+          "text": "Exit gym - Bianca gives Dowsing Machine. Go NW to Pinwheel Forest",
+          "tags": {
+            "items": [
+              "Dowsing Machine"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/3/35/Unova_Nacrene_City_Map.png"
+      }
+    },
+    {
+      "name": "PINWHEEL FOREST",
+      "steps": [
+        {
+          "text": "Hidden Super Potion east of first girl. Talk to girl for HM Rock Smash",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Super Potion"
+            ],
+            "items": [
+              "HM Rock Smash"
+            ]
+          }
+        },
+        {
+          "text": "Pick Super Potion south (use Rock Smash to clear the rock)",
+          "tags": {
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "Go south, avoid trainers. Go east from little girl for Pokeball. Go SW all the way for Potion",
+          "tags": {
+            "items": [
+              "Pokeball",
+              "Potion"
+            ]
+          }
+        },
+        {
+          "text": "Go north - hidden Tiny Mushroom in water square. Go east for Antidote",
+          "tags": {
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ],
+            "items": [
+              "Antidote"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Antidote in big water square. Go east and up stairs",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Antidote"
+            ]
+          }
+        },
+        {
+          "text": "If you have a Fighting-type in party, click the big rock for a Hard Stone",
+          "tags": {
+            "items": [
+              "Hard Stone"
+            ]
+          }
+        },
+        {
+          "text": "Go north, down next stairs for Net Ball. Go back to first girl, go west to next area",
+          "tags": {
+            "items": [
+              "Net Ball"
+            ]
+          }
+        },
+        {
+          "text": "Go west, fight the twins. Go west, fight 2 Plasma members"
+        },
+        {
+          "text": "From 2nd Plasma member, go south for Big Root",
+          "tags": {
+            "items": [
+              "Big Root"
+            ]
+          }
+        },
+        {
+          "text": "Go north, fight guy in red. Pick Potion. Go south - hidden Tiny Mushroom in grass",
+          "tags": {
+            "items": [
+              "Potion"
+            ],
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "Go west, avoid trainer, fight guy in red. Pick Antidote. Fight another guy in red - hidden Tiny Mushroom in tree",
+          "tags": {
+            "items": [
+              "Antidote"
+            ],
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "Fight Plasma member. Pick Paralyze Heal, fight guy in red. Go SE for TM Grass Knot",
+          "tags": {
+            "items": [
+              "Paralyze Heal",
+              "TM Grass Knot"
+            ]
+          }
+        },
+        {
+          "text": "Go back, go north to fight Plasma member. Get Dragon Skull + Moon Stone",
+          "tags": {
+            "items": [
+              "Dragon Skull",
+              "Moon Stone"
+            ]
+          }
+        },
+        {
+          "text": "Go east for Miracle Seed. Go north to Bridge Gate",
+          "tags": {
+            "items": [
+              "Miracle Seed"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Cottonee",
+          "method": "Grass Lv.14-17",
+          "rate": "Rare",
+          "top25": true,
+          "why": "TOP 25: Prankster ability! Tailwind + Memento for gym reruns. Key utility mon"
+        },
+        {
+          "name": "Timburr",
+          "method": "Grass Lv.13-16",
+          "rate": "Common",
+          "why": "Evolves to Conkeldurr - strong Fighting-type for story"
+        },
+        {
+          "name": "Throh",
+          "method": "Grass Lv.12-16",
+          "rate": "Rare",
+          "why": "Fighting-type, no evolution needed"
+        },
+        {
+          "name": "Sawk",
+          "method": "Grass Lv.12-15",
+          "rate": "Rare",
+          "why": "Fighting-type, Sturdy ability useful"
+        },
+        {
+          "name": "Sewaddle",
+          "method": "Grass Lv.14-17",
+          "rate": "Uncommon",
+          "why": "Evolves to Leavanny - good Grass/Bug"
+        },
+        {
+          "name": "Venipede",
+          "method": "Grass Lv.15-16",
+          "rate": "Uncommon",
+          "why": "Evolves to Scolipede - Speed Boost is amazing"
+        },
+        {
+          "name": "Snivy",
+          "method": "Lure Lv.20",
+          "rate": "Lure Only",
+          "lure": true,
+          "why": "Starter in the wild!"
+        },
+        {
+          "name": "Riolu",
+          "method": "Lure Lv.17",
+          "rate": "Lure Only",
+          "lure": true,
+          "why": "Evolves to Lucario - top-tier Fighting/Steel"
+        },
+        {
+          "name": "Petilil",
+          "method": "Grass Lv.14-17",
+          "rate": "Rare",
+          "why": "Trade for Cottonee in Nacrene City"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/6/65/Unova_Pinwheel_Forest_Map.png"
+      }
+    },
+    {
+      "name": "BRIDGE GATE",
+      "steps": [
+        {
+          "text": "Talk to hiker for Quick Claw. Follow path to Castelia City",
+          "tags": {
+            "items": [
+              "Quick Claw"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/6/65/Unova_Pinwheel_Forest_Map.png"
+      }
+    },
+    {
+      "name": "CASTELIA CITY",
+      "steps": [
+        {
+          "text": "Go south to next area. Talk to scientist for 1 stone:&bull; Say Panpour = Water Stone&bull; Say Pansear = Fire Stone&bull; Say Pansage = Leaf Stone",
+          "tags": {
+            "items": [
+              "Water Stone",
+              "Fire Stone",
+              "Leaf Stone"
+            ]
+          }
+        },
+        {
+          "text": "Go back west. Go west then north. Enter building to your left"
+        },
+        {
+          "text": "11th floor - talk to hiker for TM Rest. Exit building, go south",
+          "tags": {
+            "items": [
+              "TM Rest"
+            ]
+          }
+        },
+        {
+          "text": "Go west, go north. Enter building to right. Clown gives 1 berry for showing a Pokemon type:Cheri / Chesto / Pecha / Rawst / Aspear Berry (pick one)",
+          "tags": {
+            "tips": [
+              "Cheri / Chesto / Pecha / Rawst / Aspear Berry (pick one)"
+            ]
+          }
+        },
+        {
+          "text": "Exit. Go south. Go west all the way, north. Enter gym to right. Go north"
+        },
+        {
+          "text": "Talk to guy in green, say yes to battle him. Say yes again"
+        },
+        {
+          "text": "Go south from guy in green (west side). Go south, talk to next guy in green, say yes to fight"
+        },
+        {
+          "text": "Enter house to right - talk to NW guy for Lemonade",
+          "tags": {
+            "items": [
+              "Lemonade"
+            ]
+          }
+        },
+        {
+          "text": "Exit, go south. Get TM Flash from guy in black. Go south 2 areas",
+          "tags": {
+            "items": [
+              "TM Flash"
+            ]
+          }
+        },
+        {
+          "text": "Go south, say yes to guy in green to battle. Go north, east, south"
+        },
+        {
+          "text": "Talk to gym leader. Enter building, go to 55th floor. Pick Super Potion",
+          "tags": {
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "Fight all trainers. NE guy gives Exp. Share. Go to 47th floor",
+          "tags": {
+            "items": [
+              "Exp. Share"
+            ]
+          }
+        },
+        {
+          "text": "Avoid NW guy and first girl. Guy south of TV gives x3 Quick Ball + x3 Timer Ball",
+          "tags": {
+            "items": [
+              "x3 Quick Ball + x3 Timer Ball"
+            ]
+          }
+        },
+        {
+          "text": "Fight scientist. Pick Revive SW. SE scientist gives Scope Lens. Exit building",
+          "tags": {
+            "items": [
+              "Revive",
+              "Scope Lens"
+            ]
+          }
+        },
+        {
+          "text": "Go west all the way, north. Enter building to left. Talk to Plasma member, beat him, enter building"
+        },
+        {
+          "text": "Go north, talk to Ghetsis. Get Yache Berry. Pick Smoke Ball. Exit",
+          "tags": {
+            "items": [
+              "Yache Berry",
+              "Smoke Ball"
+            ]
+          }
+        },
+        {
+          "text": "Enter the gym. Gym guide gives Fresh Water",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Gym puzzle: Press switches in correct order - go N, E (fight trainer + switch), N (skip first switch), NE switch, W switch, NE switch, W switch, SW (skip switch), N switch, NE (fight trainer + switch)",
+          "tags": {
+            "tips": [
+              "Gym puzzle: Press switches in correct order - go N, E (fight trainer + switch), N (skip first switch), NE switch, W switch, NE switch, W switch, SW (skip switch), N switch, NE (fight trainer + switch)"
+            ]
+          }
+        },
+        {
+          "text": "Beat Gym Leader - get TM Struggle Bug. Exit gym",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader - get TM Struggle Bug"
+            ]
+          }
+        },
+        {
+          "text": "Go north. Talk to middle guy in green for Amulet Coin. Go north",
+          "tags": {
+            "items": [
+              "Amulet Coin"
+            ]
+          }
+        },
+        {
+          "text": "Enter building SE. Talk to guy in black near elevator, say yes. Go to 47th floor. Girl with brown hair gives TM Attract (sometimes bugged)",
+          "tags": {
+            "items": [
+              "TM Attract"
+            ],
+            "tips": [
+              "(sometimes bugged)"
+            ]
+          }
+        },
+        {
+          "text": "Exit building. Go north. Fight Bianca. Go north to Route 4",
+          "tags": {
+            "battles": [
+              "Fight Bianca"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/9/96/Unova_Castelia_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 4",
+      "steps": [
+        {
+          "text": "Pick X Accuracy. Go west then NW for Pokeball (avoid parasol girl)",
+          "tags": {
+            "items": [
+              "X Accuracy",
+              "Pokeball"
+            ]
+          }
+        },
+        {
+          "text": "East from parasol girl - hidden Great Ball. North for Super Potion",
+          "tags": {
+            "hiddenItems": [
+              "hidden Great Ball"
+            ],
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "Go north (avoid trainer). Down stairs, up next stairs - hidden Burn Heal",
+          "tags": {
+            "hiddenItems": [
+              "hidden Burn Heal"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Super Potion. North for TM Torment (avoid trainer). Back to parasol girl",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Super Potion"
+            ],
+            "items": [
+              "TM Torment"
+            ]
+          }
+        },
+        {
+          "text": "Go east - house has a girl that heals. Fight Cheren east of house",
+          "tags": {
+            "battles": [
+              "Fight Cheren"
+            ]
+          }
+        },
+        {
+          "text": "Go north (avoid trainers), pick Burn Heal. West for Ether. NE for Potion",
+          "tags": {
+            "items": [
+              "Burn Heal",
+              "Ether",
+              "Potion"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Super Potion near sign",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "Go north all the way - Professor Juniper gives x10 Ultra Ball. Go north to Nimbasa City",
+          "tags": {
+            "items": [
+              "x10 Ultra Ball"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Sandile",
+          "method": "Deep Sand Lv.15-18",
+          "rate": "Very Common",
+          "top25": true,
+          "why": "TOP 25: Moxie ability! Evolves to Krookodile - EQ spam beast for PvM & raids"
+        },
+        {
+          "name": "Darumaka",
+          "method": "Deep Sand Lv.15-18",
+          "rate": "Very Common",
+          "why": "Evolves to Darmanitan - huge Fire attacker with Sheer Force"
+        },
+        {
+          "name": "Scraggy",
+          "method": "Deep Sand Lv.16-17",
+          "rate": "Very Common",
+          "why": "Evolves to Scrafty - bulky Fighting/Dark with Moxie"
+        },
+        {
+          "name": "Dwebble",
+          "method": "Rock Smash Lv.16-19",
+          "rate": "Very Common",
+          "why": "Sturdy + Stealth Rock + Shell Smash potential"
+        },
+        {
+          "name": "Sandshrew",
+          "method": "Lure Lv.21",
+          "rate": "Lure Only",
+          "lure": true,
+          "why": "Ground-type, Sand Rush Excadrill budget option"
+        },
+        {
+          "name": "Sigilyph",
+          "method": "Shadow Lv.19-21",
+          "rate": "Special",
+          "why": "Psychic/Flying - Magic Guard ability is strong"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/f/f2/Unova_Route_4_Map.png"
+      }
+    },
+    {
+      "name": "NIMBASA CITY",
+      "steps": [
+        {
+          "text": "Go north, fight Plasma member. Get Bicycle",
+          "tags": {
+            "items": [
+              "Bicycle"
+            ]
+          }
+        },
+        {
+          "text": "Try to enter first building for VS Recorder",
+          "tags": {
+            "items": [
+              "VS Recorder"
+            ]
+          }
+        },
+        {
+          "text": "Enter building. Go south, enter 4th train. Go east, take train to Anville Town"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/1b/Unova_Nimbasa_City_Map.png"
+      }
+    },
+    {
+      "name": "ANVILLE TOWN",
+      "steps": [
+        {
+          "text": "Follow path to 3 houses. Enter SE house - talk to guy for Rare Candy",
+          "tags": {
+            "items": [
+              "Rare Candy"
+            ]
+          }
+        },
+        {
+          "text": "Exit, go north - hidden Ultra Ball. Take train back to Nimbasa City",
+          "tags": {
+            "hiddenItems": [
+              "hidden Ultra Ball"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/3/32/Unova_Anville_Town_Map.png"
+      }
+    },
+    {
+      "name": "NIMBASA CITY (CONTINUED)",
+      "steps": [
+        {
+          "text": "Go west and up stairs. Go north and up long stairs to exit building"
+        },
+        {
+          "text": "Go west, enter house north of Pokecenter. 2nd floor - Sun Stone from ace trainer",
+          "tags": {
+            "items": [
+              "Sun Stone"
+            ]
+          }
+        },
+        {
+          "text": "Exit, go to house west. Get HM04 Strength from ace trainer. 2nd floor - Soothe Bell from old woman",
+          "tags": {
+            "items": [
+              "HM04 Strength",
+              "Soothe Bell"
+            ]
+          }
+        },
+        {
+          "text": "Exit, go north all the way. Go east, talk to Bianca for Prop Case. NE girl gives TM Echoed Voice",
+          "tags": {
+            "items": [
+              "Prop Case",
+              "TM Echoed Voice"
+            ]
+          }
+        },
+        {
+          "text": "Exit building, go east to Nimbasa Gate"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/1b/Unova_Nimbasa_City_Map.png"
+      }
+    },
+    {
+      "name": "NIMBASA GATE",
+      "steps": [
+        {
+          "text": "Talk to baseball player for Macho Brace. Go west to Nimbasa City",
+          "tags": {
+            "items": [
+              "Macho Brace"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/1b/Unova_Nimbasa_City_Map.png"
+      }
+    },
+    {
+      "name": "NIMBASA CITY (GYM)",
+      "steps": [
+        {
+          "text": "Go south then east. Battle N",
+          "tags": {
+            "battles": [
+              "Battle N"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Super Repel SE. Go west for X Attack",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Super Repel"
+            ],
+            "items": [
+              "X Attack"
+            ]
+          }
+        },
+        {
+          "text": "Enter gym. Gym guide gives Fresh Water",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Gym: Enter car right > battle trainer + switch > enter car > beat trainer + switch > enter car north > switch > enter car right",
+          "tags": {
+            "tips": [
+              "Gym: Enter car right > battle trainer + switch > enter car > beat trainer + switch > enter car north > switch > enter car right"
+            ]
+          }
+        },
+        {
+          "text": "Beat Gym Leader - get TM Volt Switch. Hit switch, enter car left. Exit gym",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader - get TM Volt Switch"
+            ]
+          }
+        },
+        {
+          "text": "Go NW from Nimbasa City to Route 5"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/1b/Unova_Nimbasa_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 5",
+      "steps": [
+        {
+          "text": "Go west. Battle Cheren",
+          "tags": {
+            "battles": [
+              "Battle Cheren"
+            ]
+          }
+        },
+        {
+          "text": "Go SW for Super Potion. NE for Pokeball (avoid trainer)",
+          "tags": {
+            "items": [
+              "Super Potion",
+              "Pokeball"
+            ]
+          }
+        },
+        {
+          "text": "Go NW for Zinc. Avoid trainer, get Revive. Battle trainer SW. Go west to Driftveil City",
+          "tags": {
+            "items": [
+              "Zinc",
+              "Revive"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Minccino",
+          "method": "Grass Lv.19-22",
+          "rate": "Very Common",
+          "why": "Evolves to Cinccino - Skill Link + Bullet Seed/Rock Blast"
+        },
+        {
+          "name": "Gothita",
+          "method": "Grass Lv.19-22",
+          "rate": "Common",
+          "why": "Evolves to Gothitelle - Shadow Tag trapper"
+        },
+        {
+          "name": "Solosis",
+          "method": "Grass Lv.19-22",
+          "rate": "Uncommon",
+          "why": "Evolves to Reuniclus - Magic Guard + Trick Room"
+        },
+        {
+          "name": "Emolga",
+          "method": "Rustling Grass Lv.23-25",
+          "rate": "Special",
+          "why": "Electric/Flying - cute and decent ingame"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/a/ae/Unova_Route_5_Map.png"
+      }
+    },
+    {
+      "name": "DRIFTVEIL CITY",
+      "steps": [
+        {
+          "text": "Heal at Pokecenter. Get x3 Repeat Ball from girl NW",
+          "tags": {
+            "items": [
+              "x3 Repeat Ball"
+            ]
+          }
+        },
+        {
+          "text": "Optional: House SE of Pokecenter - trade Minccino for Basculin (guy in orange)",
+          "tags": {
+            "tips": [
+              "Optional: House SE of Pokecenter - trade Minccino for Basculin (guy in orange)"
+            ]
+          }
+        },
+        {
+          "text": "House west of Pokecenter - show a Pokemon move to girl for Heart Scale",
+          "tags": {
+            "items": [
+              "Heart Scale"
+            ]
+          }
+        },
+        {
+          "text": "Go in house south. Guy in black gives Expert Belt. Hidden Heart Scale near beauty girl",
+          "tags": {
+            "items": [
+              "Expert Belt"
+            ],
+            "hiddenItems": [
+              "Hidden Heart Scale"
+            ]
+          }
+        },
+        {
+          "text": "Go back in house from west side. Pick Pearl. Exit. Go south to Cold Storage",
+          "tags": {
+            "items": [
+              "Pearl"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/2/2f/Unova_Driftveil_City_Map.png"
+      }
+    },
+    {
+      "name": "COLD STORAGE",
+      "steps": [
+        {
+          "text": "Go east - guy with orange helmet gives Rocky Helmet. Avoid trainers",
+          "tags": {
+            "items": [
+              "Rocky Helmet"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Super Potion near ace trainer. Go west, south, east in grass for Ether",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Super Potion"
+            ],
+            "items": [
+              "Ether"
+            ]
+          }
+        },
+        {
+          "text": "East for Protein in grass. Hidden Dive Ball in grass. SW all the way, north for Heart Scale",
+          "tags": {
+            "items": [
+              "Protein",
+              "Heart Scale"
+            ],
+            "hiddenItems": [
+              "Hidden Dive Ball"
+            ]
+          }
+        },
+        {
+          "text": "Enter building. Ice puzzle: Slide N (west side) > E > S for TM Scald",
+          "tags": {
+            "items": [
+              "TM Scald"
+            ]
+          }
+        },
+        {
+          "text": "Then: N > W > N > E. Go E (avoid trainers). E > N > W > S",
+          "tags": {
+            "tips": [
+              "Then: N > W > N > E. Go E (avoid trainers). E > N > W > S"
+            ]
+          }
+        },
+        {
+          "text": "Fight trainer. Pick Ice Heal (avoid trainer). North (avoid trainer). Pick Super Potion",
+          "tags": {
+            "items": [
+              "Ice Heal",
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "Go west. Enter cargo, fight 4 Plasma members. Pick Never-Melt Ice. Exit cargo",
+          "tags": {
+            "items": [
+              "Never-Melt Ice"
+            ]
+          }
+        },
+        {
+          "text": "Go NW, south for Net Ball. Exit building. Go NE from Pokecenter to gym",
+          "tags": {
+            "items": [
+              "Net Ball"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Vanillite",
+          "method": "Grass Lv.20-23",
+          "rate": "Very Common",
+          "why": "Ice-type if you need one early"
+        },
+        {
+          "name": "Sneasel",
+          "method": "Rustling Grass Lv.28-29",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Evolves to Weavile with Razor Claw at night - Pickpocket farming & Ice/Dark attacker"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/bb/Unova_Cold_Storage_Map.png"
+      }
+    },
+    {
+      "name": "DRIFTVEIL CITY (GYM)",
+      "steps": [
+        {
+          "text": "Gym guide gives Fresh Water. Get on elevator, go down",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Go east, fight trainer. Elevator down. North all the way, west all the way. South, fight trainer. Elevator down"
+        },
+        {
+          "text": "Elevator NW up. Fight trainer, next elevator down. Beat Gym Leader",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader"
+            ]
+          }
+        },
+        {
+          "text": "Elevator up twice. Exit gym. Go NW of city. Battle Bianca - get HM Fly",
+          "tags": {
+            "battles": [
+              "Battle Bianca"
+            ],
+            "items": [
+              "HM Fly"
+            ]
+          }
+        },
+        {
+          "text": "Go north for Great Ball. Go west to Route 6",
+          "tags": {
+            "items": [
+              "Great Ball"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/2/2f/Unova_Driftveil_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 6",
+      "steps": [
+        {
+          "text": "Go west, fight scientist. North, fight another scientist (avoid others)"
+        },
+        {
+          "text": "Get Elixir in grass south of house. Super Potion west of house. Fight girl scientist",
+          "tags": {
+            "items": [
+              "Elixir",
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "Optional: Show 4 forms of Deerling to scientist in house for Moon Stone (exit/enter after each)",
+          "tags": {
+            "items": [
+              "Moon Stone"
+            ]
+          }
+        },
+        {
+          "text": "West of house - 3 balls in grass. Only pick middle one for Leaf Stone (others are Foongus!)",
+          "tags": {
+            "tips": [
+              "Only pick middle one"
+            ],
+            "items": [
+              "Leaf Stone"
+            ]
+          }
+        },
+        {
+          "text": "Enter house east of hiker. Little girl gives Shiny Stone. Other girl heals. Exit",
+          "tags": {
+            "items": [
+              "Shiny Stone"
+            ]
+          }
+        },
+        {
+          "text": "Go to hiker, north. Click spider web for TM Bulldoze. Enter cave",
+          "tags": {
+            "items": [
+              "TM Bulldoze"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Deerling",
+          "method": "Grass Lv.23-25",
+          "rate": "Very Common",
+          "why": "4 seasonal forms - show all 4 to Route 6 scientist for Moon Stone"
+        },
+        {
+          "name": "Karrablast",
+          "method": "Grass Lv.22-24",
+          "rate": "Common",
+          "why": "Trade-evolves to Escavalier - good Bug/Steel"
+        },
+        {
+          "name": "Shelmet",
+          "method": "Grass Lv.22-24",
+          "rate": "Uncommon",
+          "why": "Trade-evolves to Accelgor - fast Bug"
+        },
+        {
+          "name": "Foongus",
+          "method": "Grass Lv.23-25",
+          "rate": "Common",
+          "why": "Evolves to Amoonguss - Spore + Regenerator, great utility"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/0/0d/Unova_Route_6_Map.png"
+      }
+    },
+    {
+      "name": "CHARGESTONE CAVE",
+      "steps": [
+        {
+          "text": "Go north. Professor Juniper gives Lucky Egg (small). Push crystal west. North, push crystal east. Get Paralyze Heal",
+          "tags": {
+            "items": [
+              "Lucky Egg (small)",
+              "Paralyze Heal"
+            ]
+          }
+        },
+        {
+          "text": "East, fight scientist. South, push N crystal east. Get Revive. NW for Heal Ball",
+          "tags": {
+            "items": [
+              "Revive",
+              "Heal Ball"
+            ]
+          }
+        },
+        {
+          "text": "East, fight ace trainer. Hidden Elixir NE. South, push N crystal west, next crystal south",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Elixir"
+            ]
+          }
+        },
+        {
+          "text": "SE for Hyper Potion. Push crystal south, fight trainer. Push S crystal west for Iron",
+          "tags": {
+            "items": [
+              "Hyper Potion",
+              "Iron"
+            ]
+          }
+        },
+        {
+          "text": "Down stairs. West, talk to twins for x2 Nugget. Hidden Paralyze Heal near stairs. Up stairs",
+          "tags": {
+            "items": [
+              "x2 Nugget"
+            ],
+            "hiddenItems": [
+              "Hidden Paralyze Heal"
+            ]
+          }
+        },
+        {
+          "text": "South - hidden HP Up. Back to twins. NE - hidden Revive in wall near doctor. Beat doctor",
+          "tags": {
+            "hiddenItems": [
+              "hidden HP Up",
+              "hidden Revive"
+            ]
+          }
+        },
+        {
+          "text": "NW for Timer Ball. North, fight Plasma members",
+          "tags": {
+            "items": [
+              "Timer Ball"
+            ]
+          }
+        },
+        {
+          "text": "After 5th Plasma: go SW for Thunder Stone",
+          "tags": {
+            "items": [
+              "Thunder Stone"
+            ]
+          }
+        },
+        {
+          "text": "North, fight Plasma. West, down stairs"
+        },
+        {
+          "text": "South, fight ace trainer. Push crystal east. East - hidden Paralyze Heal. North for Bright Powder",
+          "tags": {
+            "hiddenItems": [
+              "hidden Paralyze Heal"
+            ],
+            "items": [
+              "Bright Powder"
+            ]
+          }
+        },
+        {
+          "text": "South, west (avoid ace trainer). Hyper Potion. Hidden Stardust in wall. South for Rare Candy",
+          "tags": {
+            "items": [
+              "Hyper Potion",
+              "Rare Candy"
+            ],
+            "hiddenItems": [
+              "Hidden Stardust"
+            ]
+          }
+        },
+        {
+          "text": "Back to Plasma. Fight last Plasma, go east. Up stairs. South, fight ace trainer"
+        },
+        {
+          "text": "Get Magnet. West, fight scientist. East - fight N. East, exit cave",
+          "tags": {
+            "items": [
+              "Magnet"
+            ],
+            "battles": [
+              "fight N"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Drilbur",
+          "method": "Dust Clouds Lv.30-31",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Ground-type powerhouse. Mold Breaker Excadrill for Mt. Silver XP farming"
+        },
+        {
+          "name": "Excadrill",
+          "method": "Dust Clouds Lv.31",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Already evolved! Sand Rush or Mold Breaker"
+        },
+        {
+          "name": "Joltik",
+          "method": "Cave Lv.24-27",
+          "rate": "Very Common",
+          "why": "Evolves to Galvantula - Compound Eyes Thunder (91% acc!)"
+        },
+        {
+          "name": "Ferroseed",
+          "method": "Cave Lv.24-26",
+          "rate": "Common",
+          "why": "Evolves to Ferrothorn - top wall, Stealth Rock + Leech Seed"
+        },
+        {
+          "name": "Klink",
+          "method": "Cave Lv.25-27",
+          "rate": "Common",
+          "why": "Evolves to Klinklang - Steel-type Shift Gear sweeper"
+        },
+        {
+          "name": "Tynamo",
+          "method": "Cave Lv.27",
+          "rate": "Very Rare",
+          "why": "Evolves to Eelektross - Levitate, no weaknesses!"
+        },
+        {
+          "name": "Boldore",
+          "method": "Cave Lv.25-27",
+          "rate": "Uncommon",
+          "top25": true,
+          "why": "TOP 25: Sturdy + Stealth Rock"
+        },
+        {
+          "name": "Metang",
+          "method": "Lure Lv.30-31",
+          "rate": "Lure Only",
+          "lure": true,
+          "why": "Evolves to Metagross! Pseudo-legendary Steel/Psychic"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/5/55/Unova_Chargestone_Cave_Map.png"
+      }
+    },
+    {
+      "name": "MISTRALTON CITY",
+      "steps": [
+        {
+          "text": "House NW of Pokecenter - girl in black gives Sharp Beak",
+          "tags": {
+            "items": [
+              "Sharp Beak"
+            ]
+          }
+        },
+        {
+          "text": "Go south for TM Sky Drop. Go NE from Pokecenter to Route 7",
+          "tags": {
+            "items": [
+              "TM Sky Drop"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/6/62/Unova_Mistralton_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 7",
+      "steps": [
+        {
+          "text": "Go west, up stairs. Talk to girl for TM Charge Beam. Avoid backpacker",
+          "tags": {
+            "items": [
+              "TM Charge Beam"
+            ]
+          }
+        },
+        {
+          "text": "Get Great Ball in grass (avoid trainers). Middle trainer looks N, far east trainer looks W",
+          "tags": {
+            "items": [
+              "Great Ball"
+            ],
+            "tips": [
+              "Middle trainer looks N, far east trainer looks W"
+            ]
+          }
+        },
+        {
+          "text": "Optional: House north - trade Boldore for Emolga",
+          "tags": {
+            "tips": [
+              "Optional: House north - trade Boldore for Emolga"
+            ]
+          }
+        },
+        {
+          "text": "East, fight ace trainer. North, avoid backpacker. Go in grass to avoid first guy in red"
+        },
+        {
+          "text": "Fight next guy in red. East in grass for Ether. North to Celestial Tower",
+          "tags": {
+            "items": [
+              "Ether"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Cubchoo",
+          "method": "Grass Lv.27-29",
+          "rate": "Common",
+          "why": "Evolves to Beartic - Ice-type physical attacker"
+        },
+        {
+          "name": "Zebstrika",
+          "method": "Grass Lv.27-29",
+          "rate": "Common",
+          "why": "Fast Electric-type, no evolution needed"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8f/Unova_Route_7_Map.png"
+      }
+    },
+    {
+      "name": "CELESTIAL TOWER",
+      "steps": [
+        {
+          "text": "Up stairs. Avoid first 2 trainers, get Super Potion. Fight next 2, get TM Will-O-Wisp",
+          "tags": {
+            "items": [
+              "Super Potion",
+              "TM Will-O-Wisp"
+            ]
+          }
+        },
+        {
+          "text": "Up stairs. Fight first trainer, avoid next. East, fight psychic trainer"
+        },
+        {
+          "text": "Get Spell Tag. Up stairs (avoid others). Fight ace trainer W for TM Shadow Claw",
+          "tags": {
+            "items": [
+              "Spell Tag",
+              "TM Shadow Claw"
+            ]
+          }
+        },
+        {
+          "text": "Fight other ace trainer, get Revive. Up stairs. Ring the bell (say yes). Fly to Mistralton City",
+          "tags": {
+            "items": [
+              "Revive"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Litwick",
+          "method": "Interior Lv.26-29",
+          "rate": "Very Common",
+          "top25": true,
+          "why": "TOP 25: Evolves to Chandelure with Dusk Stone - top special attacker for raids, Pumpkin Boss, PvM. Flash Fire/Infiltrator"
+        },
+        {
+          "name": "Elgyem",
+          "method": "Exterior Lv.26-29",
+          "rate": "Very Common",
+          "why": "Evolves to Beheeyem - Psychic-type, Analytic ability"
+        },
+        {
+          "name": "Murkrow",
+          "method": "Shadow Lv.32-33",
+          "rate": "Special",
+          "why": "Prankster! Alternative to Cottonee for gym reruns. Evolves to Honchkrow"
+        },
+        {
+          "name": "Drifloon",
+          "method": "Shadow Lv.32-33",
+          "rate": "Special",
+          "why": "Evolves to Drifblim - Ghost/Flying, Aftermath/Unburden"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/2/26/Unova_Celestial_Tower_Map.png"
+      }
+    },
+    {
+      "name": "MISTRALTON CITY (GYM)",
+      "steps": [
+        {
+          "text": "Go NW all the way, enter gym. Gym guide gives Fresh Water",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Cannon puzzle: N > W > E. Fight all trainers except 2nd. SE > W > N > E > W. Follow path",
+          "tags": {
+            "tips": [
+              "Cannon puzzle: N > W > E. Fight all trainers except 2nd. SE > W > N > E > W. Follow path"
+            ]
+          }
+        },
+        {
+          "text": "Beat Gym Leader - get TM Acrobatics",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader - get TM Acrobatics"
+            ]
+          }
+        },
+        {
+          "text": "Cannon south, exit gym. House north of Pokecenter - talk to guy in orange. Exit"
+        },
+        {
+          "text": "West all the way, south for TM Aerial Ace. Bald guy gives Spray Duck",
+          "tags": {
+            "items": [
+              "TM Aerial Ace",
+              "Spray Duck"
+            ]
+          }
+        },
+        {
+          "text": "Go south - hidden Paralyze Heal + hidden Repel. Go to Pokecenter. NE to Route 7",
+          "tags": {
+            "hiddenItems": [
+              "hidden Paralyze Heal",
+              "hidden Repel"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/6/62/Unova_Mistralton_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 7 (CONTINUED)",
+      "steps": [
+        {
+          "text": "Follow path to 2nd backpacker. Go east - house has heal girl"
+        },
+        {
+          "text": "East for TM X-Scissor (avoid trainer). North (avoid trainer). Hidden Ultra Ball in water",
+          "tags": {
+            "items": [
+              "TM X-Scissor"
+            ],
+            "hiddenItems": [
+              "Hidden Ultra Ball"
+            ]
+          }
+        },
+        {
+          "text": "Fight Cheren - get HM Surf. North, enter cave",
+          "tags": {
+            "battles": [
+              "Fight Cheren"
+            ],
+            "items": [
+              "HM Surf"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Cubchoo",
+          "method": "Grass Lv.27-29",
+          "rate": "Common",
+          "why": "Evolves to Beartic - Ice-type physical attacker"
+        },
+        {
+          "name": "Zebstrika",
+          "method": "Grass Lv.27-29",
+          "rate": "Common",
+          "why": "Fast Electric-type, no evolution needed"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8f/Unova_Route_7_Map.png"
+      }
+    },
+    {
+      "name": "TWIST MOUNTAIN",
+      "steps": [
+        {
+          "text": "Follow path, enter door. North for Revive. Back, east for Full Heal",
+          "tags": {
+            "items": [
+              "Revive",
+              "Full Heal"
+            ]
+          }
+        },
+        {
+          "text": "Enter door. East all the way. North, fight trainer. Enter door (avoid trainer)"
+        },
+        {
+          "text": "North, enter door. Hidden Stardust in sand. East, fight trainer, pick Moon Stone",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Stardust"
+            ],
+            "items": [
+              "Moon Stone"
+            ]
+          }
+        },
+        {
+          "text": "South, enter door. West, enter door (avoid trainer). North for Hyper Potion",
+          "tags": {
+            "items": [
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "Back, west on non-snow road for Ether. Enter door",
+          "tags": {
+            "items": [
+              "Ether"
+            ]
+          }
+        },
+        {
+          "text": "North for Nugget. Hidden Revive in rock",
+          "tags": {
+            "items": [
+              "Nugget"
+            ],
+            "hiddenItems": [
+              "Hidden Revive"
+            ]
+          }
+        },
+        {
+          "text": "SW - hidden Ether. North, fight trainer. Pick PP Up. East, enter door (avoid doctor)",
+          "tags": {
+            "hiddenItems": [
+              "hidden Ether"
+            ],
+            "items": [
+              "PP Up"
+            ]
+          }
+        },
+        {
+          "text": "Path splits by season - follow WINTER or SPRING/SUMMER/AUTUMN below",
+          "tags": {
+            "tips": [
+              "Path splits by season - follow WINTER or SPRING/SUMMER/AUTUMN below"
+            ]
+          }
+        },
+        {
+          "text": "WINTER: From doctor, go SE, enter door. N, enter door. NE for TM Flash Cannon. SW, enter doors south. East, enter door for Super Repel. West door. NE all the way - hidden Iron. Enter door, follow path, fight ace trainer. West for TM Spikes. East, N, enter doors east",
+          "tags": {
+            "items": [
+              "TM Flash Cannon",
+              "Super Repel",
+              "TM Spikes"
+            ],
+            "hiddenItems": [
+              "hidden Iron"
+            ]
+          }
+        },
+        {
+          "text": "SPRING/SUMMER/AUTUMN: From doctor, N, enter door. Fight hiker, enter N door. Fight trainer. West for Great Ball. South - hidden Protein in sand. Avoid trainer. South doors. Follow path to NE for TM Flash Cannon. SW, enter doors to east",
+          "tags": {
+            "items": [
+              "Great Ball",
+              "TM Flash Cannon"
+            ],
+            "hiddenItems": [
+              "hidden Protein"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Boldore",
+          "method": "Cave Lv.28-31",
+          "rate": "Very Common",
+          "top25": true,
+          "why": "TOP 25: Sturdy + Stealth Rock lead"
+        },
+        {
+          "name": "Drilbur",
+          "method": "Dust Clouds Lv.33-34",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Higher level than Chargestone Cave"
+        },
+        {
+          "name": "Excadrill",
+          "method": "Dust Clouds Lv.33-34",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Already evolved, higher level"
+        },
+        {
+          "name": "Larvitar",
+          "method": "Dust Clouds Lv.33-34",
+          "rate": "Special",
+          "why": "Pseudo-legendary! Evolves to Tyranitar"
+        },
+        {
+          "name": "Cubchoo",
+          "method": "Cave Lv.28",
+          "rate": "Uncommon",
+          "why": "Ice-type option"
+        },
+        {
+          "name": "Cryogonal",
+          "method": "Cave Lv.28-31",
+          "rate": "Very Rare",
+          "why": "Ice-type, no evolution, Levitate"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/d/d6/Unova_Twist_Mountain_Map.png"
+      }
+    },
+    {
+      "name": "ICIRRUS CITY",
+      "steps": [
+        {
+          "text": "Next 4 items are WINTER ONLY: SE all the way, enter house. Girl gives Rage Candy Bar",
+          "tags": {
+            "tips": [
+              "Next 4 items are WINTER ONLY:"
+            ],
+            "items": [
+              "Rage Candy Bar"
+            ]
+          }
+        },
+        {
+          "text": "Exit. Hidden Tiny Mushroom x2",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Tiny Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "West of Pokecenter for Rare Candy (winter). Pokecenter - old woman gives TM Brick Break",
+          "tags": {
+            "items": [
+              "Rare Candy",
+              "TM Brick Break"
+            ]
+          }
+        },
+        {
+          "text": "East all the way - hidden Great Ball + hidden Timer Ball",
+          "tags": {
+            "hiddenItems": [
+              "hidden Great Ball",
+              "hidden Timer Ball"
+            ]
+          }
+        },
+        {
+          "text": "House NW of Pokecenter - show guy a Pokemon that gained 25-49 levels for Exp. Share",
+          "tags": {
+            "items": [
+              "Exp. Share"
+            ]
+          }
+        },
+        {
+          "text": "Enter gym north. Gym guide gives Fresh Water",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Ice gym: Slide N > E, fight trainer. Red switch > W, fight. E, fight. E > N > E > N, fight. S > E > slide W > N > N > W > slide S > W > N > E > N > E. Fight. Red switch > E > S > W > S > W > N",
+          "tags": {
+            "tips": [
+              "Ice gym: Slide N > E, fight trainer. Red switch > W, fight. E, fight. E > N > E > N, fight. S > E > slide W > N > N > W > slide S > W > N > E > N > E. Fight. Red switch > E > S > W > S > W > N"
+            ]
+          }
+        },
+        {
+          "text": "Beat Gym Leader - get TM Frost Breath. Slide west, exit gym. Go north to Dragonspiral Tower",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader - get TM Frost Breath"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Stunfisk",
+          "method": "Puddles/Surf Lv.25-35",
+          "rate": "Common",
+          "why": "Ground/Electric, unique typing"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/f/f5/Unova_Icirrus_City_Map.png"
+      }
+    },
+    {
+      "name": "DRAGONSPIRAL TOWER",
+      "steps": [
+        {
+          "text": "Professor Juniper gives Old Gateau. Winter only: go west for Nugget. North to next area",
+          "tags": {
+            "items": [
+              "Old Gateau",
+              "Nugget"
+            ]
+          }
+        },
+        {
+          "text": "Surf east, fight guy trainer. Get TM Embargo (avoid girl trainer)",
+          "tags": {
+            "items": [
+              "TM Embargo"
+            ]
+          }
+        },
+        {
+          "text": "Surf NW - hidden Heart Scale in wall. Surf west, enter tower",
+          "tags": {
+            "hiddenItems": [
+              "hidden Heart Scale"
+            ]
+          }
+        },
+        {
+          "text": "Follow path, up stairs. North for Super Potion. Up on pillar, west for Stardust",
+          "tags": {
+            "items": [
+              "Super Potion",
+              "Stardust"
+            ]
+          }
+        },
+        {
+          "text": "West to next area. Up stairs, jump south. All the way S, jump W 3x, jump N 3x"
+        },
+        {
+          "text": "Jump E, jump N, jump E for Shiny Stone. Jump S 2x, E, S. All the way S",
+          "tags": {
+            "items": [
+              "Shiny Stone"
+            ]
+          }
+        },
+        {
+          "text": "Jump W 3x, N. West, up stairs. Follow path for Dragon Fang",
+          "tags": {
+            "items": [
+              "Dragon Fang"
+            ]
+          }
+        },
+        {
+          "text": "Up stairs. E all the way, N on bridge. W all the way, N on bridge"
+        },
+        {
+          "text": "Pick Stardust. E all the way, S on 2 bridges. W for Stardust. E, N on 2 bridges",
+          "tags": {
+            "items": [
+              "Stardust",
+              "Stardust"
+            ]
+          }
+        },
+        {
+          "text": "W, N on bridge. E all the way, S on bridge. W all the way, S on bridge"
+        },
+        {
+          "text": "E all the way for Revive. W, S on bridge. W, up stairs",
+          "tags": {
+            "items": [
+              "Revive"
+            ]
+          }
+        },
+        {
+          "text": "Follow path for Elixir. Up stairs. North, talk to N. Fly to Nimbasa City. SE to Route 4",
+          "tags": {
+            "items": [
+              "Elixir"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Golett",
+          "method": "Interior Lv.30-33",
+          "rate": "Very Common",
+          "top25": true,
+          "why": "TOP 25: Evolves to Golurk at Lv.43 - No Guard ability for encounter rate boost in shiny/alpha hunts"
+        },
+        {
+          "name": "Druddigon",
+          "method": "Interior/Exterior Lv.30-33",
+          "rate": "Very Common",
+          "why": "Dragon-type, no evolution, Sheer Force + Life Orb"
+        },
+        {
+          "name": "Mienfoo",
+          "method": "Dark Grass Lv.33-36",
+          "rate": "Very Common",
+          "why": "Evolves to Mienshao - fast Fighting-type, Regenerator"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/3/30/Unova_Dragonspiral_Tower_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 4 (REVISIT) / DESERT RESORT",
+      "steps": [
+        {
+          "text": "Go west, avoid trainers. North to doctor area"
+        },
+        {
+          "text": "Avoid doctor. West for Fire Stone (avoid trainers). North, fight guy in red. Hidden Stardust",
+          "tags": {
+            "items": [
+              "Fire Stone"
+            ],
+            "hiddenItems": [
+              "Hidden Stardust"
+            ]
+          }
+        },
+        {
+          "text": "West, avoid guy in red. SW all the way for TM Sand Tomb. NW all the way for Heart Scale",
+          "tags": {
+            "items": [
+              "TM Sand Tomb",
+              "Heart Scale"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Ether near castle. SE for Super Potion. SE for Fresh Water (avoid trainer)",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Ether"
+            ],
+            "items": [
+              "Super Potion",
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Avoid psychic. SE for Black Glasses. North - Soft Sand from guy in black",
+          "tags": {
+            "items": [
+              "Black Glasses",
+              "Soft Sand"
+            ]
+          }
+        },
+        {
+          "text": "NE all the way - hidden Hyper Potion. West, enter Relic Castle",
+          "tags": {
+            "hiddenItems": [
+              "hidden Hyper Potion"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/f/f2/Unova_Route_4_Map.png"
+      }
+    },
+    {
+      "name": "RELIC CASTLE",
+      "steps": [
+        {
+          "text": "Avoid first psychic, go down in sand. Hidden Ether. Pick Revive. Up stairs",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Ether"
+            ],
+            "items": [
+              "Revive"
+            ]
+          }
+        },
+        {
+          "text": "West, avoid 2nd psychic. Walk west carefully (don't fall in sand)"
+        },
+        {
+          "text": "Talk to backpacker - choose Cover Fossil or Plume Fossil (pick 1)",
+          "tags": {
+            "items": [
+              "Cover Fossil",
+              "Plume Fossil"
+            ]
+          }
+        },
+        {
+          "text": "Down stairs. East, fight Plasma. Down in sand. Hyper Potion, fight Plasma",
+          "tags": {
+            "items": [
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "West all the way, fight Plasma. TM Fire Spin. Down in sand. South, down in sand",
+          "tags": {
+            "items": [
+              "TM Fire Spin"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Super Potion. North for Sun Stone. Up stairs 2x. South, drop in sand",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Super Potion"
+            ],
+            "items": [
+              "Sun Stone"
+            ]
+          }
+        },
+        {
+          "text": "Fight Plasma, get Revive. West, fight Plasma. Down in sand",
+          "tags": {
+            "items": [
+              "Revive"
+            ]
+          }
+        },
+        {
+          "text": "Fight 2 Plasma, down in sand. Fly to Nacrene City"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Yamask",
+          "method": "Cave Lv.19-22",
+          "rate": "Very Common",
+          "why": "Evolves to Cofagrigus - bulky Ghost, Mummy ability"
+        },
+        {
+          "name": "Larvesta",
+          "method": "Cave Lv.47-49",
+          "rate": "Very Rare",
+          "top25": true,
+          "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona - top special attacker. Post-game only"
+        },
+        {
+          "name": "Volcarona",
+          "method": "Special encounter (post-game maze)",
+          "rate": "One-time",
+          "top25": true,
+          "why": "TOP 25: End of Relic Castle maze post-game. Bug/Fire powerhouse"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8b/Unova_Relic_Castle_Map.png"
+      }
+    },
+    {
+      "name": "NACRENE CITY (REVISIT)",
+      "steps": [
+        {
+          "text": "Go NE to gym, say yes to get Dark Stone. Fly to Icirrus City. East, down stairs. North to Route 8",
+          "tags": {
+            "items": [
+              "Dark Stone"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/3/35/Unova_Nacrene_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 8",
+      "steps": [
+        {
+          "text": "NW all the way, avoid guy in red. Get Poison Barb. East for TM Sludge Wave",
+          "tags": {
+            "items": [
+              "Poison Barb",
+              "TM Sludge Wave"
+            ]
+          }
+        },
+        {
+          "text": "East, get Super Potion (avoid girl trainer). North - hidden Hyper Potion near red trainer. Fight that trainer",
+          "tags": {
+            "items": [
+              "Super Potion"
+            ],
+            "hiddenItems": [
+              "hidden Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "East for Great Ball. North to Moor of Icirrus",
+          "tags": {
+            "items": [
+              "Great Ball"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Palpitoad",
+          "method": "Grass Lv.30-33",
+          "rate": "Very Common",
+          "why": "Evolves to Seismitoad - Water/Ground, Swift Swim"
+        },
+        {
+          "name": "Shelmet",
+          "method": "Grass Lv.30-33",
+          "rate": "Very Common",
+          "why": "Trade-evolves to Accelgor"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8e/Unova_Route_8_Map.png"
+      }
+    },
+    {
+      "name": "MOOR OF ICIRRUS",
+      "steps": [
+        {
+          "text": "West, push boulder. West for Great Ball. South for Carbos",
+          "tags": {
+            "items": [
+              "Great Ball",
+              "Carbos"
+            ]
+          }
+        },
+        {
+          "text": "Non-winter only: hidden Ether. Ignore trainer, back to boulder",
+          "tags": {
+            "hiddenItems": [
+              "hidden Ether"
+            ]
+          }
+        },
+        {
+          "text": "NW all the way - hidden Revive. East for Hyper Potion. East, fight guy in red",
+          "tags": {
+            "hiddenItems": [
+              "hidden Revive"
+            ],
+            "items": [
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "NE for Elixir. Back to red guy, SE - hidden Big Mushroom",
+          "tags": {
+            "items": [
+              "Elixir"
+            ],
+            "hiddenItems": [
+              "hidden Big Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "Non-winter only: South for Max Revive. Back to Route 8",
+          "tags": {
+            "items": [
+              "Max Revive"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Stunfisk",
+          "method": "Surf Lv.25-35",
+          "rate": "Very Common",
+          "why": "Ground/Electric"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8a/Unova_Moor_of_Icirrus_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 8 (CONTINUED)",
+      "steps": [
+        {
+          "text": "South, east. Talk to parasol girl near fisher for TM Facade. Avoid fisher",
+          "tags": {
+            "items": [
+              "TM Facade"
+            ]
+          }
+        },
+        {
+          "text": "Fight next parasol girl. Fight Bianca - get Full Restore. East to Tubeline Bridge",
+          "tags": {
+            "battles": [
+              "Fight Bianca"
+            ],
+            "items": [
+              "Full Restore"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Palpitoad",
+          "method": "Grass Lv.30-33",
+          "rate": "Very Common",
+          "why": "Evolves to Seismitoad - Water/Ground, Swift Swim"
+        },
+        {
+          "name": "Shelmet",
+          "method": "Grass Lv.30-33",
+          "rate": "Very Common",
+          "why": "Trade-evolves to Accelgor"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8e/Unova_Route_8_Map.png"
+      }
+    },
+    {
+      "name": "TUBELINE BRIDGE",
+      "steps": [
+        {
+          "text": "North - talk to running girl for TM Flame Charge. Follow path to Route 9",
+          "tags": {
+            "items": [
+              "TM Flame Charge"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/5/56/Unova_Route_9_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 9",
+      "steps": [
+        {
+          "text": "Get TM Fling from baseball player. Avoid first 2 trainers",
+          "tags": {
+            "items": [
+              "TM Fling"
+            ]
+          }
+        },
+        {
+          "text": "East, fight double battle trainers. Fight next 2 trainers"
+        },
+        {
+          "text": "Hidden Lemonade. Enter shopping building",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Lemonade"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Pawniard",
+          "method": "Grass Lv.31-34",
+          "rate": "Common",
+          "why": "Evolves to Bisharp - Dark/Steel, Defiant ability"
+        },
+        {
+          "name": "Gothorita",
+          "method": "Grass Lv.32-34",
+          "rate": "Common",
+          "why": "Shadow Tag evolution line"
+        },
+        {
+          "name": "Duosion",
+          "method": "Grass Lv.32-34",
+          "rate": "Common",
+          "why": "Magic Guard evolution line"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/5/56/Unova_Route_9_Map.png"
+      }
+    },
+    {
+      "name": "SHOPPING MALL",
+      "steps": [
+        {
+          "text": "Door NE - get PP Up (avoid girl waitress). Up stairs, fight rich trainer",
+          "tags": {
+            "items": [
+              "PP Up"
+            ]
+          }
+        },
+        {
+          "text": "Up stairs, fight lady. West, avoid waiter. Guy with orange helmet - say yes for Thunder Stone",
+          "tags": {
+            "items": [
+              "Thunder Stone"
+            ]
+          }
+        },
+        {
+          "text": "Exit building. Go east to Opelucid City"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/5/56/Unova_Route_9_Map.png"
+      }
+    },
+    {
+      "name": "OPELUCID CITY",
+      "steps": [
+        {
+          "text": "East, talk to Alder. Hidden Max Repel south of Pokecenter",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Max Repel"
+            ]
+          }
+        },
+        {
+          "text": "House NW of Pokecenter, 2nd floor - football player gives Float Stone. Beauty girl gives Ring Target (say yes)",
+          "tags": {
+            "items": [
+              "Float Stone",
+              "Ring Target"
+            ]
+          }
+        },
+        {
+          "text": "Exit. NW. House east of gym - beauty girl gives Destiny Knot",
+          "tags": {
+            "items": [
+              "Destiny Knot"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Ultra Ball. House NE - fight ace trainer. 2nd floor, fight another. Exit",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Ultra Ball"
+            ]
+          }
+        },
+        {
+          "text": "NW, enter gym. Gym guide gives Fresh Water",
+          "tags": {
+            "items": [
+              "Fresh Water"
+            ]
+          }
+        },
+        {
+          "text": "Dragon gym: Follow path > switch > N on dragon head. Repeat pattern through gym. Fight trainers along the way",
+          "tags": {
+            "tips": [
+              "Dragon gym: Follow path > switch > N on dragon head. Repeat pattern through gym. Fight trainers along the way"
+            ]
+          }
+        },
+        {
+          "text": "Beat Gym Leader - get TM Dragon Tail. Use portal, exit gym",
+          "tags": {
+            "gym": [
+              "Beat Gym Leader - get TM Dragon Tail"
+            ]
+          }
+        },
+        {
+          "text": "Professor Juniper gives Master Ball. Go NE to Route 10",
+          "tags": {
+            "items": [
+              "Master Ball"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/3/3d/Unova_Opelucid_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 10",
+      "steps": [
+        {
+          "text": "North (avoid trainer). 3 balls in grass - only pick eastern one for Super Potion (others are Foongus)",
+          "tags": {
+            "tips": [
+              "only pick eastern one"
+            ],
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "East (avoid blue hair trainer). Fight next trainer. Fight Cheren - get x2 Max Revive",
+          "tags": {
+            "battles": [
+              "Fight Cheren"
+            ],
+            "items": [
+              "x2 Max Revive"
+            ]
+          }
+        },
+        {
+          "text": "North in grass. Avoid first 2 balls. Fight fighting trainer. Super Potion + Dawn Stone",
+          "tags": {
+            "items": [
+              "Super Potion",
+              "Dawn Stone"
+            ]
+          }
+        },
+        {
+          "text": "South (avoid hiker). Guy in black gives Dusk Stone. East for TM Cross Poison",
+          "tags": {
+            "items": [
+              "Dusk Stone",
+              "TM Cross Poison"
+            ]
+          }
+        },
+        {
+          "text": "East all the way, fight 2 trainers. Hyper Potion in grass. North - show 8 badges",
+          "tags": {
+            "items": [
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "Grass area: walk west side (only 2 grass squares). Ice area: slide N > E > N > W > N",
+          "tags": {
+            "tips": [
+              "Grass area: walk west side (only 2 grass squares). Ice area: slide N > E > N > W > N"
+            ]
+          }
+        },
+        {
+          "text": "North to Victory Road"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Bouffalant",
+          "method": "Grass Lv.34-35",
+          "rate": "Common",
+          "why": "Normal-type, Sap Sipper + Head Charge, no evolution needed"
+        },
+        {
+          "name": "Rufflet",
+          "method": "Grass Lv.34-36",
+          "rate": "Uncommon",
+          "why": "Evolves to Braviary - strong Normal/Flying"
+        },
+        {
+          "name": "Boldore",
+          "method": "Rock Smash Lv.40-42",
+          "rate": "Very Common",
+          "top25": true,
+          "why": "TOP 25: Sturdy lead"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/a/a5/Unova_Route_10_Map.png"
+      }
+    },
+    {
+      "name": "VICTORY ROAD",
+      "steps": [
+        {
+          "text": "Enter door. Surf north for Revive. Surf south, up stairs. South, fight ace trainer",
+          "tags": {
+            "items": [
+              "Revive"
+            ]
+          }
+        },
+        {
+          "text": "South, enter door. Jump south, go in east door. Surf north for Rare Candy. Up stairs west",
+          "tags": {
+            "items": [
+              "Rare Candy"
+            ]
+          }
+        },
+        {
+          "text": "Hidden Ultra Ball. Up stairs north. Fight ace trainer. Enter south door",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Ultra Ball"
+            ]
+          }
+        },
+        {
+          "text": "East all the way, jump south. TM Close Combat. Jump south, enter door. Up stairs west, up stairs north",
+          "tags": {
+            "items": [
+              "TM Close Combat"
+            ]
+          }
+        },
+        {
+          "text": "Enter south door. First left door. Hidden Hyper Potion in rock. Beat black trainer",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "Down stairs east. Push boulder (shortcut). Back to black trainer"
+        },
+        {
+          "text": "Up stairs north. Beat ace trainer. Enter south door. Hyper Potion. Back to black trainer",
+          "tags": {
+            "items": [
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "Enter south door, left door. Avoid fighting trainer. Up stairs east. Beat doctor. Hidden Revive in rock",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Revive"
+            ]
+          }
+        },
+        {
+          "text": "Push boulder (shortcut). Up stairs NE. Enter south door. Jump south"
+        },
+        {
+          "text": "Enter door for Calcium. Exit. West, jump south 2x for Great Ball",
+          "tags": {
+            "items": [
+              "Calcium",
+              "Great Ball"
+            ]
+          }
+        },
+        {
+          "text": "East, enter door. Up stairs east, north. Enter south door. Left door. Avoid fighter, up stairs east, NE"
+        },
+        {
+          "text": "Up stairs north. Fight ace trainer. Enter west door for Full Heal. Enter door",
+          "tags": {
+            "items": [
+              "Full Heal"
+            ]
+          }
+        },
+        {
+          "text": "Enter east door, jump right. Enter door. North, fight trainer"
+        },
+        {
+          "text": "Hidden Full Heal. Up stairs NW. Enter south door. North to Pokemon League",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Full Heal"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Fraxure",
+          "method": "Grass Lv.39-40",
+          "rate": "Rare",
+          "why": "Evolves to Haxorus - Mold Breaker, massive Attack stat"
+        },
+        {
+          "name": "Durant",
+          "method": "Cave Lv.37-42",
+          "rate": "Very Common",
+          "why": "Bug/Steel, Hustle ability, strong physical attacker"
+        },
+        {
+          "name": "Heatmor",
+          "method": "Grass Lv.37-40",
+          "rate": "Common",
+          "why": "Fire-type, Flash Fire ability"
+        },
+        {
+          "name": "Mienfoo",
+          "method": "Cave Lv.39-41",
+          "rate": "Uncommon",
+          "why": "Regenerator Mienshao"
+        },
+        {
+          "name": "Boldore",
+          "method": "Cave Lv.37-41",
+          "rate": "Common",
+          "top25": true,
+          "why": "TOP 25: Sturdy + Stealth Rock"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8a/Unova_Victory_Road_Map.png"
+      }
+    },
+    {
+      "name": "POKEMON LEAGUE (PREP)",
+      "steps": [
+        {
+          "text": "Heal at Pokecenter. Exit. Go south where guy in red was standing"
+        },
+        {
+          "text": "Jump south on left of guy in red. Jump south again for TM Wild Charge. Fly back to league",
+          "tags": {
+            "items": [
+              "TM Wild Charge"
+            ]
+          }
+        },
+        {
+          "text": "Jump right of guy in red. Nugget. Enter door",
+          "tags": {
+            "items": [
+              "Nugget"
+            ]
+          }
+        },
+        {
+          "text": "Follow path. East - hidden Max Potion in rock + hidden Max Revive in rock",
+          "tags": {
+            "hiddenItems": [
+              "hidden Max Potion",
+              "hidden Max Revive"
+            ]
+          }
+        },
+        {
+          "text": "Up stairs NW for TM Dragon Claw. Enter south door. Fly to Pokemon League",
+          "tags": {
+            "items": [
+              "TM Dragon Claw"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8a/Unova_Victory_Road_Map.png"
+      }
+    },
+    {
+      "name": "POKEMON LEAGUE",
+      "steps": [
+        {
+          "text": "Beat the Elite Four (4 trainers). Click statue to go down",
+          "tags": {
+            "gym": [
+              "Beat the Elite Four (4 trainers)"
+            ]
+          }
+        },
+        {
+          "text": "North all the way, talk to N. Go north to N's Castle"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8a/Unova_Victory_Road_Map.png"
+      }
+    },
+    {
+      "name": "N'S CASTLE",
+      "steps": [
+        {
+          "text": "Up stairs NE. East - 2nd room girl in pink heals your Pokemon"
+        },
+        {
+          "text": "3rd room - Hyper Potion. Exit, east, up stairs",
+          "tags": {
+            "items": [
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "West, 2nd room - Max Revive. Exit",
+          "tags": {
+            "items": [
+              "Max Revive"
+            ]
+          }
+        },
+        {
+          "text": "West, 3rd room. NW Plasma member gives Ultra Ball. NE Plasma = return to Pokecenter",
+          "tags": {
+            "items": [
+              "Ultra Ball"
+            ],
+            "tips": [
+              "NE Plasma = return to Pokecenter"
+            ]
+          }
+        },
+        {
+          "text": "Exit room. West, up stairs. 1st door - Rare Candy. 2nd room - Hyper Potion",
+          "tags": {
+            "items": [
+              "Rare Candy",
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "Exit, east all the way, up stairs. West, enter first room. North, talk to N"
+        },
+        {
+          "text": "Your 6th Pokemon will be replaced by Zekrom. Catch Zekrom",
+          "tags": {
+            "tips": [
+              "Your 6th Pokemon will be replaced by Zekrom"
+            ],
+            "pokemon": [
+              "Catch Zekrom"
+            ]
+          }
+        },
+        {
+          "text": "Beat N, then Beat Ghetsis",
+          "tags": {
+            "battles": [
+              "Beat N",
+              "Beat Ghetsis"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "POST-GAME: NUVEMA TOWN",
+      "steps": [
+        {
+          "text": "Downstairs. Say yes to Looker for Super Rod",
+          "tags": {
+            "items": [
+              "Super Rod"
+            ]
+          }
+        },
+        {
+          "text": "Exit. Go to lab NW. Talk to Juniper - get TM False Swipe + TM Protect + TM Hidden Power",
+          "tags": {
+            "items": [
+              "TM False Swipe",
+              "TM Protect",
+              "TM Hidden Power"
+            ]
+          }
+        },
+        {
+          "text": "Keep 5 Pokemon if you want - free Larvesta egg coming soon!. NE to Route 1",
+          "tags": {
+            "tips": [
+              "Keep 5 Pokemon if you want - free Larvesta egg coming soon!"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/bf/Unova_Nuvema_Town_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: ROUTE 1",
+      "steps": [
+        {
+          "text": "North, surf west. West for Ether. East, fight red trainer. SE, fight another",
+          "tags": {
+            "items": [
+              "Ether"
+            ]
+          }
+        },
+        {
+          "text": "South - hidden Tiny Mushroom in trees + Pearl. West to Route 17",
+          "tags": {
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ],
+            "items": [
+              "Pearl"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Scraggy",
+          "method": "Dark Grass Lv.32-35",
+          "rate": "Very Common",
+          "why": "Moxie Scrafty path"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/5/53/Unova_Route_1_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 17",
+      "steps": [
+        {
+          "text": "Surf west for TM Razor Shell. Surf SW (avoid swimmer), middle current. East for Revive",
+          "tags": {
+            "items": [
+              "TM Razor Shell",
+              "Revive"
+            ]
+          }
+        },
+        {
+          "text": "Surf south, southernmost current to Route 18"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Frillish",
+          "method": "Surf Lv.25-35",
+          "rate": "Very Common",
+          "why": "Evolves to Jellicent - Water/Ghost, Cursed Body"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/0/0b/Unova_Route_17_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 18",
+      "steps": [
+        {
+          "text": "West (avoid hiker), fight backpacker. Enter house - guy with red hat gives Larvesta egg",
+          "tags": {
+            "pokemon": [
+              "Larvesta egg"
+            ]
+          }
+        },
+        {
+          "text": "Exit. South, push boulder for Max Revive",
+          "tags": {
+            "items": [
+              "Max Revive"
+            ]
+          }
+        },
+        {
+          "text": "Back to backpacker, down stairs west. South, talk to sage for TM Double Team",
+          "tags": {
+            "items": [
+              "TM Double Team"
+            ]
+          }
+        },
+        {
+          "text": "East, push boulder, fight backpacker. Hidden Calcium in rock + Super Potion",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Calcium"
+            ],
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "West for HM Waterfall in grass. North all the way (avoid black trainer). East, surf east, middle current",
+          "tags": {
+            "items": [
+              "HM Waterfall"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Larvesta Egg",
+          "method": "Gift from NPC in house",
+          "rate": "One-time",
+          "top25": true,
+          "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona at Lv.59"
+        },
+        {
+          "name": "Scraggy",
+          "method": "Grass Lv.28-31",
+          "rate": "Very Common",
+          "why": "Moxie evolution line"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/83/Unova_Route_18_Map.png"
+      }
+    },
+    {
+      "name": "P2 LABORATORY",
+      "steps": [
+        {
+          "text": "East, enter house for Dubious Disc. Exit, south, fight trainer. Get TM Thunderbolt. Back in water",
+          "tags": {
+            "items": [
+              "Dubious Disc",
+              "TM Thunderbolt"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Ditto",
+          "method": "Rustling Grass Lv.36-38",
+          "rate": "Special",
+          "why": "Essential for breeding! Only reliable Unova location"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/1b/Unova_P2_Laboratory_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 17 (BACKTRACK)",
+      "steps": [
+        {
+          "text": "Surf south - hidden Big Pearl on ground. Avoid currents, surf north all the way. Walk west",
+          "tags": {
+            "hiddenItems": [
+              "hidden Big Pearl"
+            ]
+          }
+        },
+        {
+          "text": "Surf west to swimmer (avoid). South from swimmer (avoid currents). West - hidden Heart Scale in big rock. West",
+          "tags": {
+            "hiddenItems": [
+              "hidden Heart Scale"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Frillish",
+          "method": "Surf Lv.25-35",
+          "rate": "Very Common",
+          "why": "Evolves to Jellicent - Water/Ghost, Cursed Body"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/0/0b/Unova_Route_17_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 18 (CONTINUED)",
+      "steps": [
+        {
+          "text": "Hidden Pearl x2 on ground. Avoid trainer. North for TM Telekinesis in grass",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Pearl"
+            ],
+            "items": [
+              "TM Telekinesis"
+            ]
+          }
+        },
+        {
+          "text": "South all the way for Heart Scale. Fly to Accumula Town. NW to Route 2",
+          "tags": {
+            "items": [
+              "Heart Scale"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Larvesta Egg",
+          "method": "Gift from NPC in house",
+          "rate": "One-time",
+          "top25": true,
+          "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona at Lv.59"
+        },
+        {
+          "name": "Scraggy",
+          "method": "Grass Lv.28-31",
+          "rate": "Very Common",
+          "why": "Moxie evolution line"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/83/Unova_Route_18_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: ROUTE 2",
+      "steps": [
+        {
+          "text": "Push boulder for Rare Candy. Fly to Striaton City, go south to Route 2",
+          "tags": {
+            "items": [
+              "Rare Candy"
+            ]
+          }
+        },
+        {
+          "text": "West, cut tree for Potion + Pokeball. Fly to Striaton City",
+          "tags": {
+            "items": [
+              "Potion",
+              "Pokeball"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Purrloin",
+          "method": "Grass Lv.4-5",
+          "rate": "Very Common",
+          "why": "Dark-type, decent early game"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/12/Unova_Route_2_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: STRIATON CITY",
+      "steps": [
+        {
+          "text": "West to fountain. Surf NE - hidden Zinc. Back to fountain",
+          "tags": {
+            "hiddenItems": [
+              "hidden Zinc"
+            ]
+          }
+        },
+        {
+          "text": "Surf NW - Big Pearl from fisher. Fly to Striaton City. NE to Dreamyard",
+          "tags": {
+            "items": [
+              "Big Pearl"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Basculin",
+          "method": "Surf Lv.25-35",
+          "rate": "Very Common",
+          "why": "Post-game only - decent water type"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/d/d7/Unova_Striaton_City_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: DREAMYARD",
+      "steps": [
+        {
+          "text": "East all the way, down stairs NE. Beat first trainer, avoid next"
+        },
+        {
+          "text": "Hidden Awakening in box east of first scientist. Hidden Awakening in box near first psychic (avoid)",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Awakening",
+              "Hidden Awakening"
+            ]
+          }
+        },
+        {
+          "text": "Fight trainer. SW for Twisted Spoon, fight psychic. Fight next scientist, avoid last",
+          "tags": {
+            "items": [
+              "Twisted Spoon"
+            ]
+          }
+        },
+        {
+          "text": "SE all the way, up stairs. NW for Revive. SE - talk to sage for TM Swords Dance",
+          "tags": {
+            "items": [
+              "Revive",
+              "TM Swords Dance"
+            ]
+          }
+        },
+        {
+          "text": "SW all the way for Super Potion. Down stairs. North for TM Dream Eater",
+          "tags": {
+            "items": [
+              "Super Potion",
+              "TM Dream Eater"
+            ]
+          }
+        },
+        {
+          "text": "Friday: Musharna spawns here. Up stairs, fly to Striaton City. NW to Route 3, west to Wellspring Cave",
+          "tags": {
+            "tips": [
+              "Friday: Musharna spawns here"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Musharna",
+          "method": "Friday spawns",
+          "rate": "Special",
+          "why": "Teleport user"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/ba/Unova_Dreamyard_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: WELLSPRING CAVE",
+      "steps": [
+        {
+          "text": "TM Detect + hidden Full Heal. Surf west for Ether. South, east for Escape Rope",
+          "tags": {
+            "items": [
+              "TM Detect",
+              "Ether",
+              "Escape Rope"
+            ],
+            "hiddenItems": [
+              "hidden Full Heal"
+            ]
+          }
+        },
+        {
+          "text": "Down stairs. Surf north for TM Focus Blast. SE for Mystic Water",
+          "tags": {
+            "items": [
+              "TM Focus Blast",
+              "Mystic Water"
+            ]
+          }
+        },
+        {
+          "text": "South - hidden Revive. NW - hidden Super Potion in rock. SW for Dive Ball",
+          "tags": {
+            "hiddenItems": [
+              "hidden Revive",
+              "hidden Super Potion"
+            ],
+            "items": [
+              "Dive Ball"
+            ]
+          }
+        },
+        {
+          "text": "South (avoid all trainers - bike past when last 2 walk west). SE for TM Low Sweep",
+          "tags": {
+            "items": [
+              "TM Low Sweep"
+            ]
+          }
+        },
+        {
+          "text": "Jump west - hidden Hyper Potion. Exit cave",
+          "tags": {
+            "hiddenItems": [
+              "hidden Hyper Potion"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Roggenrola",
+          "method": "Cave Lv.10-13",
+          "rate": "Very Common",
+          "why": "Sturdy ability - Stealth Rock lead for gym runs"
+        },
+        {
+          "name": "Drilbur",
+          "method": "Dust Clouds Lv.10-15",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Evolves to Excadrill - elite Ground/Steel attacker + Mold Breaker"
+        },
+        {
+          "name": "Boldore",
+          "method": "Cave Lv.28-31",
+          "rate": "Common",
+          "top25": true,
+          "why": "TOP 25: Sturdy + Stealth Rock lead for story & gym reruns"
+        },
+        {
+          "name": "Woobat",
+          "method": "Cave Lv.10-31",
+          "rate": "Very Common",
+          "why": "Evolves to Swoobat with Simple - setup sweeper"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/7/79/Unova_Wellspring_Cave_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: NACRENE / ROUTE 3 / PINWHEEL",
+      "steps": [
+        {
+          "text": "Fly to Nacrene City. Optional: Trade Petilil for Cottonee, then battle the girl. SE to Route 3",
+          "tags": {
+            "tips": [
+              "Optional: Trade Petilil for Cottonee, then battle the girl"
+            ]
+          }
+        },
+        {
+          "text": "East to bridge, surf north for Full Heal. Surf west for Ether in grass",
+          "tags": {
+            "items": [
+              "Full Heal",
+              "Ether"
+            ]
+          }
+        },
+        {
+          "text": "North for HP Up in grass (avoid trainer). Fly to Nacrene City. NW to Pinwheel Forest",
+          "tags": {
+            "items": [
+              "HP Up"
+            ]
+          }
+        },
+        {
+          "text": "West to next area. North, fight kid. North, east in grass. NE for Super Potion",
+          "tags": {
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "SE for TM Pin Missile. West, surf west all the way for Silver Powder",
+          "tags": {
+            "items": [
+              "TM Pin Missile",
+              "Silver Powder"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/1f/Unova_Route_3_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: NIMBASA AREA",
+      "steps": [
+        {
+          "text": "Fly to Nimbasa City. NW to Route 5, talk to Cheren. Fly to Nimbasa"
+        },
+        {
+          "text": "Female character: Battle trainer at ferris wheel (any season). Male character: Summer/Autumn only",
+          "tags": {
+            "tips": [
+              "Female character: Battle trainer at ferris wheel (any season). Male character: Summer/Autumn only"
+            ]
+          }
+        },
+        {
+          "text": "From Nimbasa go SE to Route 4, west to doctor, NW to Relic Castle"
+        }
+      ]
+    },
+    {
+      "name": "POST-GAME: RELIC CASTLE",
+      "steps": [
+        {
+          "text": "Professor Juniper gives Rage Candy Bar. Give to statue to revive Darmanitan",
+          "tags": {
+            "items": [
+              "Rage Candy Bar"
+            ],
+            "tips": [
+              "Give to statue to revive Darmanitan"
+            ]
+          }
+        },
+        {
+          "text": "Go inside. West all the way, down stairs, down in sand"
+        },
+        {
+          "text": "SW, down in sand. West, down in sand x2. Enter NE door. Follow path, enter door, fight Plasma"
+        },
+        {
+          "text": "Enter doors: south > west > south > west > west. Talk to sage for TM Nasty Plot",
+          "tags": {
+            "items": [
+              "TM Nasty Plot"
+            ]
+          }
+        },
+        {
+          "text": "Door north has Volcarona (one-time catch)",
+          "tags": {
+            "tips": [
+              "Door north has Volcarona (one-time catch)"
+            ]
+          }
+        },
+        {
+          "text": "Doors: west > west > north > west > north > west > follow to door. Up stairs 3x to sand floor"
+        },
+        {
+          "text": "Hidden PP Max near stairs. Up stairs 3x for TM Flare Blitz. South door. Fly to Driftveil City",
+          "tags": {
+            "hiddenItems": [
+              "Hidden PP Max"
+            ],
+            "items": [
+              "TM Flare Blitz"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Yamask",
+          "method": "Cave Lv.19-22",
+          "rate": "Very Common",
+          "why": "Evolves to Cofagrigus - bulky Ghost, Mummy ability"
+        },
+        {
+          "name": "Larvesta",
+          "method": "Cave Lv.47-49",
+          "rate": "Very Rare",
+          "top25": true,
+          "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona - top special attacker. Post-game only"
+        },
+        {
+          "name": "Volcarona",
+          "method": "Special encounter (post-game maze)",
+          "rate": "One-time",
+          "top25": true,
+          "why": "TOP 25: End of Relic Castle maze post-game. Bug/Fire powerhouse"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/8/8b/Unova_Relic_Castle_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: DRIFTVEIL CITY",
+      "steps": [
+        {
+          "text": "House SE of Pokecenter - guy east gives Shell Bell. Optional: Trade Minccino for Basculin + battle",
+          "tags": {
+            "items": [
+              "Shell Bell"
+            ],
+            "tips": [
+              "Optional: Trade Minccino for Basculin + battle"
+            ]
+          }
+        },
+        {
+          "text": "Pokecenter, surf east for Water Stone. SW to Cold Storage",
+          "tags": {
+            "items": [
+              "Water Stone"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/2/2f/Unova_Driftveil_City_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: COLD STORAGE",
+      "steps": [
+        {
+          "text": "Enter SW building. Go to cargo. Talk to sage for TM Hone Claws. Exit. NW to Route 6",
+          "tags": {
+            "items": [
+              "TM Hone Claws"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Vanillite",
+          "method": "Grass Lv.20-23",
+          "rate": "Very Common",
+          "why": "Ice-type if you need one early"
+        },
+        {
+          "name": "Sneasel",
+          "method": "Rustling Grass Lv.28-29",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Evolves to Weavile with Razor Claw at night - Pickpocket farming & Ice/Dark attacker"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/bb/Unova_Cold_Storage_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: ROUTE 6 / MISTRALTON CAVE",
+      "steps": [
+        {
+          "text": "Surf north for TM Bug Buzz. NE all the way for Silk Scarf",
+          "tags": {
+            "items": [
+              "TM Bug Buzz",
+              "Silk Scarf"
+            ]
+          }
+        },
+        {
+          "text": "West, behind house - hidden Tiny Mushroom. Surf east - hidden Tiny Mushroom near cave. Enter Mistralton Cave",
+          "tags": {
+            "hiddenItems": [
+              "hidden Tiny Mushroom",
+              "hidden Tiny Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "South, push boulder. East (avoid hiker), push boulder. North, beat hiker"
+        },
+        {
+          "text": "Super Repel + hidden Hyper Potion in rock. NW for Super Potion. Push boulder shortcut",
+          "tags": {
+            "items": [
+              "Super Repel",
+              "Super Potion"
+            ],
+            "hiddenItems": [
+              "hidden Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "South, up stairs. South - hidden Great Ball in rock. Push boulder east - hidden Super Potion in rock",
+          "tags": {
+            "hiddenItems": [
+              "hidden Great Ball",
+              "hidden Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "SE all the way. SW for Hard Stone. SE, north - push 2 boulders west (shortcut)",
+          "tags": {
+            "items": [
+              "Hard Stone"
+            ]
+          }
+        },
+        {
+          "text": "East, NE all the way. NW for TM Rock Blast. NE all the way. West other path for Iron. Jump south, east, up stairs",
+          "tags": {
+            "items": [
+              "TM Rock Blast",
+              "Iron"
+            ]
+          }
+        },
+        {
+          "text": "West for Revive. East all the way. NE - hidden Great Ball in rock + Dusk Stone",
+          "tags": {
+            "items": [
+              "Revive",
+              "Dusk Stone"
+            ],
+            "hiddenItems": [
+              "hidden Great Ball"
+            ]
+          }
+        },
+        {
+          "text": "SE, talk to guy, say yes. North for Rare Candy + hidden Carbos in rock. Exit, fly to Mistralton City",
+          "tags": {
+            "items": [
+              "Rare Candy"
+            ],
+            "hiddenItems": [
+              "hidden Carbos"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/13/Unova_Mistralton_Cave_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: CHARGESTONE CAVE",
+      "steps": [
+        {
+          "text": "Enter cave SW. West, north, down stairs. West, down stairs"
+        },
+        {
+          "text": "South all the way - talk to sage. Battle 2 Plasma. Get TM Rock Polish. Exit, fly to Icirrus City",
+          "tags": {
+            "items": [
+              "TM Rock Polish"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Drilbur",
+          "method": "Dust Clouds Lv.30-31",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Ground-type powerhouse. Mold Breaker Excadrill for Mt. Silver XP farming"
+        },
+        {
+          "name": "Excadrill",
+          "method": "Dust Clouds Lv.31",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Already evolved! Sand Rush or Mold Breaker"
+        },
+        {
+          "name": "Joltik",
+          "method": "Cave Lv.24-27",
+          "rate": "Very Common",
+          "why": "Evolves to Galvantula - Compound Eyes Thunder (91% acc!)"
+        },
+        {
+          "name": "Ferroseed",
+          "method": "Cave Lv.24-26",
+          "rate": "Common",
+          "why": "Evolves to Ferrothorn - top wall, Stealth Rock + Leech Seed"
+        },
+        {
+          "name": "Klink",
+          "method": "Cave Lv.25-27",
+          "rate": "Common",
+          "why": "Evolves to Klinklang - Steel-type Shift Gear sweeper"
+        },
+        {
+          "name": "Tynamo",
+          "method": "Cave Lv.27",
+          "rate": "Very Rare",
+          "why": "Evolves to Eelektross - Levitate, no weaknesses!"
+        },
+        {
+          "name": "Boldore",
+          "method": "Cave Lv.25-27",
+          "rate": "Uncommon",
+          "top25": true,
+          "why": "TOP 25: Sturdy + Stealth Rock"
+        },
+        {
+          "name": "Metang",
+          "method": "Lure Lv.30-31",
+          "rate": "Lure Only",
+          "lure": true,
+          "why": "Evolves to Metagross! Pseudo-legendary Steel/Psychic"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/5/55/Unova_Chargestone_Cave_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: ICIRRUS CITY",
+      "steps": [
+        {
+          "text": "House NW of Pokecenter. Show guy a Pokemon that gained 50-98 levels for Cleanse Tag",
+          "tags": {
+            "items": [
+              "Cleanse Tag"
+            ]
+          }
+        },
+        {
+          "text": "Fly to Opelucid City. SW to Route 9"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Stunfisk",
+          "method": "Puddles/Surf Lv.25-35",
+          "rate": "Common",
+          "why": "Ground/Electric, unique typing"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/f/f5/Unova_Icirrus_City_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: ROUTE 9 / CHALLENGER'S CAVE",
+      "steps": [
+        {
+          "text": "South in grass, follow path for HP Up + Full Restore. Enter Challenger's Cave",
+          "tags": {
+            "items": [
+              "HP Up",
+              "Full Restore"
+            ]
+          }
+        },
+        {
+          "text": "North, fight backpacker. Down stairs. Hidden Ether in rock (avoid trainer). East all the way",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Ether"
+            ]
+          }
+        },
+        {
+          "text": "North, fight girl. North all the way, west for PP Up. East, up stairs for Nugget",
+          "tags": {
+            "items": [
+              "PP Up",
+              "Nugget"
+            ]
+          }
+        },
+        {
+          "text": "Back to 2nd ace trainer. West - hidden Max Potion near stairs. Down stairs",
+          "tags": {
+            "hiddenItems": [
+              "hidden Max Potion"
+            ]
+          }
+        },
+        {
+          "text": "North, surf east. South - hidden Full Restore in rock. Back in water, north",
+          "tags": {
+            "hiddenItems": [
+              "hidden Full Restore"
+            ]
+          }
+        },
+        {
+          "text": "Follow path, avoid trainer. Hidden Max Ether in 2nd rock. East for Timer Ball",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Max Ether"
+            ],
+            "items": [
+              "Timer Ball"
+            ]
+          }
+        },
+        {
+          "text": "West, north for Protein. North for TM Stone Edge. SE, fight trainer",
+          "tags": {
+            "items": [
+              "Protein",
+              "TM Stone Edge"
+            ]
+          }
+        },
+        {
+          "text": "Surf east - hidden Heart Scale on wall. East for Black Belt. Surf north for Oval Stone. Exit, fly to Opelucid City",
+          "tags": {
+            "hiddenItems": [
+              "hidden Heart Scale"
+            ],
+            "items": [
+              "Black Belt",
+              "Oval Stone"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/9/9f/Unova_Challengers_Cave_Map.png"
+      }
+    },
+    {
+      "name": "POST-GAME: OPELUCID CITY",
+      "steps": [
+        {
+          "text": "House NW of Pokecenter - guy gives TM Draco Meteor. SE to Route 11",
+          "tags": {
+            "items": [
+              "TM Draco Meteor"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/3/3d/Unova_Opelucid_City_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 11",
+      "steps": [
+        {
+          "text": "NW, fight trainer. Super Potion in grass. East, fight trainer. Up waterfall",
+          "tags": {
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "East for TM Overheat. Down waterfall. SW - hidden Super Potion",
+          "tags": {
+            "items": [
+              "TM Overheat"
+            ],
+            "hiddenItems": [
+              "hidden Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "Surf east, down waterfall. North, fight trainer, Full Heal in grass",
+          "tags": {
+            "items": [
+              "Full Heal"
+            ]
+          }
+        },
+        {
+          "text": "South, up waterfall. NE, fight trainer. East to Village Bridge"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Golduck",
+          "method": "Grass Lv.47-48",
+          "rate": "Common",
+          "why": "Water-type, Cloud Nine ability"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/bd/Unova_Route_11_Map.png"
+      }
+    },
+    {
+      "name": "VILLAGE BRIDGE",
+      "steps": [
+        {
+          "text": "East, enter 4th house. Fisher tells you a Pokemon to catch. Catch it and show him for x2 Dive Ball",
+          "tags": {
+            "items": [
+              "x2 Dive Ball"
+            ]
+          }
+        },
+        {
+          "text": "5th house - talk to beauty girl. Exit, SE, fight baker"
+        },
+        {
+          "text": "Say yes 2x. Customers: NW > NE > SW > SE. Remember their berries. Tell baker, deliver berries",
+          "tags": {
+            "tips": [
+              "Say yes 2x. Customers: NW > NE > SW > SE. Remember their berries. Tell baker, deliver berries"
+            ]
+          }
+        },
+        {
+          "text": "Baker gives Lum Berry. Surf west for Great Ball. Surf north for Calcium in grass",
+          "tags": {
+            "items": [
+              "Lum Berry",
+              "Great Ball",
+              "Calcium"
+            ]
+          }
+        },
+        {
+          "text": "Surf east - hidden HP Up + hidden Full Restore in grass. East to Route 12",
+          "tags": {
+            "hiddenItems": [
+              "hidden HP Up",
+              "hidden Full Restore"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Clefairy",
+          "method": "Rustling Grass Lv.60-65",
+          "rate": "Special",
+          "why": "Magic Guard Clefable path"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/a/ac/Unova_Village_Bridge_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 12",
+      "steps": [
+        {
+          "text": "SW for Super Potion. East, fight beauty trainers",
+          "tags": {
+            "items": [
+              "Super Potion"
+            ]
+          }
+        },
+        {
+          "text": "North - hidden Tiny Mushroom (avoid trainer). TM Power Whip",
+          "tags": {
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ],
+            "items": [
+              "TM Power Whip"
+            ]
+          }
+        },
+        {
+          "text": "East - hidden Big Mushroom (avoid trainer). Revive",
+          "tags": {
+            "hiddenItems": [
+              "hidden Big Mushroom"
+            ],
+            "items": [
+              "Revive"
+            ]
+          }
+        },
+        {
+          "text": "South, fight breeder. Hidden Tiny Mushroom. East to Lacunosa Town (avoid girl)",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Tiny Mushroom"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Heracross",
+          "method": "Grass Lv.50",
+          "rate": "Rare",
+          "why": "Bug/Fighting - Moxie or Guts, strong attacker"
+        },
+        {
+          "name": "Pinsir",
+          "method": "Grass Lv.50",
+          "rate": "Rare",
+          "why": "Bug-type, Mold Breaker"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/c/c1/Unova_Route_12_Map.png"
+      }
+    },
+    {
+      "name": "LACUNOSA TOWN",
+      "steps": [
+        {
+          "text": "East, then north at Pokecenter - hidden Elixir near sewer plate",
+          "tags": {
+            "hiddenItems": [
+              "hidden Elixir"
+            ]
+          }
+        },
+        {
+          "text": "Shaymin lead needed: Pokecenter SW girl gives Gracidea (may be bugged)",
+          "tags": {
+            "items": [
+              "Gracidea"
+            ]
+          }
+        },
+        {
+          "text": "Sunday night: NE house guy gives random berry. East to Route 13",
+          "tags": {
+            "tips": [
+              "Sunday night: NE house guy gives random berry"
+            ]
+          }
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/c/c2/Unova_Lacunosa_Town_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 13",
+      "steps": [
+        {
+          "text": "South (avoid trainer). Cut tree for Ether. South (avoid trainer)",
+          "tags": {
+            "items": [
+              "Ether"
+            ]
+          }
+        },
+        {
+          "text": "Talk to girl near Wingull. South for Razor Claw + Gram 2",
+          "tags": {
+            "items": [
+              "Razor Claw",
+              "Gram 2"
+            ]
+          }
+        },
+        {
+          "text": "Beat trainer. Down stairs west. East (avoid fisher). Next guy gives Gram 1",
+          "tags": {
+            "items": [
+              "Gram 1"
+            ]
+          }
+        },
+        {
+          "text": "North for Heart Scale. North all the way, enter Giant Chasm cave",
+          "tags": {
+            "items": [
+              "Heart Scale"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Tangela",
+          "method": "Dark Grass Lv.52-53",
+          "rate": "Common",
+          "why": "Evolves to Tangrowth - Regenerator, bulky Grass"
+        },
+        {
+          "name": "Luvdisc",
+          "method": "Fishing Lv.35-60",
+          "rate": "Very Common",
+          "why": "Heart Scale farming"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/9/99/Unova_Route_13_Map.png"
+      }
+    },
+    {
+      "name": "GIANT CHASM",
+      "steps": [
+        {
+          "text": "West - hidden Big Mushroom in rock. Push boulder for Stardust",
+          "tags": {
+            "hiddenItems": [
+              "hidden Big Mushroom"
+            ],
+            "items": [
+              "Stardust"
+            ]
+          }
+        },
+        {
+          "text": "North all the way, push boulder for Stardust. East - hidden Tiny Mushroom in rock",
+          "tags": {
+            "items": [
+              "Stardust"
+            ],
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "East, push boulder for Star Piece. East all the way, south, push boulder",
+          "tags": {
+            "items": [
+              "Star Piece"
+            ]
+          }
+        },
+        {
+          "text": "West, enter door. SW for Elixir. North, smash rock for Max Potion",
+          "tags": {
+            "items": [
+              "Elixir",
+              "Max Potion"
+            ]
+          }
+        },
+        {
+          "text": "North all the way for Revive. SE for Carbos",
+          "tags": {
+            "items": [
+              "Revive",
+              "Carbos"
+            ]
+          }
+        },
+        {
+          "text": "East (south path) for TM Cosmic Power. Jump east, south for Full Heal",
+          "tags": {
+            "items": [
+              "TM Cosmic Power",
+              "Full Heal"
+            ]
+          }
+        },
+        {
+          "text": "SE all the way for Revive. NW for TM Psyshock. Back to Route 13 fisher",
+          "tags": {
+            "items": [
+              "Revive",
+              "TM Psyshock"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Clefairy",
+          "method": "Grass Lv.52-54",
+          "rate": "Rare",
+          "why": "Evolves to Clefable - Magic Guard, versatile Fairy"
+        },
+        {
+          "name": "Sneasel",
+          "method": "Cave Lv.48",
+          "rate": "Uncommon",
+          "top25": true,
+          "why": "TOP 25: Weavile path - Pickpocket farming"
+        },
+        {
+          "name": "Piloswine",
+          "method": "Horde Lv.46-47",
+          "rate": "Horde",
+          "why": "Evolves to Mamoswine - Ice/Ground powerhouse"
+        },
+        {
+          "name": "Boldore",
+          "method": "Rock Smash Lv.55-60",
+          "rate": "Very Common",
+          "top25": true,
+          "why": "TOP 25: Sturdy lead"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/7/71/Unova_Giant_Chasm_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 13 (CONTINUED)",
+      "steps": [
+        {
+          "text": "South (avoid fisher). Surf west - hidden Heart Scale on wall. Back",
+          "tags": {
+            "hiddenItems": [
+              "hidden Heart Scale"
+            ]
+          }
+        },
+        {
+          "text": "South (avoid parasol girl). West - guy in black gives random item. Back to parasol girl",
+          "tags": {
+            "items": [
+              "random item"
+            ]
+          }
+        },
+        {
+          "text": "Surf east for Ether. Back. South, parasol girl gives Gram 3",
+          "tags": {
+            "items": [
+              "Ether",
+              "Gram 3"
+            ]
+          }
+        },
+        {
+          "text": "Back to Wingull girl - give grams for TM Bulk Up",
+          "tags": {
+            "items": [
+              "TM Bulk Up"
+            ]
+          }
+        },
+        {
+          "text": "Back to parasol girl. South, fight fisher. South, up stairs west. North for TM Future Sight",
+          "tags": {
+            "items": [
+              "TM Future Sight"
+            ]
+          }
+        },
+        {
+          "text": "South, down stairs. Cut tree for Nugget. Back to fisher",
+          "tags": {
+            "items": [
+              "Nugget"
+            ]
+          }
+        },
+        {
+          "text": "East near water - hidden Stardust + hidden Pearl near big rock. Fight trainer",
+          "tags": {
+            "hiddenItems": [
+              "hidden Stardust",
+              "hidden Pearl"
+            ]
+          }
+        },
+        {
+          "text": "Jump south. West, fight old woman + old man. Avoid kids. SE to Undella Town"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Tangela",
+          "method": "Dark Grass Lv.52-53",
+          "rate": "Common",
+          "why": "Evolves to Tangrowth - Regenerator, bulky Grass"
+        },
+        {
+          "name": "Luvdisc",
+          "method": "Fishing Lv.35-60",
+          "rate": "Very Common",
+          "why": "Heart Scale farming"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/9/99/Unova_Route_13_Map.png"
+      }
+    },
+    {
+      "name": "UNDELLA TOWN",
+      "steps": [
+        {
+          "text": "Talk to girl for HM Dive. House west of Pokecenter - fight Cynthia",
+          "tags": {
+            "items": [
+              "HM Dive"
+            ],
+            "battles": [
+              "fight Cynthia"
+            ]
+          }
+        },
+        {
+          "text": "Exit, west, fight boy. Exit, north for Big Nugget",
+          "tags": {
+            "items": [
+              "Big Nugget"
+            ]
+          }
+        },
+        {
+          "text": "Summer only: Small house W - trade Cinccino for Munchlax. East to Undella Bay",
+          "tags": {
+            "tips": [
+              "Summer only: Small house W - trade Cinccino for Munchlax"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Shellder",
+          "method": "Fishing Lv.35-55",
+          "rate": "Common",
+          "top25": true,
+          "why": "TOP 25: Cloyster - Skill Link build"
+        },
+        {
+          "name": "Cloyster",
+          "method": "Rippling Water Fish Lv.55-60",
+          "rate": "Special",
+          "top25": true,
+          "why": "TOP 25: Already evolved! Check for Skill Link ability"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/6/61/Unova_Undella_Town_Map.png"
+      }
+    },
+    {
+      "name": "UNDELLA BAY",
+      "steps": [
+        {
+          "text": "Hidden Pearl + hidden Stardust on ground. North all the way",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Pearl",
+              "hidden Stardust"
+            ]
+          }
+        },
+        {
+          "text": "Surf east - hidden Heart Scale in big rock (avoid swimmer). East (avoid 2 swimmers). Fight girl east. Fly to Undella Town",
+          "tags": {
+            "hiddenItems": [
+              "hidden Heart Scale"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Shellder",
+          "method": "Fishing Lv.35-55",
+          "rate": "Common",
+          "top25": true,
+          "why": "TOP 25: Evolves to Cloyster with Water Stone - Skill Link + Icicle Spear for rich trainer reruns"
+        },
+        {
+          "name": "Remoraid",
+          "method": "Fishing Lv.35-55",
+          "rate": "Very Common",
+          "why": "Breeding chain piece for Water Spout Blastoise (Top 25)"
+        },
+        {
+          "name": "Lapras",
+          "method": "Rippling Water Lv.60-65",
+          "rate": "Special",
+          "why": "Ice/Water, great Surf user"
+        },
+        {
+          "name": "Spheal",
+          "method": "Surf Lv.35-55",
+          "rate": "Very Common",
+          "why": "Evolves to Walrein - bulky Ice/Water"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/4/47/Unova_Undella_Bay_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 14",
+      "steps": [
+        {
+          "text": "Surf south, east - hidden Max Revive on wall (avoid fisher). West, up waterfall",
+          "tags": {
+            "hiddenItems": [
+              "hidden Max Revive"
+            ]
+          }
+        },
+        {
+          "text": "Great Ball. Up waterfall. Talk to sage for TM Bulk Up. West (avoid trainer)",
+          "tags": {
+            "items": [
+              "Great Ball",
+              "TM Bulk Up"
+            ]
+          }
+        },
+        {
+          "text": "Down waterfall, west to Abundant Shrine"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Mienfoo",
+          "method": "Grass Lv.49",
+          "rate": "Uncommon",
+          "why": "Regenerator Mienshao"
+        },
+        {
+          "name": "Drifblim",
+          "method": "Dark Grass Lv.54",
+          "rate": "Uncommon",
+          "why": "Ghost/Flying, Aftermath"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/9/9e/Unova_Route_14_Map.png"
+      }
+    },
+    {
+      "name": "ABUNDANT SHRINE",
+      "steps": [
+        {
+          "text": "North for Super Potion. North - hidden Tiny Mushroom near girl",
+          "tags": {
+            "items": [
+              "Super Potion"
+            ],
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "West - hidden Tiny Mushroom. West (avoid trainer) for Razor Fang",
+          "tags": {
+            "hiddenItems": [
+              "hidden Tiny Mushroom"
+            ],
+            "items": [
+              "Razor Fang"
+            ]
+          }
+        },
+        {
+          "text": "Avoid next trainer. NE for Rare Candy (avoid orange guy)",
+          "tags": {
+            "items": [
+              "Rare Candy"
+            ]
+          }
+        },
+        {
+          "text": "North, surf east. Hidden Big Mushroom in tree. East for TM Power Swap. Back to orange guy",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Big Mushroom"
+            ],
+            "items": [
+              "TM Power Swap"
+            ]
+          }
+        },
+        {
+          "text": "South all the way for TM Ally Switch. Back to Route 14",
+          "tags": {
+            "items": [
+              "TM Ally Switch"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Cottonee",
+          "method": "Grass Lv.47-48",
+          "rate": "Common",
+          "top25": true,
+          "why": "TOP 25: Highest level Cottonee - easiest catch here"
+        },
+        {
+          "name": "Vulpix",
+          "method": "Grass Lv.47-48",
+          "rate": "Common",
+          "why": "Drought Ninetales for sun teams"
+        },
+        {
+          "name": "Stantler",
+          "method": "Grass Lv.47-48",
+          "rate": "Very Rare",
+          "why": "Intimidate, rare catch"
+        },
+        {
+          "name": "Ninetales",
+          "method": "Rustling Grass Lv.60-65",
+          "rate": "Special",
+          "why": "Already evolved Drought user"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/1/15/Unova_Abundant_Shrine_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 14 (CONTINUED)",
+      "steps": [
+        {
+          "text": "Surf east, fight ace trainer. Jump east. North for Hyper Potion. Down waterfall",
+          "tags": {
+            "items": [
+              "Hyper Potion"
+            ]
+          }
+        },
+        {
+          "text": "Avoid fighting trainer. South, fight trainer. West, fight ace trainer"
+        },
+        {
+          "text": "West, follow path to Black City. Fly to Nimbasa City. NE to Route 16"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Mienfoo",
+          "method": "Grass Lv.49",
+          "rate": "Uncommon",
+          "why": "Regenerator Mienshao"
+        },
+        {
+          "name": "Drifblim",
+          "method": "Dark Grass Lv.54",
+          "rate": "Uncommon",
+          "why": "Ghost/Flying, Aftermath"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/9/9e/Unova_Route_14_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 16",
+      "steps": [
+        {
+          "text": "Fight first trainer. North (avoid backpacker), cut tree for Rare Candy. East to Lostlorn Forest",
+          "tags": {
+            "items": [
+              "Rare Candy"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Gothita",
+          "method": "Grass Lv.19-22",
+          "rate": "Common",
+          "why": "Shadow Tag line"
+        },
+        {
+          "name": "Solosis",
+          "method": "Grass Lv.19-22",
+          "rate": "Uncommon",
+          "why": "Magic Guard line"
+        },
+        {
+          "name": "Vulpix",
+          "method": "Rustling Grass Lv.23-25",
+          "rate": "Special",
+          "why": "Evolves to Ninetales - Drought ability for sun teams"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/b3/Unova_Route_16_Map.png"
+      }
+    },
+    {
+      "name": "LOSTLORN FOREST",
+      "steps": [
+        {
+          "text": "North for Big Mushroom. Up waterfall. Rare Candy. North - hidden Protein. Back to Route 16",
+          "tags": {
+            "items": [
+              "Big Mushroom",
+              "Rare Candy"
+            ],
+            "hiddenItems": [
+              "hidden Protein"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Cottonee",
+          "method": "Grass Lv.19-22",
+          "rate": "Uncommon",
+          "top25": true,
+          "why": "TOP 25: Easier to find here than Pinwheel! Prankster for Tailwind + Memento"
+        },
+        {
+          "name": "Zorua",
+          "method": "Horde Lv.18-19",
+          "rate": "Horde",
+          "why": "Evolves to Zoroark - Illusion ability, cool Dark-type"
+        },
+        {
+          "name": "Venipede",
+          "method": "Grass Lv.20-21",
+          "rate": "Very Common",
+          "why": "Speed Boost Scolipede"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/7/7f/Unova_Lostlorn_Forest_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 16 (CONTINUED)",
+      "steps": [
+        {
+          "text": "Back to backpacker, push boulder (avoid trainers). North (avoid backpacker) for TM Psycho Cut + Charcoal",
+          "tags": {
+            "items": [
+              "TM Psycho Cut",
+              "Charcoal"
+            ]
+          }
+        },
+        {
+          "text": "Back to boulder, east to Marvelous Bridge"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Gothita",
+          "method": "Grass Lv.19-22",
+          "rate": "Common",
+          "why": "Shadow Tag line"
+        },
+        {
+          "name": "Solosis",
+          "method": "Grass Lv.19-22",
+          "rate": "Uncommon",
+          "why": "Magic Guard line"
+        },
+        {
+          "name": "Vulpix",
+          "method": "Rustling Grass Lv.23-25",
+          "rate": "Special",
+          "why": "Evolves to Ninetales - Drought ability for sun teams"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/b/b3/Unova_Route_16_Map.png"
+      }
+    },
+    {
+      "name": "MARVELOUS BRIDGE",
+      "steps": [
+        {
+          "text": "East - buy Magikarp from guy for $500. East - get Adamant Orb + Lustrous Orb + Griseous Orb",
+          "tags": {
+            "tips": [
+              "buy Magikarp from guy for $500"
+            ],
+            "items": [
+              "Adamant Orb",
+              "Lustrous Orb",
+              "Griseous Orb"
+            ]
+          }
+        },
+        {
+          "text": "East - talk to beauty girl, say yes, win game for Big Mushroom",
+          "tags": {
+            "items": [
+              "Big Mushroom"
+            ]
+          }
+        },
+        {
+          "text": "East to bridge gate. Beat ace trainer. East to Route 15"
+        }
+      ],
+      "catches": [
+        {
+          "name": "Magikarp",
+          "method": "Buy from NPC for $500",
+          "rate": "Guaranteed",
+          "top25": true,
+          "why": "TOP 25: Gyarados! Perfect Speed IV. Budget storyline sweeper with Dragon Dance"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/f/fa/Unova_Marvelous_Bridge_Map.png"
+      }
+    },
+    {
+      "name": "ROUTE 15",
+      "steps": [
+        {
+          "text": "Optional: Enter car - trade Ditto for Klang",
+          "tags": {
+            "tips": [
+              "Optional: Enter car - trade Ditto for Klang"
+            ]
+          }
+        },
+        {
+          "text": "Avoid first trainer. Down stairs. Beat red trainer. Hidden Great Ball near big rock",
+          "tags": {
+            "hiddenItems": [
+              "Hidden Great Ball"
+            ]
+          }
+        },
+        {
+          "text": "Up stairs, north all the way - hidden Max Revive on wall. Back to red guy, avoid girl",
+          "tags": {
+            "hiddenItems": [
+              "hidden Max Revive"
+            ]
+          }
+        },
+        {
+          "text": "Push boulder, up stairs for TM Venoshock. Back to girl",
+          "tags": {
+            "items": [
+              "TM Venoshock"
+            ]
+          }
+        },
+        {
+          "text": "East, fight another red trainer. Push boulder: 3 south, 1 east, 1 south, 1 east"
+        },
+        {
+          "text": "Get Up-Grade. Fly to Pokemon League",
+          "tags": {
+            "items": [
+              "Up-Grade"
+            ]
+          }
+        }
+      ],
+      "catches": [
+        {
+          "name": "Hydreigon",
+          "method": "Rustling Grass Lv.64-65",
+          "rate": "Special",
+          "why": "Pseudo-legendary! Dark/Dragon already fully evolved. Very rare spawn"
+        }
+      ],
+      "maps": {
+        "overview": "https://archives.bulbagarden.net/media/upload/4/4e/Unova_Route_15_Map.png"
+      }
+    },
+    {
+      "name": "FINAL BATTLES",
+      "steps": [
+        {
+          "text": "Go south. Enter door. Battle Cheren. Enter south door. Fly to Castelia City",
+          "tags": {
+            "battles": [
+              "Battle Cheren"
+            ]
+          }
+        },
+        {
+          "text": "North (east side of Pokecenter). Enter building to right, 22nd floor"
+        },
+        {
+          "text": "Battle the guy east of ace trainer. THE END!",
+          "tags": {
+            "battles": [
+              "Battle the guy east of ace trainer. THE END!"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
