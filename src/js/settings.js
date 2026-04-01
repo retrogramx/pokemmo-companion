@@ -427,7 +427,7 @@ function renderPanel(panelEl) {
 
   // Title
   const title = document.createElement('div');
-  title.className = 'settings-title';
+  title.style.cssText = "font-family:var(--font-pixel);font-size:0.5rem;color:var(--text-primary);margin-bottom:12px;";
   title.textContent = 'SETTINGS';
   panelEl.appendChild(title);
 
@@ -485,20 +485,9 @@ function renderPanel(panelEl) {
   // --- Controls section ---
   panelEl.appendChild(renderSectionTitle('Controls'));
 
-  panelEl.appendChild(renderHotkeyRow(
-    'Show / Hide', settings.hotkeys.toggle,
-    (val) => { settings.hotkeys.toggle = val; save(); }
-  ));
-
-  panelEl.appendChild(renderHotkeyRow(
-    'Complete Step', settings.hotkeys.complete,
-    (val) => { settings.hotkeys.complete = val; save(); }
-  ));
-
-  panelEl.appendChild(renderHotkeyRow(
-    'Expand / Collapse', settings.hotkeys.expand,
-    (val) => { settings.hotkeys.expand = val; save(); }
-  ));
+  panelEl.appendChild(renderInfoRow('Show / Hide', settings.hotkeys.toggle));
+  panelEl.appendChild(renderInfoRow('Complete Step', settings.hotkeys.complete));
+  panelEl.appendChild(renderInfoRow('Expand / Collapse', settings.hotkeys.expand));
 
   // --- Progress section ---
   panelEl.appendChild(renderSectionTitle('Progress'));

@@ -243,31 +243,40 @@ function renderCatchBanner(location, caughtPokemon) {
   var banner = document.createElement('div');
   banner.className = 'catch-banner';
 
-  // Collapsible header
+  var collapsed = window.__catches.isBannerCollapsed();
+  if (collapsed) banner.classList.add('collapsed');
+
+  // Header
   var header = document.createElement('div');
   header.className = 'catch-banner-header';
-  var headerTitle = document.createElement('span');
-  headerTitle.textContent = 'Pokemon to catch here (' + sorted.length + ')';
-  header.appendChild(headerTitle);
 
-  var collapseIcon = document.createElement('span');
-  collapseIcon.className = 'catch-banner-toggle';
-  var collapsed = window.__catches.isBannerCollapsed();
-  collapseIcon.textContent = collapsed ? '\u25B6' : '\u25BC';
-  header.appendChild(collapseIcon);
+  var title = document.createElement('div');
+  title.className = 'catch-banner-title';
+  var icon = document.createElement('div');
+  icon.style.cssText = 'width:14px;height:14px;min-width:14px;background:rgba(91,141,239,0.2);border-radius:3px;border:1px solid rgba(91,141,239,0.3);';
+  title.appendChild(icon);
+  var titleText = document.createElement('span');
+  titleText.textContent = sorted.length + ' Pok\u00e9mon';
+  title.appendChild(titleText);
+  header.appendChild(title);
 
-  var body = document.createElement('div');
-  body.className = 'catch-banner-body';
-  if (collapsed) body.style.display = 'none';
+  if (layout === 'icetray') {
+    var hint = document.createElement('span');
+    hint.className = 'catch-banner-hint';
+    hint.textContent = 'tap to inspect';
+    header.appendChild(hint);
+  }
 
   header.addEventListener('click', function() {
-    var isCollapsed = window.__catches.isBannerCollapsed();
+    var isCollapsed = banner.classList.contains('collapsed');
+    banner.classList.toggle('collapsed');
     window.__catches.setBannerCollapsed(!isCollapsed);
-    collapseIcon.textContent = !isCollapsed ? '\u25B6' : '\u25BC';
-    body.style.display = !isCollapsed ? 'none' : '';
   });
 
   banner.appendChild(header);
+
+  var body = document.createElement('div');
+  body.className = 'catch-banner-body';
 
   if (layout === 'cards') {
     renderCardLayout(body, sorted, caughtPokemon);
@@ -293,50 +302,50 @@ function renderCardLayout(container, catches, caughtPokemon) {
     if (c.top25) {
       // Full card for top25
       var card = document.createElement('div');
-      card.className = 'catch-card';
+      card.className = 'catch-card' + (caught ? ' caught' : '');
 
-      // Sprite box
-      var spriteBox = document.createElement('div');
-      spriteBox.className = 'sprite-box-lg';
-      if (c.dex) spriteBox.appendChild(ui.renderSpriteEl(c.dex, c.name));
-      // Type overlay
+      // Sprite with type overlay
+      var sprite = ui.renderSpriteEl(c.dex, 'lg');
       if (c.types) {
         var typeOverlay = document.createElement('div');
         typeOverlay.className = 'type-overlay';
         for (var t = 0; t < c.types.length; t++) {
           typeOverlay.appendChild(ui.renderTypeBadgeMiniEl(c.types[t]));
         }
-        spriteBox.appendChild(typeOverlay);
+        sprite.appendChild(typeOverlay);
       }
-      card.appendChild(spriteBox);
+      card.appendChild(sprite);
 
-      // Name row
+      // Info column
+      var info = document.createElement('div');
+      info.style.cssText = 'flex:1;min-width:0;';
+
+      // Name + star + type badges
       var nameRow = document.createElement('div');
-      nameRow.className = 'catch-name-row';
+      nameRow.style.cssText = 'display:flex;align-items:center;gap:6px;flex-wrap:wrap;';
       var nameSpan = document.createElement('span');
       nameSpan.className = 'catch-name';
       nameSpan.textContent = c.name;
       nameRow.appendChild(nameSpan);
-      if (c.stars) nameRow.appendChild(ui.renderStarBadge(c.stars));
+      nameRow.appendChild(ui.renderStarBadge(10));
       if (c.types) {
         for (var t2 = 0; t2 < c.types.length; t2++) {
           nameRow.appendChild(ui.renderTypeBadgeEl(c.types[t2]));
         }
       }
-      card.appendChild(nameRow);
+      info.appendChild(nameRow);
 
       // Stat pills
-      if (c.encounter && c.level && c.percent) {
-        card.appendChild(ui.renderStatPillsEl(c.encounter, c.level, c.percent));
-      }
+      info.appendChild(ui.renderStatPillsEl(c.method, c.level || '', c.percent || 0));
 
       // Why text
       if (c.why) {
         var whyEl = document.createElement('div');
         whyEl.className = 'catch-why';
         whyEl.textContent = c.why;
-        card.appendChild(whyEl);
+        info.appendChild(whyEl);
       }
+      card.appendChild(info);
 
       // Pokeball toggle
       (function(catchData) {
@@ -355,24 +364,28 @@ function renderCardLayout(container, catches, caughtPokemon) {
     } else {
       // Compact row for non-top25
       var row = document.createElement('div');
-      row.className = 'catch-row';
+      row.className = 'catch-row' + (caught ? ' caught' : '');
 
-      var spriteBoxSm = document.createElement('div');
-      spriteBoxSm.className = 'sprite-box-sm';
-      if (c.dex) spriteBoxSm.appendChild(ui.renderSpriteEl(c.dex, c.name));
-      row.appendChild(spriteBoxSm);
+      // Small sprite with type overlay
+      var spriteSmall = ui.renderSpriteEl(c.dex, 'sm');
+      if (c.types) {
+        var typeOverlaySm = document.createElement('div');
+        typeOverlaySm.className = 'type-overlay';
+        for (var t3 = 0; t3 < c.types.length; t3++) {
+          typeOverlaySm.appendChild(ui.renderTypeBadgeMiniEl(c.types[t3]));
+        }
+        spriteSmall.appendChild(typeOverlaySm);
+      }
+      row.appendChild(spriteSmall);
 
+      // Name + compact pills
       var rowInfo = document.createElement('div');
-      rowInfo.className = 'catch-row-info';
+      rowInfo.style.cssText = 'flex:1;min-width:0;display:flex;align-items:center;gap:6px;';
       var rowName = document.createElement('span');
       rowName.className = 'catch-name';
       rowName.textContent = c.name;
       rowInfo.appendChild(rowName);
-      if (c.encounter && c.level && c.percent) {
-        var compactPills = ui.renderStatPillsEl(c.encounter, c.level, c.percent);
-        compactPills.className += ' compact';
-        rowInfo.appendChild(compactPills);
-      }
+      rowInfo.appendChild(ui.renderStatPillsEl(c.method, null, c.percent || 0));
       row.appendChild(rowInfo);
 
       // Pokeball toggle
@@ -401,7 +414,8 @@ function renderIceTrayLayout(container, catches, caughtPokemon) {
   if (!ui) return;
 
   var grid = document.createElement('div');
-  grid.className = 'ice-tray-grid';
+  grid.className = 'ice-tray';
+  grid.style.gridTemplateColumns = 'repeat(' + Math.min(catches.length, 8) + ', 1fr)';
 
   var expandPanel = document.createElement('div');
   expandPanel.className = 'ice-tray-expand';
@@ -413,8 +427,11 @@ function renderIceTrayLayout(container, catches, caughtPokemon) {
       var cell = document.createElement('div');
       cell.className = 'ice-tray-cell' + (c.top25 ? ' top25' : '') + (caught ? ' caught' : '');
 
-      // Sprite
-      if (c.dex) cell.appendChild(ui.renderSpriteEl(c.dex, c.name));
+      // Sprite image directly in cell (not wrapped in sprite-box)
+      var img = document.createElement('img');
+      img.src = ui.spriteUrl(c.dex);
+      img.style.imageRendering = 'pixelated';
+      cell.appendChild(img);
 
       // Type overlay
       if (c.types) {
@@ -427,10 +444,10 @@ function renderIceTrayLayout(container, catches, caughtPokemon) {
       }
 
       // Star overlay for top25
-      if (c.top25 && c.stars) {
+      if (c.top25) {
         var starOverlay = document.createElement('div');
         starOverlay.className = 'star-overlay';
-        starOverlay.appendChild(ui.renderStarBadge(c.stars));
+        starOverlay.appendChild(ui.renderStarBadge(10));
         cell.appendChild(starOverlay);
       }
 
@@ -467,36 +484,41 @@ function renderIceTrayExpand(panel, catchData, caughtPokemon) {
 
   var caught = window.__catches.isCaught(caughtPokemon, catchData.name);
 
-  // Sprite
-  if (catchData.dex) panel.appendChild(ui.renderSpriteEl(catchData.dex, catchData.name));
+  var row = document.createElement('div');
+  row.style.cssText = 'display:flex;align-items:center;gap:10px;';
 
-  // Name + star + type badges
+  // Sprite
+  row.appendChild(ui.renderSpriteEl(catchData.dex, 'lg'));
+
+  // Info
+  var info = document.createElement('div');
+  info.style.cssText = 'flex:1;min-width:0;';
+
   var nameRow = document.createElement('div');
-  nameRow.className = 'catch-name-row';
+  nameRow.style.cssText = 'display:flex;align-items:center;gap:6px;flex-wrap:wrap;';
   var nameSpan = document.createElement('span');
-  nameSpan.className = 'catch-name';
+  nameSpan.style.cssText = 'font-size:12px;font-weight:600;color:' + (catchData.top25 ? 'var(--green)' : 'var(--text-primary)') + ';';
   nameSpan.textContent = catchData.name;
   nameRow.appendChild(nameSpan);
-  if (catchData.stars) nameRow.appendChild(ui.renderStarBadge(catchData.stars));
+  if (catchData.top25) nameRow.appendChild(ui.renderStarBadge(12));
   if (catchData.types) {
     for (var t = 0; t < catchData.types.length; t++) {
       nameRow.appendChild(ui.renderTypeBadgeEl(catchData.types[t]));
     }
   }
-  panel.appendChild(nameRow);
+  info.appendChild(nameRow);
 
   // Stat pills
-  if (catchData.encounter && catchData.level && catchData.percent) {
-    panel.appendChild(ui.renderStatPillsEl(catchData.encounter, catchData.level, catchData.percent));
-  }
+  info.appendChild(ui.renderStatPillsEl(catchData.method, catchData.level || '', catchData.percent || 0));
 
   // Why
   if (catchData.why) {
     var whyEl = document.createElement('div');
-    whyEl.className = 'catch-why';
+    whyEl.style.cssText = 'font-size:10px;color:var(--text-muted);margin-top:3px;font-style:italic;';
     whyEl.textContent = catchData.why;
-    panel.appendChild(whyEl);
+    info.appendChild(whyEl);
   }
+  row.appendChild(info);
 
   // Pokeball toggle
   var pokeball = ui.renderPokeballToggle(caught, function(e) {
@@ -507,7 +529,9 @@ function renderIceTrayExpand(panel, catchData, caughtPokemon) {
     window.__profiles.saveActiveProfile();
     window.__steps.render();
   });
-  panel.appendChild(pokeball);
+  row.appendChild(pokeball);
+
+  panel.appendChild(row);
 }
 
 async function completeStep(locIdx, stepIdx) {

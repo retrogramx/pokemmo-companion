@@ -119,60 +119,80 @@ function renderTypeBadgeEl(typeName) {
 function renderTypeBadgeMiniEl(typeName) {
   var badge = makeTypeBadgeMini(typeName);
   var el = document.createElement('span');
-  el.className = 'type-badge type-badge--mini';
+  el.className = 'type-badge-mini';
   el.textContent = badge.text;
   el.style.background = badge.bg;
   el.style.color = badge.textColor;
   return el;
 }
 
-function renderStarBadge(stars) {
-  var el = document.createElement('span');
-  el.className = 'star-badge';
-  var filled = Math.min(3, Math.max(0, stars));
-  el.textContent = '\u2605'.repeat(filled) + '\u2606'.repeat(3 - filled);
-  return el;
+function renderStarBadge(size) {
+  var ns = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('width', size || 10);
+  svg.setAttribute('height', size || 10);
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', '#ffc048');
+  svg.setAttribute('class', 'star-badge');
+  var poly = document.createElementNS(ns, 'polygon');
+  poly.setAttribute('points', '12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26');
+  svg.appendChild(poly);
+  return svg;
 }
 
 function renderStatPillsEl(encounter, level, percent) {
-  var data = buildStatPillsData(encounter, level, percent);
-  var el = document.createElement('div');
-  el.className = 'stat-pills';
+  var wrap = document.createElement('div');
+  wrap.className = 'stat-pills';
 
-  var pillEnc = document.createElement('span');
-  pillEnc.className = 'stat-pill';
-  pillEnc.textContent = 'x' + data.encounter;
+  var s1 = document.createElement('span');
+  s1.className = 'stat-pill stat-pill-encounter';
+  s1.textContent = encounter;
+  wrap.appendChild(s1);
 
-  var pillLv = document.createElement('span');
-  pillLv.className = 'stat-pill';
-  pillLv.textContent = 'Lv ' + data.level;
+  if (level) {
+    var s2 = document.createElement('span');
+    s2.className = 'stat-pill stat-pill-level';
+    s2.textContent = level;
+    wrap.appendChild(s2);
+  }
 
-  var pillPct = document.createElement('span');
-  pillPct.className = 'stat-pill';
-  pillPct.style.color = data.percentColor;
-  pillPct.textContent = data.percent + '%';
+  var s3 = document.createElement('span');
+  s3.className = 'stat-pill stat-pill-percent';
+  s3.textContent = (percent || 0) + '%';
+  s3.style.color = rarityColor(percent || 0);
+  s3.style.borderColor = rarityBorder(percent || 0);
+  s3.style.background = rarityBg(percent || 0);
+  wrap.appendChild(s3);
 
-  el.appendChild(pillEnc);
-  el.appendChild(pillLv);
-  el.appendChild(pillPct);
-  return el;
+  return wrap;
 }
 
-function renderSpriteEl(dex, alt) {
+function renderSpriteEl(dex, size) {
+  var wrap = document.createElement('div');
+  wrap.className = 'sprite-box sprite-box-' + (size || 'lg');
   var img = document.createElement('img');
   img.src = spriteUrl(dex);
-  img.alt = alt || ('Pokemon #' + dex);
-  img.className = 'pokemon-sprite';
-  return img;
+  img.width = size === 'sm' ? 24 : 48;
+  img.height = size === 'sm' ? 24 : 48;
+  img.style.imageRendering = 'pixelated';
+  img.className = 'sprite-img';
+  wrap.appendChild(img);
+  return wrap;
 }
 
 function renderPokeballToggle(caught, onClick) {
-  var btn = document.createElement('button');
-  btn.className = 'pokeball-toggle' + (caught ? ' caught' : '');
-  btn.title = caught ? 'Caught' : 'Not caught';
-  btn.textContent = caught ? '\u25CF' : '\u25CB';
-  if (onClick) btn.addEventListener('click', onClick);
-  return btn;
+  var wrap = document.createElement('div');
+  wrap.className = 'pokeball-toggle' + (caught ? ' caught' : '');
+  wrap.title = caught ? 'Mark as uncaught' : 'Mark as caught';
+  var img = document.createElement('img');
+  img.src = itemSpriteUrl('poke-ball');
+  img.style.imageRendering = 'pixelated';
+  img.className = 'pokeball-img';
+  img.width = 24;
+  img.height = 24;
+  wrap.appendChild(img);
+  if (onClick) wrap.addEventListener('click', onClick);
+  return wrap;
 }
 
 if (typeof module !== 'undefined' && module.exports) {
