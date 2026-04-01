@@ -40,31 +40,26 @@ describe('DEFAULT_SETTINGS', () => {
 });
 
 describe('THEMES', () => {
-  it('has dark-purple theme', () => {
-    expect(THEMES['dark-purple']).toBeDefined();
+  it('has all 16 themes', () => {
+    var expected = [
+      'dark-purple', 'oled-black',
+      'kanto-red', 'kanto-blue', 'kanto-yellow',
+      'johto-gold', 'johto-silver', 'johto-crystal',
+      'hoenn-ruby', 'hoenn-sapphire', 'hoenn-emerald',
+      'sinnoh-diamond', 'sinnoh-pearl', 'sinnoh-platinum',
+      'unova-black', 'unova-white',
+    ];
+    expected.forEach(function(name) {
+      expect(THEMES[name]).toBeDefined();
+    });
   });
 
-  it('has dark-blue theme', () => {
-    expect(THEMES['dark-blue']).toBeDefined();
-  });
-
-  it('has oled-black theme', () => {
-    expect(THEMES['oled-black']).toBeDefined();
-  });
-
-  it('dark-purple has bg-deep and bg-panel', () => {
-    expect(THEMES['dark-purple']['bg-deep']).toBeDefined();
-    expect(THEMES['dark-purple']['bg-panel']).toBeDefined();
-  });
-
-  it('dark-blue has bg-deep and bg-panel', () => {
-    expect(THEMES['dark-blue']['bg-deep']).toBeDefined();
-    expect(THEMES['dark-blue']['bg-panel']).toBeDefined();
-  });
-
-  it('oled-black has bg-deep and bg-panel', () => {
-    expect(THEMES['oled-black']['bg-deep']).toBeDefined();
-    expect(THEMES['oled-black']['bg-panel']).toBeDefined();
+  it('every theme has bg-deep, bg-panel, and panel-bg', () => {
+    Object.keys(THEMES).forEach(function(name) {
+      expect(THEMES[name]['bg-deep']).toBeDefined();
+      expect(THEMES[name]['bg-panel']).toBeDefined();
+      expect(THEMES[name]['panel-bg']).toBeDefined();
+    });
   });
 });
 

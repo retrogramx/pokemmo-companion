@@ -15,6 +15,7 @@ const DEFAULT_SETTINGS = {
 };
 
 const THEMES = {
+  // ── Original ──
   'dark-purple': {
     'bg-deep': 'rgba(26,20,48,0.92)',
     'bg-panel': 'rgba(28,22,54,0.95)',
@@ -23,14 +24,6 @@ const THEMES = {
     'bg-elevated': '#302858',
     'panel-bg': '#1a1430',
   },
-  'dark-blue': {
-    'bg-deep': 'rgba(16,24,48,0.92)',
-    'bg-panel': 'rgba(18,28,56,0.95)',
-    'bg-card': '#1a2440',
-    'bg-card-hover': '#22304e',
-    'bg-elevated': '#283858',
-    'panel-bg': '#101830',
-  },
   'oled-black': {
     'bg-deep': 'rgba(0,0,0,0.95)',
     'bg-panel': 'rgba(10,10,14,0.98)',
@@ -38,6 +31,123 @@ const THEMES = {
     'bg-card-hover': '#1a1a22',
     'bg-elevated': '#22222c',
     'panel-bg': '#08080c',
+  },
+  // ── Kanto ──
+  'kanto-red': {
+    'bg-deep': 'rgba(48,12,12,0.92)',
+    'bg-panel': 'rgba(56,16,16,0.95)',
+    'bg-card': '#3a1418',
+    'bg-card-hover': '#4a1c22',
+    'bg-elevated': '#52222a',
+    'panel-bg': '#2a0c0e',
+  },
+  'kanto-blue': {
+    'bg-deep': 'rgba(12,18,52,0.92)',
+    'bg-panel': 'rgba(16,22,58,0.95)',
+    'bg-card': '#141e44',
+    'bg-card-hover': '#1c2854',
+    'bg-elevated': '#223060',
+    'panel-bg': '#0c1234',
+  },
+  'kanto-yellow': {
+    'bg-deep': 'rgba(40,34,10,0.92)',
+    'bg-panel': 'rgba(46,38,14,0.95)',
+    'bg-card': '#362c12',
+    'bg-card-hover': '#44381a',
+    'bg-elevated': '#4e4020',
+    'panel-bg': '#2a2208',
+  },
+  // ── Johto ──
+  'johto-gold': {
+    'bg-deep': 'rgba(44,32,10,0.92)',
+    'bg-panel': 'rgba(50,36,14,0.95)',
+    'bg-card': '#3c2a10',
+    'bg-card-hover': '#4c3618',
+    'bg-elevated': '#563e1e',
+    'panel-bg': '#2c1e08',
+  },
+  'johto-silver': {
+    'bg-deep': 'rgba(28,30,36,0.92)',
+    'bg-panel': 'rgba(32,34,42,0.95)',
+    'bg-card': '#282a32',
+    'bg-card-hover': '#34363e',
+    'bg-elevated': '#3c3e48',
+    'panel-bg': '#1e2026',
+  },
+  'johto-crystal': {
+    'bg-deep': 'rgba(10,28,42,0.92)',
+    'bg-panel': 'rgba(14,32,48,0.95)',
+    'bg-card': '#122436',
+    'bg-card-hover': '#1a3044',
+    'bg-elevated': '#20384e',
+    'panel-bg': '#0a1a2c',
+  },
+  // ── Hoenn ──
+  'hoenn-ruby': {
+    'bg-deep': 'rgba(52,10,16,0.92)',
+    'bg-panel': 'rgba(58,14,20,0.95)',
+    'bg-card': '#42101a',
+    'bg-card-hover': '#521824',
+    'bg-elevated': '#5c1e2c',
+    'panel-bg': '#320a10',
+  },
+  'hoenn-sapphire': {
+    'bg-deep': 'rgba(10,14,48,0.92)',
+    'bg-panel': 'rgba(14,18,54,0.95)',
+    'bg-card': '#12163e',
+    'bg-card-hover': '#1a204e',
+    'bg-elevated': '#202858',
+    'panel-bg': '#0a0e30',
+  },
+  'hoenn-emerald': {
+    'bg-deep': 'rgba(8,34,20,0.92)',
+    'bg-panel': 'rgba(12,38,24,0.95)',
+    'bg-card': '#0e2a1a',
+    'bg-card-hover': '#163622',
+    'bg-elevated': '#1c3e2a',
+    'panel-bg': '#061e12',
+  },
+  // ── Sinnoh ──
+  'sinnoh-diamond': {
+    'bg-deep': 'rgba(16,20,44,0.92)',
+    'bg-panel': 'rgba(20,24,50,0.95)',
+    'bg-card': '#181c38',
+    'bg-card-hover': '#222648',
+    'bg-elevated': '#282e52',
+    'panel-bg': '#10142c',
+  },
+  'sinnoh-pearl': {
+    'bg-deep': 'rgba(36,24,32,0.92)',
+    'bg-panel': 'rgba(42,28,38,0.95)',
+    'bg-card': '#2e1e2a',
+    'bg-card-hover': '#3c2836',
+    'bg-elevated': '#44303e',
+    'panel-bg': '#241620',
+  },
+  'sinnoh-platinum': {
+    'bg-deep': 'rgba(22,24,30,0.92)',
+    'bg-panel': 'rgba(26,28,36,0.95)',
+    'bg-card': '#202228',
+    'bg-card-hover': '#2c2e36',
+    'bg-elevated': '#34363e',
+    'panel-bg': '#16181e',
+  },
+  // ── Unova ──
+  'unova-black': {
+    'bg-deep': 'rgba(6,6,10,0.95)',
+    'bg-panel': 'rgba(12,12,18,0.97)',
+    'bg-card': '#0e0e14',
+    'bg-card-hover': '#18181e',
+    'bg-elevated': '#202028',
+    'panel-bg': '#060608',
+  },
+  'unova-white': {
+    'bg-deep': 'rgba(36,36,42,0.92)',
+    'bg-panel': 'rgba(42,42,50,0.95)',
+    'bg-card': '#32323a',
+    'bg-card-hover': '#3e3e48',
+    'bg-elevated': '#464650',
+    'panel-bg': '#28282e',
   },
 };
 
@@ -460,15 +570,64 @@ function renderPanel(panelEl) {
     (val) => { settings.fontSize = val; applyFontSize(val); save(); }
   ));
 
-  panelEl.appendChild(renderSelectRow(
-    'Theme', settings.theme,
-    [
-      { value: 'dark-purple', label: 'Dark Purple' },
-      { value: 'dark-blue', label: 'Dark Blue' },
-      { value: 'oled-black', label: 'OLED Black' },
-    ],
-    (val) => { settings.theme = val; applyTheme(val); save(); }
-  ));
+  // Theme picker — custom grouped layout instead of a plain select
+  panelEl.appendChild(renderSectionTitle('Theme'));
+  var themeGrid = document.createElement('div');
+  themeGrid.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:12px;';
+
+  var themeOptions = [
+    { value: 'dark-purple', label: 'Classic', region: '' },
+    { value: 'oled-black', label: 'OLED', region: '' },
+    { value: 'kanto-red', label: 'Red', region: 'Kanto' },
+    { value: 'kanto-blue', label: 'Blue', region: 'Kanto' },
+    { value: 'kanto-yellow', label: 'Yellow', region: 'Kanto' },
+    { value: 'johto-gold', label: 'Gold', region: 'Johto' },
+    { value: 'johto-silver', label: 'Silver', region: 'Johto' },
+    { value: 'johto-crystal', label: 'Crystal', region: 'Johto' },
+    { value: 'hoenn-ruby', label: 'Ruby', region: 'Hoenn' },
+    { value: 'hoenn-sapphire', label: 'Sapphire', region: 'Hoenn' },
+    { value: 'hoenn-emerald', label: 'Emerald', region: 'Hoenn' },
+    { value: 'sinnoh-diamond', label: 'Diamond', region: 'Sinnoh' },
+    { value: 'sinnoh-pearl', label: 'Pearl', region: 'Sinnoh' },
+    { value: 'sinnoh-platinum', label: 'Platinum', region: 'Sinnoh' },
+    { value: 'unova-black', label: 'Black', region: 'Unova' },
+    { value: 'unova-white', label: 'White', region: 'Unova' },
+  ];
+
+  var currentRegion = '';
+  themeOptions.forEach(function(opt) {
+    // Region label spanning full row
+    if (opt.region !== currentRegion) {
+      currentRegion = opt.region;
+      if (opt.region) {
+        var regionLabel = document.createElement('div');
+        regionLabel.style.cssText = 'grid-column:1/-1;font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;padding:4px 0 0;font-family:var(--font-pixel);font-size:0.35rem;';
+        regionLabel.textContent = opt.region;
+        themeGrid.appendChild(regionLabel);
+      }
+    }
+
+    var btn = document.createElement('button');
+    var theme = THEMES[opt.value];
+    var isActive = settings.theme === opt.value;
+    btn.style.cssText = 'padding:6px 4px;border-radius:var(--radius-sm);border:2px solid ' +
+      (isActive ? 'var(--blue)' : 'transparent') +
+      ';background:' + (theme ? theme['bg-card'] : '#222') +
+      ';color:var(--text-primary);font-size:10px;font-family:var(--font-body);cursor:pointer;transition:all 0.15s;text-align:center;';
+    btn.textContent = opt.label;
+
+    btn.addEventListener('click', function() {
+      settings.theme = opt.value;
+      applyTheme(opt.value);
+      save();
+      // Re-render to update active states
+      renderPanel(panelEl);
+    });
+
+    themeGrid.appendChild(btn);
+  });
+
+  panelEl.appendChild(themeGrid);
 
   // Starter picker
   panelEl.appendChild(renderSelectRow(
