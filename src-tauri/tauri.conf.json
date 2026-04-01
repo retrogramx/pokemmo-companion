@@ -20,7 +20,5 @@
       }
     ]
   },
-  "plugins": {
-    "global-shortcut": {}
-  }
+  "plugins": {}
 }
