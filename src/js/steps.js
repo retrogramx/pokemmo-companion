@@ -83,16 +83,21 @@ function buildStepState(totalSteps, completedSteps, locationIdx) {
 
 let regionData = null;
 let battleData = null;
+let hiddenItemData = null;
 let currentProfile = null;
 
 async function loadRegionData() {
-  const [regionResp, battleResp] = await Promise.all([
+  const [regionResp, battleResp, hiddenResp] = await Promise.all([
     fetch('data/unova.json'),
     fetch('data/battles.json').catch(function() { return null; }),
+    fetch('data/hidden-items.json').catch(function() { return null; }),
   ]);
   regionData = await regionResp.json();
   if (battleResp && battleResp.ok) {
     battleData = await battleResp.json();
+  }
+  if (hiddenResp && hiddenResp.ok) {
+    hiddenItemData = await hiddenResp.json();
   }
   return regionData;
 }
@@ -231,6 +236,12 @@ function renderFull() {
       var textSpan = document.createElement('span');
       textSpan.innerHTML = highlightText(step.text, step.tags); // trusted data from unova.json
       textEl.appendChild(textSpan);
+
+      // Attach hidden item tooltips/click-to-view
+      if (hiddenItemData) {
+        attachHiddenItemPopouts(textSpan, location.name);
+      }
+
       stepEl.appendChild(textEl);
 
       container.appendChild(stepEl);
@@ -927,6 +938,151 @@ function getDexForName(name) {
   return _dexCache[name.toLowerCase()] || null;
 }
 
+/**
+ * Track which hidden item images have been used per location (consumed in order).
+ */
+var _hiddenItemQueues = {};
+
+function attachHiddenItemPopouts(textSpan, locationName) {
+  var items = hiddenItemData[locationName];
+  if (!items || items.length === 0) return;
+
+  // Initialize queue for this location
+  if (!_hiddenItemQueues[locationName]) {
+    _hiddenItemQueues[locationName] = items.slice();
+  }
+  var queue = _hiddenItemQueues[locationName];
+
+  var hiddenSpans = textSpan.querySelectorAll('.hl-hidden-item');
+  hiddenSpans.forEach(function(span) {
+    // Normalize item text for matching
+    var itemText = span.textContent.toLowerCase().replace(/[^a-z0-9]/g, '');
+    // Remove "hidden" prefix
+    itemText = itemText.replace(/^hidden/, '');
+
+    // Find matching image in queue
+    var matchIdx = -1;
+    for (var i = 0; i < queue.length; i++) {
+      if (itemText.indexOf(queue[i].item) >= 0 || queue[i].item.indexOf(itemText) >= 0) {
+        matchIdx = i;
+        break;
+      }
+    }
+
+    if (matchIdx >= 0) {
+      var imageUrl = queue[matchIdx].url;
+      queue.splice(matchIdx, 1); // consume from queue
+
+      // Make the span interactive
+      span.classList.add('hl-hidden-item-linked');
+      span.title = 'Click to see location screenshot';
+
+      // Add a small map icon after the text
+      var mapIcon = document.createElement('span');
+      mapIcon.className = 'hidden-item-icon';
+      mapIcon.textContent = '\u{1F4CD}'; // pin emoji — we'll replace with something better in CSS
+      span.appendChild(mapIcon);
+
+      // Click handler — show popout
+      span.addEventListener('click', function(e) {
+        e.stopPropagation();
+        showHiddenItemPopout(span.textContent.replace('\u{1F4CD}', '').trim(), imageUrl);
+      });
+
+      // Hover tooltip with small preview
+      span.addEventListener('mouseenter', function() {
+        showHiddenItemTooltip(span, imageUrl);
+      });
+      span.addEventListener('mouseleave', function() {
+        hideHiddenItemTooltip();
+      });
+    }
+  });
+}
+
+var _tooltipEl = null;
+function showHiddenItemTooltip(anchorEl, imageUrl) {
+  hideHiddenItemTooltip();
+  var tooltip = document.createElement('div');
+  tooltip.className = 'hidden-item-tooltip';
+
+  var img = document.createElement('img');
+  img.src = imageUrl;
+  img.style.cssText = 'width:180px;height:auto;border-radius:4px;display:block;';
+  tooltip.appendChild(img);
+
+  var hint = document.createElement('div');
+  hint.style.cssText = 'font-size:9px;color:var(--text-muted);text-align:center;margin-top:4px;';
+  hint.textContent = 'click to enlarge';
+  tooltip.appendChild(hint);
+
+  document.body.appendChild(tooltip);
+  _tooltipEl = tooltip;
+
+  // Position near the anchor
+  var rect = anchorEl.getBoundingClientRect();
+  tooltip.style.left = Math.max(4, rect.left) + 'px';
+  tooltip.style.top = (rect.bottom + 6) + 'px';
+
+  // Adjust if off-screen right
+  setTimeout(function() {
+    var tRect = tooltip.getBoundingClientRect();
+    if (tRect.right > window.innerWidth - 4) {
+      tooltip.style.left = (window.innerWidth - tRect.width - 4) + 'px';
+    }
+  }, 0);
+}
+
+function hideHiddenItemTooltip() {
+  if (_tooltipEl && _tooltipEl.parentNode) {
+    _tooltipEl.parentNode.removeChild(_tooltipEl);
+  }
+  _tooltipEl = null;
+}
+
+var _popoutEl = null;
+function showHiddenItemPopout(itemName, imageUrl) {
+  hideHiddenItemTooltip();
+  closeHiddenItemPopout();
+
+  var overlay = document.createElement('div');
+  overlay.className = 'hidden-item-popout-overlay';
+  overlay.addEventListener('click', closeHiddenItemPopout);
+
+  var popout = document.createElement('div');
+  popout.className = 'hidden-item-popout';
+  popout.addEventListener('click', function(e) { e.stopPropagation(); });
+
+  var header = document.createElement('div');
+  header.className = 'hidden-item-popout-header';
+  var titleEl = document.createElement('span');
+  titleEl.style.cssText = 'font-family:var(--font-pixel);font-size:0.42rem;color:var(--orange);';
+  titleEl.textContent = itemName;
+  header.appendChild(titleEl);
+  var closeBtn = document.createElement('span');
+  closeBtn.style.cssText = 'cursor:pointer;color:var(--text-muted);font-size:16px;';
+  closeBtn.textContent = '\u2715';
+  closeBtn.addEventListener('click', closeHiddenItemPopout);
+  header.appendChild(closeBtn);
+  popout.appendChild(header);
+
+  var img = document.createElement('img');
+  img.src = imageUrl;
+  img.style.cssText = 'width:100%;height:auto;border-radius:4px;display:block;';
+  popout.appendChild(img);
+
+  overlay.appendChild(popout);
+  document.body.appendChild(overlay);
+  _popoutEl = overlay;
+}
+
+function closeHiddenItemPopout() {
+  if (_popoutEl && _popoutEl.parentNode) {
+    _popoutEl.parentNode.removeChild(_popoutEl);
+  }
+  _popoutEl = null;
+}
+
 async function completeStep(locIdx, stepIdx) {
   if (!currentProfile) return;
   if (!currentProfile.completedSteps) currentProfile.completedSteps = {};
@@ -1067,6 +1223,7 @@ function updatePill() {
 }
 
 function render() {
+  _hiddenItemQueues = {}; // reset queues on re-render
   renderCompact();
   renderFull();
   updatePill();
