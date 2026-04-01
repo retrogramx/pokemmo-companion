@@ -740,7 +740,7 @@ button, input, select, a,
     inset: 0;
     top: 40px;
     bottom: 42px;
-    background: var(--bg-deep);
+    background: rgba(20, 16, 40, 0.95);
     z-index: 50;
     overflow-y: auto;
     padding: 12px;
