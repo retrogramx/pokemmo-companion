@@ -383,6 +383,17 @@
     background: rgba(46, 213, 115, 0.2);
 }
 
+.footer-btn.danger {
+    background: rgba(255, 71, 87, 0.08);
+    border-color: rgba(255, 71, 87, 0.2);
+    color: var(--text-muted);
+}
+
+.footer-btn.danger:hover {
+    background: rgba(255, 71, 87, 0.15);
+    color: var(--red);
+}
+
 /* ── New Profile Modal ── */
 .modal-overlay {
     position: fixed;
@@ -505,11 +516,6 @@
 
 .modal .btn-create:hover {
     background: rgba(91, 141, 239, 0.25);
-}
-
-/* When app is hidden, make body transparent so only the pill shows */
-body:has(.app.hidden) {
-    background: transparent;
 }
 
 /* ── Minimize Pill ── */

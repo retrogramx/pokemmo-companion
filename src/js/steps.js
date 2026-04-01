@@ -204,8 +204,64 @@ async function completeStep(locIdx, stepIdx) {
 
   currentProfile.completedSteps[`${locIdx}-${stepIdx}`] = true;
   render();
+  saveProfile();
+}
 
-  // Save via Tauri if available
+function completeCurrent() {
+  const current = findCurrentStep();
+  if (current) {
+    completeStep(current.location, current.step);
+  }
+}
+
+/**
+ * Undo the last completed step (most recently checked off).
+ */
+function undoLast() {
+  if (!currentProfile || !currentProfile.completedSteps) return;
+
+  // Find the highest step key that's completed
+  const keys = Object.keys(currentProfile.completedSteps).filter(k => currentProfile.completedSteps[k]);
+  if (keys.length === 0) return;
+
+  // Sort by location then step index to find the last one
+  keys.sort((a, b) => {
+    const [aLoc, aStep] = a.split('-').map(Number);
+    const [bLoc, bStep] = b.split('-').map(Number);
+    return aLoc !== bLoc ? aLoc - bLoc : aStep - bStep;
+  });
+
+  const lastKey = keys[keys.length - 1];
+  delete currentProfile.completedSteps[lastKey];
+
+  // Update current position to the undone step
+  const [locIdx] = lastKey.split('-').map(Number);
+  currentProfile.currentLocation = locIdx;
+
+  render();
+  saveProfile();
+}
+
+/**
+ * Clear all progress with confirmation.
+ */
+function clearAll() {
+  if (!currentProfile) return;
+  if (!confirm('Clear ALL progress for ' + currentProfile.name + '? This cannot be undone.')) return;
+
+  currentProfile.completedSteps = {};
+  currentProfile.currentLocation = 0;
+  currentProfile.currentStep = 0;
+
+  render();
+  saveProfile();
+}
+
+/**
+ * Save current profile via Tauri or localStorage.
+ */
+async function saveProfile() {
+  if (!currentProfile) return;
   if (typeof window !== 'undefined' && window.__TAURI__) {
     try {
       await window.__TAURI__.core.invoke('save_profile', {
@@ -215,13 +271,6 @@ async function completeStep(locIdx, stepIdx) {
     } catch (e) {
       console.error('Failed to save profile:', e);
     }
-  }
-}
-
-function completeCurrent() {
-  const current = findCurrentStep();
-  if (current) {
-    completeStep(current.location, current.step);
   }
 }
 
@@ -242,5 +291,5 @@ if (typeof module !== 'undefined' && module.exports) {
 
 // Attach to window for browser
 if (typeof window !== 'undefined') {
-  window.__steps = { loadRegionData, render, setProfile, completeCurrent, completeStep };
+  window.__steps = { loadRegionData, render, setProfile, completeCurrent, completeStep, undoLast, clearAll };
 }

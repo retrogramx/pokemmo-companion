@@ -39,9 +39,10 @@
 
         <!-- Full: footer -->
         <div class="footer full-only">
+            <button class="footer-btn" onclick="window.__steps.undoLast()" title="Undo last step">↩ Undo</button>
             <button class="footer-btn" onclick="window.__app.showMap()">📍 Map</button>
-            <button class="footer-btn" onclick="window.__app.showCatches()">🎣 Catches</button>
             <button class="footer-btn primary" onclick="window.__steps.completeCurrent()">✓ Complete</button>
+            <button class="footer-btn danger" onclick="window.__steps.clearAll()" title="Clear all progress">⟲ Clear</button>
         </div>
     </div>
 
