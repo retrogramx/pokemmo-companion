@@ -29,11 +29,9 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-    background: transparent !important;
-}
 body {
     font-family: var(--font-body);
+    background: var(--bg-deep);
     color: var(--text-primary);
     font-size: 13px;
     line-height: 1.4;
