@@ -619,6 +619,7 @@ function renderPanel(panelEl) {
     btn.addEventListener('click', function() {
       settings.theme = opt.value;
       applyTheme(opt.value);
+      applyOpacity(settings.opacity);
       save();
       // Re-render to update active states
       renderPanel(panelEl);
