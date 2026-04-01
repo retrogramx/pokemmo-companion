@@ -95,7 +95,8 @@ function applyTheme(themeName) {
  */
 function applyFontSize(size) {
   if (typeof document === 'undefined') return;
-  document.body.style.fontSize = FONT_SIZES[size] || size;
+  var px = FONT_SIZES[size] || FONT_SIZES['default'];
+  document.documentElement.style.setProperty('--font-size-content', px);
 }
 
 /**
@@ -106,8 +107,25 @@ function applyFontSize(size) {
  */
 function applyOpacity(value) {
   if (typeof document === 'undefined') return;
-  var app = document.getElementById('app');
-  if (app) app.style.opacity = String(value);
+  // Adjust the bg-deep and bg-panel alpha channels based on opacity value
+  // This makes the overlay background more/less transparent
+  var root = document.documentElement;
+  var currentTheme = root.style.getPropertyValue('--bg-deep') ? 'custom' : 'default';
+  // Get the current theme's base colors and adjust alpha
+  root.style.setProperty('--bg-opacity', String(value));
+  // Re-derive bg-deep with new alpha
+  var profile = window.__profiles && window.__profiles.getActiveProfile();
+  var themeName = (profile && profile.settings && profile.settings.theme) || 'dark-purple';
+  var theme = THEMES[themeName] || THEMES['dark-purple'];
+  // Parse the rgba from theme and replace alpha
+  Object.keys(theme).forEach(function(key) {
+    var val = theme[key];
+    var rgbaMatch = val.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*[\d.]+\)$/);
+    if (rgbaMatch) {
+      var adjusted = 'rgba(' + rgbaMatch[1] + ',' + rgbaMatch[2] + ',' + rgbaMatch[3] + ',' + value + ')';
+      root.style.setProperty('--' + key, adjusted);
+    }
+  });
 }
 
 /**

@@ -206,7 +206,7 @@ button, input, select, a,
 
 .compact-step .step-text {
     flex: 1;
-    font-size: 13px;
+    font-size: var(--font-size-content);
     line-height: 1.4;
 }
 
@@ -330,7 +330,7 @@ button, input, select, a,
 
 .step-text {
     flex: 1;
-    font-size: 13px;
+    font-size: var(--font-size-content);
     line-height: 1.4;
 }
 
@@ -455,7 +455,7 @@ button, input, select, a,
     border-radius: var(--radius-md);
     color: var(--text-primary);
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: var(--font-size-content);
     outline: none;
     margin-bottom: 12px;
     transition: border-color 0.15s;
