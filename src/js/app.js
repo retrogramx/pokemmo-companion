@@ -63,10 +63,24 @@ function showCatches() {
   console.log('Catches view — coming in v2');
 }
 
-// Enable window dragging from the header
-document.getElementById('dragHeader').addEventListener('mousedown', (e) => {
-  if (e.target.closest('button, .profile-trigger, .profile-dropdown, .no-drag')) return;
-  if (window.__TAURI__) {
+// Drag lock/unlock
+let dragUnlocked = false;
+
+function toggleDragLock() {
+  dragUnlocked = !dragUnlocked;
+  document.getElementById('btnLock').textContent = dragUnlocked ? '🔓' : '🔒';
+  document.getElementById('btnLock').title = dragUnlocked ? 'Lock position' : 'Unlock to drag';
+  appEl.classList.toggle('drag-unlocked', dragUnlocked);
+}
+
+// When unlocked, drag from anywhere. When locked, drag from header only.
+document.addEventListener('mousedown', (e) => {
+  if (!window.__TAURI__) return;
+  if (e.target.closest('button, .profile-trigger, .profile-dropdown, .no-drag, input, .guide-steps, .footer')) return;
+
+  if (dragUnlocked) {
+    window.__TAURI__.window.getCurrentWindow().startDragging();
+  } else if (e.target.closest('.header')) {
     window.__TAURI__.window.getCurrentWindow().startDragging();
   }
 });
@@ -90,6 +104,6 @@ async function init() {
   await window.__profiles.init();
 }
 
-window.__app = { toggleMode, hide, show, showMap, showCatches, init };
+window.__app = { toggleMode, hide, show, showMap, showCatches, toggleDragLock, init };
 
 init();
