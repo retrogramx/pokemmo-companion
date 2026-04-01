@@ -14,18 +14,18 @@
     <!-- Main app -->
     <div class="app compact" id="app">
         <!-- Header (drag handle) -->
-        <div class="header drag-handle">
+        <div class="header" data-tauri-drag-region>
             <div class="header-left">
                 <span class="header-location" id="headerLocation">NUVEMA TOWN</span>
                 <span class="header-progress" id="headerProgress">0/6</span>
             </div>
-            <div class="header-actions">
-                <div style="position:relative;">
+            <div class="header-right">
+                <div style="position:relative;" class="no-drag">
                     <div class="profile-trigger" id="profileTrigger" onclick="window.__profiles.toggleDropdown()">👤</div>
                     <div class="profile-dropdown" id="profileDropdown"></div>
                 </div>
-                <button class="header-btn full-only" id="btnCollapse" onclick="window.__app.toggleMode()" title="Collapse">▲</button>
-                <button class="header-btn" id="btnHide" onclick="window.__app.hide()" title="Hide (Ctrl+Shift+G)">✕</button>
+                <button class="header-btn full-only no-drag" id="btnCollapse" onclick="window.__app.toggleMode()" title="Collapse">▲</button>
+                <button class="header-btn no-drag" id="btnHide" onclick="window.__app.hide()" title="Hide (Ctrl+Shift+G)">✕</button>
             </div>
         </div>
 

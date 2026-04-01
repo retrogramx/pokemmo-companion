@@ -115,7 +115,7 @@ function renderCompact() {
       <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 6px rgba(91,141,239,0.5);"></span>
     </div>
     <div class="step-text">${highlightText(step.text, step.tags)}</div>
-    <button class="header-btn" onclick="window.__steps.completeCurrent()" title="Complete (Ctrl+Shift+D)" style="margin-left:auto;flex-shrink:0;">✓</button>
+    <button class="done-btn" onclick="window.__steps.completeCurrent()" title="Complete (Ctrl+Shift+D)">✓</button>
   `;
 
   // Next step preview

@@ -13,16 +13,8 @@
     display: none;
 }
 
-/* ── Drag Handle ── */
-.drag-handle {
-    -webkit-app-region: drag;
-}
-
-.drag-handle button,
-.drag-handle a,
-.drag-handle input,
-.drag-handle select,
-.drag-handle .no-drag {
+/* ── Drag Region ── */
+.no-drag {
     -webkit-app-region: no-drag;
 }
 
@@ -108,7 +100,7 @@
 .profile-dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     margin-top: 4px;
     min-width: 180px;
     background: var(--bg-panel);
