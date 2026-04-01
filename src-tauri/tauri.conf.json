@@ -1,0 +1,26 @@
+{
+  "productName": "PokeMMO Companion",
+  "version": "0.1.0",
+  "identifier": "com.retrogramx.pokemmo-companion",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "PokeMMO Companion",
+        "width": 360,
+        "height": 200,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "transparent": true,
+        "resizable": true,
+        "minWidth": 300,
+        "minHeight": 150
+      }
+    ]
+  },
+  "plugins": {
+    "global-shortcut": {}
+  }
+}
