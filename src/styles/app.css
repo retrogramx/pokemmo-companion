@@ -81,16 +81,14 @@ button, input, select, a,
     display: inline-block;
 }
 
-/* Marquee scroll when text overflows */
+/* Marquee scroll when text overflows — continuous loop */
 .header-location-wrap.marquee .header-location {
-    animation: marqueeScroll 8s linear infinite;
-    animation-delay: 1s;
+    animation: marqueeScroll var(--marquee-duration, 10s) linear infinite;
 }
 
 @keyframes marqueeScroll {
-    0%, 10% { transform: translateX(0); }
-    45%, 55% { transform: translateX(var(--marquee-distance, -30%)); }
-    90%, 100% { transform: translateX(0); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(var(--marquee-distance, -100%)); }
 }
 
 /* Progress chip (RPG HP bar style) */

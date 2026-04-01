@@ -107,17 +107,31 @@ function updateHeader(locName, locDone, locTotal) {
   var wrapEl = document.getElementById('headerLocationWrap');
   if (locEl) locEl.textContent = locName;
 
-  // Check if text overflows and enable marquee if so
+  // Check if text overflows and enable continuous marquee scroll
   if (wrapEl && locEl) {
     wrapEl.classList.remove('marquee');
-    // Reset to measure
+    // Remove any duplicate span from previous render
+    var dupeSpan = wrapEl.querySelector('.header-location-dupe');
+    if (dupeSpan) dupeSpan.parentNode.removeChild(dupeSpan);
     locEl.style.animation = 'none';
+    locEl.style.display = 'inline-block';
     void locEl.offsetWidth;
     locEl.style.animation = '';
     setTimeout(function() {
       if (locEl.scrollWidth > wrapEl.clientWidth) {
-        var distance = locEl.scrollWidth - wrapEl.clientWidth + 10;
-        locEl.style.setProperty('--marquee-distance', '-' + distance + 'px');
+        // Add a duplicate with gap for seamless loop
+        var dupe = document.createElement('span');
+        dupe.className = 'header-location header-location-dupe';
+        dupe.textContent = '\u00a0\u00a0\u00a0\u2022\u00a0\u00a0\u00a0' + locName;
+        dupe.style.cssText = locEl.style.cssText;
+        locEl.appendChild(dupe);
+        // Total scroll distance = original text + gap + dupe
+        var totalWidth = locEl.scrollWidth;
+        var halfWidth = Math.ceil(totalWidth / 2);
+        locEl.style.setProperty('--marquee-distance', '-' + halfWidth + 'px');
+        // Speed: ~40px per second
+        var duration = Math.max(5, halfWidth / 40);
+        locEl.style.setProperty('--marquee-duration', duration + 's');
         wrapEl.classList.add('marquee');
       }
     }, 50);

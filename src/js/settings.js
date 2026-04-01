@@ -630,7 +630,8 @@ function renderPanel(panelEl) {
 
   panelEl.appendChild(themeGrid);
 
-  // Starter picker
+  // --- Starter section ---
+  panelEl.appendChild(renderSectionTitle('Starter'));
   panelEl.appendChild(renderSelectRow(
     'Starter', profile.starter || 'Tepig',
     [

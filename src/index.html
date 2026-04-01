@@ -17,11 +17,11 @@
         <div class="header" id="dragHeader" data-tauri-drag-region>
             <div class="header-top">
                 <!-- Location name (flex fills space, marquee scrolls if truncated) -->
-                <div class="header-location-wrap no-drag" id="headerLocationWrap">
+                <div class="header-location-wrap" id="headerLocationWrap">
                     <span class="header-location" id="headerLocation">NUVEMA TOWN</span>
                 </div>
                 <!-- RPG progress chip -->
-                <div class="header-progress-chip no-drag">
+                <div class="header-progress-chip">
                     <span class="header-progress-label">STEP</span>
                     <div class="header-progress-bar">
                         <div class="header-progress-fill" id="headerProgressFill" style="width:0%"></div>
@@ -29,13 +29,16 @@
                     <span class="header-progress-count" id="headerProgress">0/6</span>
                 </div>
                 <!-- Overall % -->
-                <span class="header-progress-total no-drag" id="headerProgressTotal">0%</span>
+                <span class="header-progress-total" id="headerProgressTotal">0%</span>
                 <!-- Buttons -->
                 <div class="header-right">
                     <div style="position:relative;" class="no-drag">
                         <div class="profile-trigger" id="profileTrigger" onclick="window.__profiles.toggleDropdown()">P</div>
                         <div class="profile-dropdown" id="profileDropdown"></div>
                     </div>
+                    <button class="header-btn no-drag" id="btnLock" onclick="window.__app.toggleDragLock()" title="Lock position">
+                        <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="7" width="12" height="8" rx="1"/><path d="M5 7V5a3 3 0 016 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </button>
                     <button class="header-btn no-drag" id="btnToggleMode" onclick="window.__app.toggleMode()" title="Expand/Collapse">▼</button>
                     <button class="header-btn no-drag" id="btnHide" onclick="window.__app.closeApp()" title="Save & close">✕</button>
                 </div>

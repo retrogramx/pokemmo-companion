@@ -42,8 +42,11 @@ function toggleMode() {
 
 function toggleDragLock() {
   dragUnlocked = !dragUnlocked;
-  document.getElementById('btnLock').textContent = dragUnlocked ? '🔓' : '🔒';
-  document.getElementById('btnLock').title = dragUnlocked ? 'Lock position' : 'Unlock to drag';
+  var btn = document.getElementById('btnLock');
+  if (btn) {
+    btn.title = dragUnlocked ? 'Lock position' : 'Unlock to drag';
+    btn.style.color = dragUnlocked ? 'var(--blue)' : 'var(--text-secondary)';
+  }
   updateAppClasses();
 }
 
