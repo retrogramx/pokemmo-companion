@@ -284,5 +284,5 @@ if (typeof module !== 'undefined' && module.exports) {
 
 // Attach to window for browser
 if (typeof window !== 'undefined') {
-  window.__steps = { loadRegionData, render, setProfile, completeCurrent, completeStep, undoLast, clearAll };
+  window.__steps = { loadRegionData, render, setProfile, completeCurrent, completeStep, undoLast, clearAll, getRegionData: function() { return regionData; } };
 }
