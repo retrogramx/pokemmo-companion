@@ -230,6 +230,7 @@ function renderFull() {
 
   // Clear container using textContent (safe, no innerHTML on container)
   container.textContent = '';
+  container.scrollTop = 0;
 
   // Show current location + a couple upcoming
   const startLoc = current ? current.location : 0;
