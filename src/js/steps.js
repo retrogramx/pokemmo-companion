@@ -144,7 +144,9 @@ function renderFull() {
 
   const completed = getCompletedSteps();
   const current = findCurrentStep();
-  let html = '';
+
+  // Clear container using textContent (safe, no innerHTML on container)
+  container.textContent = '';
 
   // Show current location + a couple upcoming
   const startLoc = current ? current.location : 0;
@@ -154,8 +156,20 @@ function renderFull() {
     const location = regionData.locations[locIdx];
     const states = buildStepState(location.steps.length, completed, locIdx);
 
+    // Catch banner for the current location
+    if (locIdx === startLoc && location.catches && location.catches.length > 0 && window.__catches) {
+      var caughtPokemon = (currentProfile && currentProfile.caughtPokemon) ? currentProfile.caughtPokemon : {};
+      var banner = renderCatchBanner(location, caughtPokemon);
+      if (banner) container.appendChild(banner);
+    }
+
     if (locIdx > startLoc) {
-      html += `<div class="location-divider"><span>${location.name}</span></div>`;
+      var divider = document.createElement('div');
+      divider.className = 'location-divider';
+      var dividerSpan = document.createElement('span');
+      dividerSpan.textContent = location.name;
+      divider.appendChild(dividerSpan);
+      container.appendChild(divider);
     }
 
     for (let stepIdx = 0; stepIdx < location.steps.length; stepIdx++) {
@@ -163,31 +177,42 @@ function renderFull() {
       const state = states[stepIdx];
       const isCurrent = current && current.location === locIdx && current.step === stepIdx;
 
-      const cls = `step${isCurrent ? ' current' : ''}${state.done ? ' done' : ''}`;
-      const numCls = isCurrent ? 'step-num current-num' : 'step-num';
+      var stepEl = document.createElement('div');
+      stepEl.className = 'step' + (isCurrent ? ' current' : '') + (state.done ? ' done' : '');
+      (function(li, si) {
+        stepEl.addEventListener('click', function() { window.__steps.completeStep(li, si); });
+      })(locIdx, stepIdx);
 
-      // Catch tip for current step
-      let catchTip = '';
-      if (isCurrent && location.catches) {
-        const top = location.catches.filter(c => c.top25);
-        if (top.length > 0) {
-          catchTip = `<div class="catch-tip">🌿 <strong>${top[0].name}</strong> — ${top[0].why}</div>`;
-        }
+      var numEl = document.createElement('span');
+      numEl.className = isCurrent ? 'step-num current-num' : 'step-num';
+      numEl.textContent = String(stepIdx + 1).padStart(2, '0');
+      stepEl.appendChild(numEl);
+
+      var circleEl = document.createElement('div');
+      circleEl.className = 'step-circle';
+      stepEl.appendChild(circleEl);
+
+      var textEl = document.createElement('div');
+      textEl.className = 'step-text';
+      // highlightText processes only our own trusted JSON data (step text + tags)
+      // This is safe — no user-generated content flows through this path
+      var textSpan = document.createElement('span');
+      textSpan.innerHTML = highlightText(step.text, step.tags); // trusted data from unova.json
+      textEl.appendChild(textSpan);
+      stepEl.appendChild(textEl);
+
+      container.appendChild(stepEl);
+
+      // Scroll current step into view
+      if (isCurrent) {
+        (function(el) {
+          setTimeout(function() {
+            el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 50);
+        })(stepEl);
       }
-
-      html += `
-        <div class="${cls}" onclick="window.__steps.completeStep(${locIdx},${stepIdx})">
-          <span class="${numCls}">${String(stepIdx + 1).padStart(2, '0')}</span>
-          <div class="step-circle"></div>
-          <div class="step-text">
-            ${highlightText(step.text, step.tags)}
-            ${catchTip}
-          </div>
-        </div>`;
     }
   }
-
-  container.innerHTML = html;
 
   // Update header
   if (current) {
@@ -196,6 +221,287 @@ function renderFull() {
     document.getElementById('headerLocation').textContent = loc.name;
     document.getElementById('headerProgress').textContent = `${locDone}/${loc.steps.length}`;
   }
+}
+
+/**
+ * Render the catch banner for a location.
+ */
+function renderCatchBanner(location, caughtPokemon) {
+  if (!location.catches || location.catches.length === 0) return null;
+  if (!window.__catches) return null;
+
+  var sorted = window.__catches.sortCatches(location.catches);
+  var layout = window.__catches.chooseBannerLayout(sorted.length);
+  if (layout === 'none') return null;
+
+  var banner = document.createElement('div');
+  banner.className = 'catch-banner';
+
+  // Collapsible header
+  var header = document.createElement('div');
+  header.className = 'catch-banner-header';
+  var headerTitle = document.createElement('span');
+  headerTitle.textContent = 'Pokemon to catch here (' + sorted.length + ')';
+  header.appendChild(headerTitle);
+
+  var collapseIcon = document.createElement('span');
+  collapseIcon.className = 'catch-banner-toggle';
+  var collapsed = window.__catches.isBannerCollapsed();
+  collapseIcon.textContent = collapsed ? '\u25B6' : '\u25BC';
+  header.appendChild(collapseIcon);
+
+  var body = document.createElement('div');
+  body.className = 'catch-banner-body';
+  if (collapsed) body.style.display = 'none';
+
+  header.addEventListener('click', function() {
+    var isCollapsed = window.__catches.isBannerCollapsed();
+    window.__catches.setBannerCollapsed(!isCollapsed);
+    collapseIcon.textContent = !isCollapsed ? '\u25B6' : '\u25BC';
+    body.style.display = !isCollapsed ? 'none' : '';
+  });
+
+  banner.appendChild(header);
+
+  if (layout === 'cards') {
+    renderCardLayout(body, sorted, caughtPokemon);
+  } else {
+    renderIceTrayLayout(body, sorted, caughtPokemon);
+  }
+
+  banner.appendChild(body);
+  return banner;
+}
+
+/**
+ * Render card layout for 1-3 catches.
+ */
+function renderCardLayout(container, catches, caughtPokemon) {
+  var ui = window.__ui;
+  if (!ui) return;
+
+  for (var i = 0; i < catches.length; i++) {
+    var c = catches[i];
+    var caught = window.__catches.isCaught(caughtPokemon, c.name);
+
+    if (c.top25) {
+      // Full card for top25
+      var card = document.createElement('div');
+      card.className = 'catch-card';
+
+      // Sprite box
+      var spriteBox = document.createElement('div');
+      spriteBox.className = 'sprite-box-lg';
+      if (c.dex) spriteBox.appendChild(ui.renderSpriteEl(c.dex, c.name));
+      // Type overlay
+      if (c.types) {
+        var typeOverlay = document.createElement('div');
+        typeOverlay.className = 'type-overlay';
+        for (var t = 0; t < c.types.length; t++) {
+          typeOverlay.appendChild(ui.renderTypeBadgeMiniEl(c.types[t]));
+        }
+        spriteBox.appendChild(typeOverlay);
+      }
+      card.appendChild(spriteBox);
+
+      // Name row
+      var nameRow = document.createElement('div');
+      nameRow.className = 'catch-name-row';
+      var nameSpan = document.createElement('span');
+      nameSpan.className = 'catch-name';
+      nameSpan.textContent = c.name;
+      nameRow.appendChild(nameSpan);
+      if (c.stars) nameRow.appendChild(ui.renderStarBadge(c.stars));
+      if (c.types) {
+        for (var t2 = 0; t2 < c.types.length; t2++) {
+          nameRow.appendChild(ui.renderTypeBadgeEl(c.types[t2]));
+        }
+      }
+      card.appendChild(nameRow);
+
+      // Stat pills
+      if (c.encounter && c.level && c.percent) {
+        card.appendChild(ui.renderStatPillsEl(c.encounter, c.level, c.percent));
+      }
+
+      // Why text
+      if (c.why) {
+        var whyEl = document.createElement('div');
+        whyEl.className = 'catch-why';
+        whyEl.textContent = c.why;
+        card.appendChild(whyEl);
+      }
+
+      // Pokeball toggle
+      (function(catchData) {
+        var pokeball = ui.renderPokeballToggle(caught, function(e) {
+          e.stopPropagation();
+          var profile = window.__profiles.getActiveProfile();
+          if (!profile) return;
+          profile.caughtPokemon = window.__catches.toggleCaught(profile.caughtPokemon || {}, catchData.name);
+          window.__profiles.saveActiveProfile();
+          window.__steps.render();
+        });
+        card.appendChild(pokeball);
+      })(c);
+
+      container.appendChild(card);
+    } else {
+      // Compact row for non-top25
+      var row = document.createElement('div');
+      row.className = 'catch-row';
+
+      var spriteBoxSm = document.createElement('div');
+      spriteBoxSm.className = 'sprite-box-sm';
+      if (c.dex) spriteBoxSm.appendChild(ui.renderSpriteEl(c.dex, c.name));
+      row.appendChild(spriteBoxSm);
+
+      var rowInfo = document.createElement('div');
+      rowInfo.className = 'catch-row-info';
+      var rowName = document.createElement('span');
+      rowName.className = 'catch-name';
+      rowName.textContent = c.name;
+      rowInfo.appendChild(rowName);
+      if (c.encounter && c.level && c.percent) {
+        var compactPills = ui.renderStatPillsEl(c.encounter, c.level, c.percent);
+        compactPills.className += ' compact';
+        rowInfo.appendChild(compactPills);
+      }
+      row.appendChild(rowInfo);
+
+      // Pokeball toggle
+      (function(catchData) {
+        var pokeball = ui.renderPokeballToggle(caught, function(e) {
+          e.stopPropagation();
+          var profile = window.__profiles.getActiveProfile();
+          if (!profile) return;
+          profile.caughtPokemon = window.__catches.toggleCaught(profile.caughtPokemon || {}, catchData.name);
+          window.__profiles.saveActiveProfile();
+          window.__steps.render();
+        });
+        row.appendChild(pokeball);
+      })(c);
+
+      container.appendChild(row);
+    }
+  }
+}
+
+/**
+ * Render ice tray grid layout for 4+ catches.
+ */
+function renderIceTrayLayout(container, catches, caughtPokemon) {
+  var ui = window.__ui;
+  if (!ui) return;
+
+  var grid = document.createElement('div');
+  grid.className = 'ice-tray-grid';
+
+  var expandPanel = document.createElement('div');
+  expandPanel.className = 'ice-tray-expand';
+
+  for (var i = 0; i < catches.length; i++) {
+    (function(c, index) {
+      var caught = window.__catches.isCaught(caughtPokemon, c.name);
+
+      var cell = document.createElement('div');
+      cell.className = 'ice-tray-cell' + (c.top25 ? ' top25' : '') + (caught ? ' caught' : '');
+
+      // Sprite
+      if (c.dex) cell.appendChild(ui.renderSpriteEl(c.dex, c.name));
+
+      // Type overlay
+      if (c.types) {
+        var typeOverlay = document.createElement('div');
+        typeOverlay.className = 'type-overlay';
+        for (var t = 0; t < c.types.length; t++) {
+          typeOverlay.appendChild(ui.renderTypeBadgeMiniEl(c.types[t]));
+        }
+        cell.appendChild(typeOverlay);
+      }
+
+      // Star overlay for top25
+      if (c.top25 && c.stars) {
+        var starOverlay = document.createElement('div');
+        starOverlay.className = 'star-overlay';
+        starOverlay.appendChild(ui.renderStarBadge(c.stars));
+        cell.appendChild(starOverlay);
+      }
+
+      cell.addEventListener('click', function() {
+        var wasSelected = cell.classList.contains('selected');
+        // Deselect all
+        grid.querySelectorAll('.ice-tray-cell').forEach(function(c) { c.classList.remove('selected'); });
+        if (wasSelected) {
+          expandPanel.style.display = 'none';
+          expandPanel.textContent = '';
+        } else {
+          cell.classList.add('selected');
+          expandPanel.textContent = '';
+          renderIceTrayExpand(expandPanel, c, caughtPokemon);
+          expandPanel.style.display = '';
+        }
+      });
+
+      grid.appendChild(cell);
+    })(catches[i], i);
+  }
+
+  container.appendChild(grid);
+  expandPanel.style.display = 'none';
+  container.appendChild(expandPanel);
+}
+
+/**
+ * Render expanded detail card for ice tray selection.
+ */
+function renderIceTrayExpand(panel, catchData, caughtPokemon) {
+  var ui = window.__ui;
+  if (!ui) return;
+
+  var caught = window.__catches.isCaught(caughtPokemon, catchData.name);
+
+  // Sprite
+  if (catchData.dex) panel.appendChild(ui.renderSpriteEl(catchData.dex, catchData.name));
+
+  // Name + star + type badges
+  var nameRow = document.createElement('div');
+  nameRow.className = 'catch-name-row';
+  var nameSpan = document.createElement('span');
+  nameSpan.className = 'catch-name';
+  nameSpan.textContent = catchData.name;
+  nameRow.appendChild(nameSpan);
+  if (catchData.stars) nameRow.appendChild(ui.renderStarBadge(catchData.stars));
+  if (catchData.types) {
+    for (var t = 0; t < catchData.types.length; t++) {
+      nameRow.appendChild(ui.renderTypeBadgeEl(catchData.types[t]));
+    }
+  }
+  panel.appendChild(nameRow);
+
+  // Stat pills
+  if (catchData.encounter && catchData.level && catchData.percent) {
+    panel.appendChild(ui.renderStatPillsEl(catchData.encounter, catchData.level, catchData.percent));
+  }
+
+  // Why
+  if (catchData.why) {
+    var whyEl = document.createElement('div');
+    whyEl.className = 'catch-why';
+    whyEl.textContent = catchData.why;
+    panel.appendChild(whyEl);
+  }
+
+  // Pokeball toggle
+  var pokeball = ui.renderPokeballToggle(caught, function(e) {
+    e.stopPropagation();
+    var profile = window.__profiles.getActiveProfile();
+    if (!profile) return;
+    profile.caughtPokemon = window.__catches.toggleCaught(profile.caughtPokemon || {}, catchData.name);
+    window.__profiles.saveActiveProfile();
+    window.__steps.render();
+  });
+  panel.appendChild(pokeball);
 }
 
 async function completeStep(locIdx, stepIdx) {
@@ -284,5 +590,8 @@ if (typeof module !== 'undefined' && module.exports) {
 
 // Attach to window for browser
 if (typeof window !== 'undefined') {
-  window.__steps = { loadRegionData, render, setProfile, completeCurrent, completeStep, undoLast, clearAll };
+  window.__steps = {
+    loadRegionData, render, setProfile, completeCurrent, completeStep, undoLast, clearAll,
+    getRegionData: function() { return regionData; },
+  };
 }

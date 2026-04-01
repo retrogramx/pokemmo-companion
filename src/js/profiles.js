@@ -37,6 +37,12 @@ async function switchProfile(name) {
   const raw = await invoke('load_profile', { name });
   if (!raw) return;
   activeProfile = typeof raw === 'string' ? JSON.parse(raw) : raw;
+  // Backward compat: ensure new v2 fields exist
+  if (!activeProfile.caughtPokemon) activeProfile.caughtPokemon = {};
+  if (window.__settings) {
+    activeProfile.settings = window.__settings.mergeSettings(activeProfile.settings);
+    window.__settings.applyAllSettings(activeProfile.settings);
+  }
   window.__steps.setProfile(activeProfile);
   renderDropdown();
 }

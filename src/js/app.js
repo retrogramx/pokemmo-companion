@@ -134,6 +134,57 @@ async function toggleVisibility() {
 function showMap() { console.log('Map — coming in v2'); }
 function showCatches() { console.log('Catches — coming in v2'); }
 
+// --- Panel management ---
+
+var currentPanel = null; // null, 'typechart', 'settings'
+
+function toggleTypeChart() {
+  if (currentPanel === 'typechart') {
+    closePanel();
+  } else {
+    openPanel('typechart');
+  }
+}
+
+function toggleSettings() {
+  if (currentPanel === 'settings') {
+    closePanel();
+  } else {
+    openPanel('settings');
+  }
+}
+
+function openPanel(name) {
+  closePanel();
+  currentPanel = name;
+  var panelEl = name === 'typechart'
+    ? document.getElementById('typeChartPanel')
+    : document.getElementById('settingsPanel');
+  if (panelEl) {
+    if (name === 'typechart' && window.__typechart && window.__typechart.renderPanel) {
+      window.__typechart.renderPanel(panelEl);
+    }
+    if (name === 'settings' && window.__settings && window.__settings.renderPanel) {
+      window.__settings.renderPanel(panelEl);
+    }
+    panelEl.classList.add('open');
+  }
+  updatePanelButtons();
+}
+
+function closePanel() {
+  currentPanel = null;
+  document.querySelectorAll('.panel-overlay').forEach(function(p) { p.classList.remove('open'); });
+  updatePanelButtons();
+}
+
+function updatePanelButtons() {
+  var tcBtn = document.getElementById('btnTypeChart');
+  var setBtn = document.getElementById('btnSettings');
+  if (tcBtn) tcBtn.classList.toggle('active', currentPanel === 'typechart');
+  if (setBtn) setBtn.classList.toggle('active', currentPanel === 'settings');
+}
+
 // --- Hotkey event listeners ---
 
 if (window.__TAURI__) {
@@ -146,10 +197,11 @@ if (window.__TAURI__) {
 
 async function init() {
   await window.__steps.loadRegionData();
+  if (window.__typechart && window.__typechart.loadTypeData) await window.__typechart.loadTypeData();
   await window.__profiles.init();
   await restoreWindowState();
 }
 
-window.__app = { toggleMode, closeApp, toggleVisibility, showMap, showCatches, toggleDragLock, init };
+window.__app = { toggleMode, closeApp, toggleVisibility, showMap, showCatches, toggleDragLock, toggleTypeChart, toggleSettings, closePanel, init };
 
 init();
