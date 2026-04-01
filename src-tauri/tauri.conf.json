@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "identifier": "com.retrogramx.pokemmo-companion",
   "build": {
-    "frontendDist": "../src"
+    "frontendDist": "../src",
+    "withGlobalTauri": true
   },
   "app": {
     "macOSPrivateApi": true,
