@@ -33,7 +33,7 @@
 
 body {
     font-family: var(--font-body);
-    background: var(--bg-deep);
+    background: transparent;
     color: var(--text-primary);
     font-size: var(--font-size-content);
     line-height: 1.4;

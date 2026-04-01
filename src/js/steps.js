@@ -304,17 +304,8 @@ function renderCardLayout(container, catches, caughtPokemon) {
       var card = document.createElement('div');
       card.className = 'catch-card' + (caught ? ' caught' : '');
 
-      // Sprite with type overlay
-      var sprite = ui.renderSpriteEl(c.dex, 'lg');
-      if (c.types) {
-        var typeOverlay = document.createElement('div');
-        typeOverlay.className = 'type-overlay';
-        for (var t = 0; t < c.types.length; t++) {
-          typeOverlay.appendChild(ui.renderTypeBadgeMiniEl(c.types[t]));
-        }
-        sprite.appendChild(typeOverlay);
-      }
-      card.appendChild(sprite);
+      // Sprite (no type overlay — types shown on name line)
+      card.appendChild(ui.renderSpriteEl(c.dex, 'lg'));
 
       // Info column
       var info = document.createElement('div');
@@ -366,17 +357,8 @@ function renderCardLayout(container, catches, caughtPokemon) {
       var row = document.createElement('div');
       row.className = 'catch-row' + (caught ? ' caught' : '');
 
-      // Medium sprite with type overlay
-      var spriteMd = ui.renderSpriteEl(c.dex, 'md');
-      if (c.types) {
-        var typeOverlaySm = document.createElement('div');
-        typeOverlaySm.className = 'type-overlay';
-        for (var t3 = 0; t3 < c.types.length; t3++) {
-          typeOverlaySm.appendChild(ui.renderTypeBadgeMiniEl(c.types[t3]));
-        }
-        spriteMd.appendChild(typeOverlaySm);
-      }
-      row.appendChild(spriteMd);
+      // Medium sprite (no type overlay — types shown on name line)
+      row.appendChild(ui.renderSpriteEl(c.dex, 'md'));
 
       // Name + type badges + stat pills — use available horizontal space
       var rowInfo = document.createElement('div');
@@ -610,6 +592,41 @@ function undoLast() {
 }
 
 /**
+ * Undo all completed steps in the current (or most recent) location.
+ */
+function undoSection() {
+  if (!currentProfile || !currentProfile.completedSteps || !regionData) return;
+
+  // Find the current location (or the most recently completed one)
+  var current = findCurrentStep();
+  var locIdx;
+  if (current) {
+    locIdx = current.location;
+  } else {
+    // All done — find the last location with completed steps
+    var keys = Object.keys(currentProfile.completedSteps).filter(function(k) { return currentProfile.completedSteps[k]; });
+    if (keys.length === 0) return;
+    locIdx = Math.max.apply(null, keys.map(function(k) { return parseInt(k.split('-')[0]); }));
+  }
+
+  // If current location has no completed steps, go to previous location
+  var location = regionData.locations[locIdx];
+  var hasCompleted = location.steps.some(function(_, i) { return currentProfile.completedSteps[locIdx + '-' + i]; });
+  if (!hasCompleted && locIdx > 0) {
+    locIdx--;
+    location = regionData.locations[locIdx];
+  }
+
+  // Remove all completed steps for this location
+  for (var i = 0; i < location.steps.length; i++) {
+    delete currentProfile.completedSteps[locIdx + '-' + i];
+  }
+
+  render();
+  saveProfile();
+}
+
+/**
  * Clear all progress with confirmation.
  */
 function clearAll() {
@@ -667,7 +684,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // Attach to window for browser
 if (typeof window !== 'undefined') {
   window.__steps = {
-    loadRegionData, render, setProfile, completeCurrent, completeStep, completeSection, undoLast, clearAll,
+    loadRegionData, render, setProfile, completeCurrent, completeStep, completeSection, undoLast, undoSection, clearAll,
     getRegionData: function() { return regionData; },
     findCurrentStep: findCurrentStep,
   };

@@ -107,13 +107,22 @@ function applyFontSize(size) {
  */
 function applyOpacity(value) {
   if (typeof document === 'undefined') return;
-  // Set CSS opacity on the app element — affects the entire overlay uniformly
-  // True window transparency requires Tauri transparent: true which breaks
-  // macOS dragging, so this is the best approximation
-  var app = document.getElementById('app');
-  if (app) app.style.opacity = String(value);
-  // Also store as CSS variable for any elements that want to reference it
-  document.documentElement.style.setProperty('--bg-opacity', String(value));
+  // Window is transparent (Tauri transparent: true). We adjust the alpha
+  // channel of bg-deep and bg-panel so the game shows through the overlay.
+  var root = document.documentElement;
+  root.style.setProperty('--bg-opacity', String(value));
+  // Get current theme to re-derive backgrounds with new alpha
+  var profile = window.__profiles && window.__profiles.getActiveProfile();
+  var themeName = (profile && profile.settings && profile.settings.theme) || 'dark-purple';
+  var theme = THEMES[themeName] || THEMES['dark-purple'];
+  Object.keys(theme).forEach(function(key) {
+    var val = theme[key];
+    // Only adjust rgba values (bg-deep, bg-panel have alpha)
+    var m = val.match(/^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*[\d.]+\s*\)$/);
+    if (m) {
+      root.style.setProperty('--' + key, 'rgba(' + m[1] + ',' + m[2] + ',' + m[3] + ',' + value + ')');
+    }
+  });
 }
 
 /**
