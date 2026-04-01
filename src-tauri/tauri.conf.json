@@ -5,6 +5,7 @@
   "build": {
     "frontendDist": "../src"
   },
+  "macOSPrivateApi": true,
   "app": {
     "windows": [
       {
