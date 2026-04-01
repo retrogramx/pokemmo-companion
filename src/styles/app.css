@@ -68,14 +68,15 @@
     display: inline-block;
 }
 
-/* Marquee scroll when text overflows — continuous loop */
+/* Marquee scroll when text overflows — pause, scroll left, pause */
 .header-location-wrap.marquee .header-location {
-    animation: marqueeScroll var(--marquee-duration, 10s) linear infinite;
+    animation: marqueeScroll var(--marquee-duration, 8s) linear infinite;
 }
 
 @keyframes marqueeScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(var(--marquee-distance, -100%)); }
+    0%, 15% { transform: translateX(0); }
+    50%, 65% { transform: translateX(var(--marquee-distance, -50px)); }
+    100% { transform: translateX(0); }
 }
 
 /* Progress chip (RPG HP bar style) */
