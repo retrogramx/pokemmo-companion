@@ -14,7 +14,13 @@
 }
 
 /* ── Drag Region ── */
-.no-drag {
+.header {
+    -webkit-app-region: drag;
+}
+.header button,
+.header .no-drag,
+.header .profile-trigger,
+.header .profile-dropdown {
     -webkit-app-region: no-drag;
 }
 
@@ -52,6 +58,7 @@
     gap: 8px;
     min-width: 0;
     flex: 1;
+    -webkit-app-region: drag;
 }
 
 .header-right {
