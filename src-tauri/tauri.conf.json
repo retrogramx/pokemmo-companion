@@ -5,8 +5,8 @@
   "build": {
     "frontendDist": "../src"
   },
-  "macOSPrivateApi": true,
   "app": {
+    "macOSPrivateApi": true,
     "windows": [
       {
         "title": "PokeMMO Companion",
