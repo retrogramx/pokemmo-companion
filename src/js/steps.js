@@ -250,9 +250,13 @@ function renderFull() {
     if (locIdx > startLoc) {
       var divider = document.createElement('div');
       divider.className = 'location-divider';
-      var dividerSpan = document.createElement('span');
-      dividerSpan.textContent = location.name;
-      divider.appendChild(dividerSpan);
+      var dividerLabel = document.createElement('span');
+      dividerLabel.className = 'label';
+      dividerLabel.textContent = location.name;
+      divider.appendChild(dividerLabel);
+      var dividerLine = document.createElement('div');
+      dividerLine.className = 'line';
+      divider.appendChild(dividerLine);
       container.appendChild(divider);
     }
 
