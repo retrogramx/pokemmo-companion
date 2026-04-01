@@ -740,12 +740,16 @@ button, input, select, a,
     inset: 0;
     top: 40px;
     bottom: 42px;
-    background: rgba(20, 16, 40, 0.95);
+    background: var(--panel-bg, #1a1430);
     z-index: 50;
     overflow-y: auto;
     padding: 12px;
     animation: fadeIn 0.15s ease;
     display: none;
+}
+
+.panel-overlay.open {
+    display: block;
 }
 
 .panel-overlay.open {

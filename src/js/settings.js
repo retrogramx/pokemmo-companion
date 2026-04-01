@@ -21,6 +21,7 @@ const THEMES = {
     'bg-card': '#241e42',
     'bg-card-hover': '#2e2650',
     'bg-elevated': '#302858',
+    'panel-bg': '#1a1430',
   },
   'dark-blue': {
     'bg-deep': 'rgba(16,24,48,0.92)',
@@ -28,6 +29,7 @@ const THEMES = {
     'bg-card': '#1a2440',
     'bg-card-hover': '#22304e',
     'bg-elevated': '#283858',
+    'panel-bg': '#101830',
   },
   'oled-black': {
     'bg-deep': 'rgba(0,0,0,0.95)',
@@ -35,6 +37,7 @@ const THEMES = {
     'bg-card': '#111116',
     'bg-card-hover': '#1a1a22',
     'bg-elevated': '#22222c',
+    'panel-bg': '#08080c',
   },
 };
 

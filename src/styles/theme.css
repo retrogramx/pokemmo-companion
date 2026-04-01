@@ -27,6 +27,7 @@
     --radius-lg: 8px;
     --font-size-content: 13px;
     --bg-opacity: 0.92;
+    --panel-bg: #1a1430;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
