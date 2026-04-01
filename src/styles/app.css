@@ -22,9 +22,27 @@
     cursor: grabbing;
 }
 
-/* Unlocked visual indicator */
+/* Unlocked visual indicator — subtle overlay + animated border */
 .app.drag-unlocked {
-    border-color: rgba(91, 141, 239, 0.4);
+    border-color: rgba(91, 141, 239, 0.5);
+    box-shadow: inset 0 0 0 1px rgba(91, 141, 239, 0.15);
+}
+
+.app.drag-unlocked::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    z-index: 999;
+    border: 2px dashed rgba(91, 141, 239, 0.3);
+    border-radius: var(--radius-lg);
+    animation: unlockPulse 2s ease-in-out infinite;
+}
+
+@keyframes unlockPulse {
+    0%, 100% { border-color: rgba(91, 141, 239, 0.3); }
+    50% { border-color: rgba(91, 141, 239, 0.15); }
 }
 
 /* ── Header (shared) ── */
