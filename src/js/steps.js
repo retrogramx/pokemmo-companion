@@ -361,6 +361,10 @@ function renderCatchBanner(location, caughtPokemon) {
   var titleText = document.createElement('span');
   titleText.textContent = parts.join(' \u00b7 ');
   title.appendChild(titleText);
+  var chevron = document.createElement('span');
+  chevron.className = 'catch-banner-chevron';
+  chevron.textContent = collapsed ? '\u25B6' : '\u25BC';
+  title.appendChild(chevron);
   header.appendChild(title);
 
   var layout = hasCatches ? window.__catches.chooseBannerLayout(sorted.length) : 'none';
@@ -376,6 +380,7 @@ function renderCatchBanner(location, caughtPokemon) {
     var isCollapsed = banner.classList.contains('collapsed');
     banner.classList.toggle('collapsed');
     if (window.__catches) window.__catches.setBannerCollapsed(!isCollapsed);
+    chevron.textContent = !isCollapsed ? '\u25B6' : '\u25BC';
   });
 
   banner.appendChild(header);
@@ -1236,14 +1241,28 @@ async function completeStep(locIdx, stepIdx) {
   if (!currentProfile) return;
   if (!currentProfile.completedSteps) currentProfile.completedSteps = {};
 
-  // Animate the step circle
-  var stepEl = document.querySelector('.step.current');
-  if (stepEl) {
-    stepEl.classList.add('completing');
-    await new Promise(function(resolve) { setTimeout(resolve, 200); });
+  // Find and animate the step element
+  var steps = document.querySelectorAll('.step');
+  var currentStepEl = null;
+  for (var i = 0; i < steps.length; i++) {
+    if (steps[i].classList.contains('current')) {
+      currentStepEl = steps[i];
+      break;
+    }
   }
 
-  currentProfile.completedSteps[`${locIdx}-${stepIdx}`] = true;
+  if (currentStepEl) {
+    var circle = currentStepEl.querySelector('.step-circle');
+    if (circle) {
+      circle.style.background = 'var(--green)';
+      circle.style.borderColor = 'var(--green)';
+      circle.style.transition = 'all 0.2s ease';
+      circle.style.boxShadow = '0 0 8px rgba(46, 213, 115, 0.5)';
+    }
+    await new Promise(function(resolve) { setTimeout(resolve, 250); });
+  }
+
+  currentProfile.completedSteps[locIdx + '-' + stepIdx] = true;
   render();
   saveProfile();
 }

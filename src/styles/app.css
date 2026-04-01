@@ -119,13 +119,13 @@
 
 .header-progress-label {
     font-family: var(--font-pixel);
-    font-size: 0.35rem;
+    font-size: 0.38rem;
     color: var(--yellow);
 }
 
 .header-progress-bar {
     width: clamp(40px, 15vw, 80px);
-    height: 5px;
+    height: 6px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 3px;
     overflow: hidden;
@@ -141,7 +141,7 @@
 
 .header-progress-count {
     font-family: var(--font-pixel);
-    font-size: 0.35rem;
+    font-size: 0.4rem;
     color: var(--text-primary);
     white-space: nowrap;
 }
@@ -149,7 +149,7 @@
 /* Overall % chip — matches header button size but wider for text */
 .header-progress-total {
     font-family: var(--font-pixel);
-    font-size: 0.38rem;
+    font-size: 0.42rem;
     color: var(--green);
     height: 24px;
     padding: 0 8px;
@@ -329,11 +329,12 @@
 .compact-next {
     padding: 4px 12px 8px;
     font-size: 11px;
-    color: var(--text-muted);
-    opacity: 0.5;
+    color: var(--text-secondary);
+    opacity: 0.7;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-left: 38px;
 }
 
 .expand-bar {
@@ -446,6 +447,7 @@
     align-items: center;
     gap: 8px;
     padding: 8px 12px 4px;
+    margin-top: 8px;
 }
 
 .location-divider .label {
@@ -718,6 +720,13 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.catch-banner-chevron {
+    font-size: 8px;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+    margin-left: 2px;
 }
 
 .catch-banner-hint {
