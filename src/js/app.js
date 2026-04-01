@@ -13,8 +13,11 @@ updateAppClasses();
 // --- Tauri window helpers ---
 
 function getTauriWindow() {
-  if (!window.__TAURI__) return null;
-  return window.__TAURI__.window.getCurrentWindow();
+  if (!window.__TAURI__) { console.error('__TAURI__ not available'); return null; }
+  if (!window.__TAURI__.window) { console.error('__TAURI__.window not available'); return null; }
+  const win = window.__TAURI__.window.getCurrentWindow();
+  console.log('Got Tauri window:', win);
+  return win;
 }
 
 // --- View switching ---
@@ -85,10 +88,25 @@ async function restoreWindowState() {
 // --- Close app ---
 
 async function closeApp() {
+  console.log('closeApp called');
   await saveWindowState();
   const win = getTauriWindow();
   if (win) {
-    win.destroy().catch(() => window.close());
+    console.log('Attempting destroy...');
+    try {
+      await win.destroy();
+    } catch(e) {
+      console.error('destroy failed:', e);
+      try {
+        await win.close();
+      } catch(e2) {
+        console.error('close failed:', e2);
+        window.close();
+      }
+    }
+  } else {
+    console.error('No tauri window, using window.close()');
+    window.close();
   }
 }
 
