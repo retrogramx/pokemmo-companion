@@ -395,26 +395,39 @@ function renderBattleSection(container, battles) {
       }
     }
 
-    // Render Pokemon team
+    // Render Pokemon team(s)
     teamsToShow.forEach(function(team) {
+      // Extract variant note if present (usually last item with just a note field)
+      var variantNote = null;
+      var actualPokemon = [];
+      team.forEach(function(mon) {
+        if (mon.note && !mon.name) {
+          variantNote = mon.note;
+        } else {
+          actualPokemon.push(mon);
+        }
+      });
+
+      // Show variant note above the team
+      if (variantNote) {
+        var noteDiv = document.createElement('div');
+        noteDiv.className = 'battle-variant-note';
+        noteDiv.textContent = variantNote;
+        card.appendChild(noteDiv);
+      }
+
       var teamEl = document.createElement('div');
       teamEl.className = 'battle-team';
-      team.forEach(function(mon) {
-        if (mon.note) {
-          var noteDiv = document.createElement('div');
-          noteDiv.className = 'battle-variant-note';
-          noteDiv.textContent = mon.note;
-          teamEl.appendChild(noteDiv);
-          return;
-        }
+
+      actualPokemon.forEach(function(mon) {
         var monEl = document.createElement('div');
         monEl.className = 'battle-pokemon';
         var dex = getDexForName(mon.name);
         if (dex) {
           var sprite = document.createElement('img');
           sprite.src = ui.spriteUrl(dex);
-          sprite.width = 28;
-          sprite.height = 28;
+          sprite.width = 32;
+          sprite.height = 32;
           sprite.style.imageRendering = 'pixelated';
           monEl.appendChild(sprite);
         }
@@ -425,11 +438,11 @@ function renderBattleSection(container, battles) {
         monInfo.appendChild(nameSpan);
         var lvSpan = document.createElement('span');
         lvSpan.className = 'battle-pokemon-lv';
-        lvSpan.textContent = ' Lv.' + mon.lv;
+        lvSpan.textContent = 'Lv.' + mon.lv;
         monInfo.appendChild(lvSpan);
         if (mon.types) {
           var typesWrap = document.createElement('div');
-          typesWrap.style.cssText = 'display:flex;gap:2px;margin-top:1px;';
+          typesWrap.style.cssText = 'display:flex;gap:2px;margin-top:2px;';
           mon.types.forEach(function(t) { typesWrap.appendChild(ui.renderTypeBadgeEl(t)); });
           monInfo.appendChild(typesWrap);
         }
@@ -455,22 +468,9 @@ function renderCardLayout(container, catches, caughtPokemon) {
     var caught = window.__catches.isCaught(caughtPokemon, c.name);
 
     if (c.top25) {
-      // Full card for top25: pokeball | sprite | info
+      // Full card for top25: sprite | info | pokeball
       var card = document.createElement('div');
       card.className = 'catch-card' + (caught ? ' caught' : '');
-
-      // Pokeball toggle (left side)
-      (function(catchData, cardEl) {
-        var pokeball = ui.renderPokeballToggle(caught, function(e) {
-          e.stopPropagation();
-          var profile = window.__profiles.getActiveProfile();
-          if (!profile) return;
-          profile.caughtPokemon = window.__catches.toggleCaught(profile.caughtPokemon || {}, catchData.name);
-          window.__profiles.saveActiveProfile();
-          window.__steps.render();
-        });
-        cardEl.appendChild(pokeball);
-      })(c, card);
 
       // Sprite
       card.appendChild(ui.renderSpriteEl(c.dex, 'lg'));
@@ -506,14 +506,8 @@ function renderCardLayout(container, catches, caughtPokemon) {
       }
       card.appendChild(info);
 
-      container.appendChild(card);
-    } else {
-      // Compact row for non-top25: pokeball | sprite | info
-      var row = document.createElement('div');
-      row.className = 'catch-row' + (caught ? ' caught' : '');
-
-      // Pokeball toggle (left side)
-      (function(catchData, rowEl) {
+      // Pokeball toggle (right side)
+      (function(catchData) {
         var pokeball = ui.renderPokeballToggle(caught, function(e) {
           e.stopPropagation();
           var profile = window.__profiles.getActiveProfile();
@@ -522,8 +516,14 @@ function renderCardLayout(container, catches, caughtPokemon) {
           window.__profiles.saveActiveProfile();
           window.__steps.render();
         });
-        rowEl.appendChild(pokeball);
-      })(c, row);
+        card.appendChild(pokeball);
+      })(c);
+
+      container.appendChild(card);
+    } else {
+      // Compact row for non-top25: sprite | info | pokeball
+      var row = document.createElement('div');
+      row.className = 'catch-row' + (caught ? ' caught' : '');
 
       // Medium sprite
       row.appendChild(ui.renderSpriteEl(c.dex, 'md'));
@@ -545,6 +545,19 @@ function renderCardLayout(container, catches, caughtPokemon) {
       rowInfo.appendChild(rowNameLine);
       rowInfo.appendChild(ui.renderStatPillsEl(c.method, c.level || '', c.percent || 0));
       row.appendChild(rowInfo);
+
+      // Pokeball toggle (right side)
+      (function(catchData) {
+        var pokeball = ui.renderPokeballToggle(caught, function(e) {
+          e.stopPropagation();
+          var profile = window.__profiles.getActiveProfile();
+          if (!profile) return;
+          profile.caughtPokemon = window.__catches.toggleCaught(profile.caughtPokemon || {}, catchData.name);
+          window.__profiles.saveActiveProfile();
+          window.__steps.render();
+        });
+        row.appendChild(pokeball);
+      })(c);
 
       container.appendChild(row);
     }
