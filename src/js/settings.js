@@ -107,25 +107,13 @@ function applyFontSize(size) {
  */
 function applyOpacity(value) {
   if (typeof document === 'undefined') return;
-  // Adjust the bg-deep and bg-panel alpha channels based on opacity value
-  // This makes the overlay background more/less transparent
-  var root = document.documentElement;
-  var currentTheme = root.style.getPropertyValue('--bg-deep') ? 'custom' : 'default';
-  // Get the current theme's base colors and adjust alpha
-  root.style.setProperty('--bg-opacity', String(value));
-  // Re-derive bg-deep with new alpha
-  var profile = window.__profiles && window.__profiles.getActiveProfile();
-  var themeName = (profile && profile.settings && profile.settings.theme) || 'dark-purple';
-  var theme = THEMES[themeName] || THEMES['dark-purple'];
-  // Parse the rgba from theme and replace alpha
-  Object.keys(theme).forEach(function(key) {
-    var val = theme[key];
-    var rgbaMatch = val.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*[\d.]+\)$/);
-    if (rgbaMatch) {
-      var adjusted = 'rgba(' + rgbaMatch[1] + ',' + rgbaMatch[2] + ',' + rgbaMatch[3] + ',' + value + ')';
-      root.style.setProperty('--' + key, adjusted);
-    }
-  });
+  // Set CSS opacity on the app element — affects the entire overlay uniformly
+  // True window transparency requires Tauri transparent: true which breaks
+  // macOS dragging, so this is the best approximation
+  var app = document.getElementById('app');
+  if (app) app.style.opacity = String(value);
+  // Also store as CSS variable for any elements that want to reference it
+  document.documentElement.style.setProperty('--bg-opacity', String(value));
 }
 
 /**
@@ -542,22 +530,38 @@ function renderPanel(panelEl) {
 
   panelEl.appendChild(renderInfoRow('Region', 'Unova'));
 
-  // Reset Progress button
+  // Reset Progress button (two-click confirm pattern since confirm() is unreliable in Tauri)
+  var resetConfirming = false;
   const resetBtn = document.createElement('button');
   resetBtn.className = 'footer-btn danger';
   resetBtn.textContent = 'Reset Progress';
   resetBtn.style.width = '100%';
   resetBtn.style.marginTop = '8px';
-  resetBtn.addEventListener('click', () => {
-    if (!confirm('Reset all progress? This cannot be undone.')) return;
+  resetBtn.addEventListener('click', function() {
+    if (!resetConfirming) {
+      resetConfirming = true;
+      resetBtn.textContent = 'Tap again to confirm reset';
+      resetBtn.style.background = 'rgba(255, 71, 87, 0.25)';
+      resetBtn.style.borderColor = 'rgba(255, 71, 87, 0.5)';
+      resetBtn.style.color = 'var(--red)';
+      setTimeout(function() {
+        resetConfirming = false;
+        resetBtn.textContent = 'Reset Progress';
+        resetBtn.style.background = '';
+        resetBtn.style.borderColor = '';
+        resetBtn.style.color = '';
+      }, 3000);
+      return;
+    }
+    // Second click — do the reset
     if (profile) {
       profile.completedSteps = {};
       profile.caughtPokemon = {};
+      profile.currentLocation = 0;
+      profile.currentStep = 0;
       if (window.__profiles) window.__profiles.saveActiveProfile();
     }
-    // Re-render steps
     if (window.__steps) window.__steps.render();
-    // Re-render settings panel with fresh state
     renderPanel(panelEl);
   });
   panelEl.appendChild(resetBtn);

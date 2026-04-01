@@ -707,7 +707,8 @@ button, input, select, a,
     outline: 1.5px solid var(--blue);
 }
 
-.ice-tray-cell .type-overlay {
+/* Type overlay works on both sprite-box (catch cards) and ice-tray-cell */
+.type-overlay {
     position: absolute;
     bottom: 1px;
     right: 1px;
