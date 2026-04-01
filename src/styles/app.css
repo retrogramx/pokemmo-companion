@@ -567,3 +567,315 @@ button, input, select, a,
     background: var(--bg-card-hover);
     box-shadow: 0 2px 12px rgba(46, 213, 115, 0.15);
 }
+
+/* ── Catch Banner ── */
+.catch-banner {
+    background: rgba(91, 141, 239, 0.08);
+    border: 1px solid rgba(91, 141, 239, 0.2);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    margin: 4px 8px 4px;
+    transition: max-height 0.25s ease, opacity 0.25s ease, padding 0.25s ease, margin 0.25s ease;
+    overflow: hidden;
+}
+
+.catch-banner.collapsed {
+    max-height: 28px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.catch-banner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.catch-banner.collapsed .catch-banner-header {
+    margin-bottom: 0;
+}
+
+.catch-banner.collapsed .catch-banner-body {
+    display: none;
+}
+
+.catch-banner-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.catch-banner-hint {
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+/* ── Catch Card (top25 full card) ── */
+.catch-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(46, 213, 115, 0.06);
+    border: 1px solid rgba(46, 213, 115, 0.15);
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 6px;
+    transition: opacity 0.25s ease;
+}
+
+.catch-card .catch-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.catch-card .catch-why {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-style: italic;
+}
+
+/* ── Catch Row (compact non-top25) ── */
+.catch-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    transition: opacity 0.25s ease;
+}
+
+.catch-row .catch-name {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* ── Caught state ── */
+.catch-card.caught,
+.catch-row.caught {
+    opacity: 0.5;
+}
+
+/* ── Ice Tray ── */
+.ice-tray {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.ice-tray-cell {
+    aspect-ratio: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.ice-tray-cell img {
+    width: 85%;
+    height: 85%;
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
+.ice-tray-cell.top25 {
+    border-color: rgba(255, 192, 72, 0.35);
+    box-shadow: 0 0 8px rgba(255, 192, 72, 0.15), inset 0 0 8px rgba(255, 192, 72, 0.05);
+}
+
+.ice-tray-cell.caught {
+    border-color: rgba(46, 213, 115, 0.4);
+    box-shadow: 0 0 8px rgba(46, 213, 115, 0.2), inset 0 0 8px rgba(46, 213, 115, 0.06);
+    opacity: 0.5;
+}
+
+.ice-tray-cell.selected {
+    transform: scale(1.1);
+    outline: 1.5px solid var(--blue);
+}
+
+.ice-tray-cell .type-overlay {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    display: flex;
+    gap: 1px;
+}
+
+.ice-tray-cell .star-overlay {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    z-index: 1;
+    filter: drop-shadow(0 0 2px rgba(255, 192, 72, 0.6));
+}
+
+/* ── Ice Tray Expand Panel ── */
+.ice-tray-expand {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 6px;
+    animation: slideDown 0.15s ease;
+}
+
+/* ── Panel Overlay (Type Chart, Settings) ── */
+.panel-overlay {
+    position: absolute;
+    inset: 0;
+    top: 40px;
+    bottom: 42px;
+    background: var(--bg-deep);
+    z-index: 50;
+    overflow-y: auto;
+    padding: 12px;
+    animation: fadeIn 0.15s ease;
+    display: none;
+}
+
+.panel-overlay.open {
+    display: block;
+}
+
+/* ── Type Chart Grid ── */
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.type-grid .type-badge {
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    padding: 4px 2px;
+    transition: outline 0.15s ease, transform 0.15s ease;
+}
+
+.type-grid .type-badge.selected {
+    outline: 2px solid #fff;
+    transform: scale(1.05);
+}
+
+.matchup-section {
+    margin-bottom: 10px;
+}
+
+.matchup-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.matchup-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+/* ── Settings Panel ── */
+.settings-section {
+    margin-bottom: 16px;
+}
+
+.settings-section-title {
+    font-family: var(--font-pixel);
+    font-size: 0.4rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.settings-label {
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+.settings-value {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* ── Slider ── */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 4px;
+    background: var(--bg-elevated);
+    border-radius: 2px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--blue);
+    cursor: pointer;
+}
+
+/* ── Progress Bar ── */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--bg-elevated);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* ── Step completion animation ── */
+.step.completing .step-circle {
+    animation: flashGreen 0.3s ease;
+}
+
+/* ── Active button states ── */
+.header-btn.active {
+    background: rgba(91, 141, 239, 0.15);
+    border-color: rgba(91, 141, 239, 0.3);
+    color: var(--blue);
+}
+
+.footer-btn.active {
+    background: rgba(91, 141, 239, 0.12);
+    border-color: rgba(91, 141, 239, 0.3);
+    color: var(--blue);
+}
+
+/* ── Smooth step scroll ── */
+.guide-steps {
+    scroll-behavior: smooth;
+}
