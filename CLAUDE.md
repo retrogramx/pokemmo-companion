@@ -11,16 +11,21 @@ npx tauri dev
 
 ## Testing
 ```bash
-npm test              # Frontend (Vitest, 10 tests)
+npm test              # Frontend (Vitest, 134 tests)
 cd src-tauri && cargo test  # Rust (6 profile tests)
 ```
 
 ## Architecture
 - `src/` — Frontend (vanilla HTML/CSS/JS, no framework)
-- `src/data/unova.json` — All walkthrough data (86 locations, 422 steps)
-- `src/js/steps.js` — Step rendering, highlighting, completion (exports pure functions for testing)
+- `src/data/unova.json` — All walkthrough data (86 locations, 422 steps, enriched catch data with dex/types/percent)
+- `src/data/types.json` — 18x18 type effectiveness matrix
+- `src/js/ui.js` — Shared render functions (type badges, stat pills, rarity colors, sprite/pokeball builders)
+- `src/js/catches.js` — Catch banner logic (sorting, layout choice, caught state toggle)
+- `src/js/typechart.js` — Type chart calculations + panel rendering
+- `src/js/settings.js` — Settings defaults, themes, merge logic + panel rendering
+- `src/js/steps.js` — Step rendering, highlighting, completion, catch banner integration
 - `src/js/profiles.js` — Profile CRUD, Tauri command wrappers with localStorage fallback
-- `src/js/app.js` — View switching, hotkeys, window management
+- `src/js/app.js` — View switching, hotkeys, window management, panel switching
 - `src-tauri/src/profiles.rs` — Rust profile file I/O with unit tests
 - `src-tauri/src/main.rs` — Tauri commands + global hotkey registration
 
@@ -41,9 +46,9 @@ Steps use plain text + structured tags (not HTML). Highlighting happens at rende
 ## Design Spec
 Full design and v2 roadmap: `docs/specs/2026-04-01-companion-overlay-design.md`
 
-## v2 Roadmap
-- Interactive catch map with encounter type icons
-- Team builder
-- Type chart
-- Settings/customization menu
+## v3 Roadmap
+- Team builder panel
 - Multi-region support (Kanto, Johto, Hoenn, Sinnoh)
+- Interactive catch map with encounter type icons
+- Controller/gamepad input mapping
+- Import progress from web checklist

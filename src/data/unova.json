@@ -68,7 +68,13 @@
       "catches": [
         {
           "name": "Lillipup",
-          "method": "Grass Lv.2-4",
+          "dex": 506,
+          "types": [
+            "Normal"
+          ],
+          "method": "Grass",
+          "level": "Lv.2-4",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves into Stoutland - Pickup ability for passive items"
         }
@@ -146,7 +152,13 @@
       "catches": [
         {
           "name": "Purrloin",
-          "method": "Grass Lv.4-5",
+          "dex": 509,
+          "types": [
+            "Dark"
+          ],
+          "method": "Grass",
+          "level": "Lv.4-5",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Dark-type, decent early game"
         }
@@ -251,7 +263,13 @@
       "catches": [
         {
           "name": "Basculin",
-          "method": "Surf Lv.25-35",
+          "dex": 550,
+          "types": [
+            "Water"
+          ],
+          "method": "Surf",
+          "level": "Lv.25-35",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Post-game only - decent water type"
         }
@@ -307,19 +325,37 @@
       "catches": [
         {
           "name": "Munna",
-          "method": "Grass Lv.8-10",
+          "dex": 517,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.8-10",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Teleport mon alternative for Unova - fast PC returns"
         },
         {
           "name": "Musharna",
-          "method": "Rustling Grass Lv.10-12",
+          "dex": 518,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.10-12",
+          "percent": 10,
           "rate": "Special",
           "why": "Already evolved Teleport user"
         },
         {
           "name": "Roggenrola",
-          "method": "Rock Smash Lv.12-15",
+          "dex": 524,
+          "types": [
+            "Rock"
+          ],
+          "method": "Rock Smash",
+          "level": "Lv.12-15",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Sturdy + Stealth Rock lead potential"
         }
@@ -352,7 +388,13 @@
       "catches": [
         {
           "name": "Basculin",
-          "method": "Surf Lv.25-35",
+          "dex": 550,
+          "types": [
+            "Water"
+          ],
+          "method": "Surf",
+          "level": "Lv.25-35",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Post-game only - decent water type"
         }
@@ -427,21 +469,39 @@
       "catches": [
         {
           "name": "Blitzle",
-          "method": "Grass Lv.8-11",
+          "dex": 522,
+          "types": [
+            "Electric"
+          ],
+          "method": "Grass",
+          "level": "Lv.8-11",
+          "percent": 25,
           "rate": "Common",
           "why": "Fast Electric-type, good early game sweeper"
         },
         {
           "name": "Pidove",
-          "method": "Grass Lv.8-11",
+          "dex": 519,
+          "types": [
+            "Normal",
+            "Flying"
+          ],
+          "method": "Grass",
+          "level": "Lv.8-11",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Fly user - evolves into Unfezant"
         },
         {
           "name": "Tepig",
-          "method": "Lure Lv.14",
+          "dex": 498,
+          "types": [
+            "Fire"
+          ],
+          "method": "Lure",
+          "level": "Lv.14",
+          "percent": 10,
           "rate": "Lure Only",
-          "lure": true,
           "why": "Starter in the wild! Fire-type if you didn't pick one"
         }
       ],
@@ -676,58 +736,113 @@
       "catches": [
         {
           "name": "Cottonee",
-          "method": "Grass Lv.14-17",
+          "dex": 546,
+          "types": [
+            "Grass",
+            "Fairy"
+          ],
+          "method": "Grass",
+          "level": "Lv.14-17",
+          "percent": 5,
           "rate": "Rare",
           "top25": true,
           "why": "TOP 25: Prankster ability! Tailwind + Memento for gym reruns. Key utility mon"
         },
         {
           "name": "Timburr",
-          "method": "Grass Lv.13-16",
+          "dex": 532,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.13-16",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Conkeldurr - strong Fighting-type for story"
         },
         {
           "name": "Throh",
-          "method": "Grass Lv.12-16",
+          "dex": 538,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.12-16",
+          "percent": 5,
           "rate": "Rare",
           "why": "Fighting-type, no evolution needed"
         },
         {
           "name": "Sawk",
-          "method": "Grass Lv.12-15",
+          "dex": 539,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.12-15",
+          "percent": 5,
           "rate": "Rare",
           "why": "Fighting-type, Sturdy ability useful"
         },
         {
           "name": "Sewaddle",
-          "method": "Grass Lv.14-17",
+          "dex": 540,
+          "types": [
+            "Bug",
+            "Grass"
+          ],
+          "method": "Grass",
+          "level": "Lv.14-17",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Evolves to Leavanny - good Grass/Bug"
         },
         {
           "name": "Venipede",
-          "method": "Grass Lv.15-16",
+          "dex": 543,
+          "types": [
+            "Bug",
+            "Poison"
+          ],
+          "method": "Grass",
+          "level": "Lv.15-16",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Evolves to Scolipede - Speed Boost is amazing"
         },
         {
           "name": "Snivy",
-          "method": "Lure Lv.20",
+          "dex": 495,
+          "types": [
+            "Grass"
+          ],
+          "method": "Lure",
+          "level": "Lv.20",
+          "percent": 10,
           "rate": "Lure Only",
-          "lure": true,
           "why": "Starter in the wild!"
         },
         {
           "name": "Riolu",
-          "method": "Lure Lv.17",
+          "dex": 447,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Lure",
+          "level": "Lv.17",
+          "percent": 10,
           "rate": "Lure Only",
-          "lure": true,
           "why": "Evolves to Lucario - top-tier Fighting/Steel"
         },
         {
           "name": "Petilil",
-          "method": "Grass Lv.14-17",
+          "dex": 548,
+          "types": [
+            "Grass"
+          ],
+          "method": "Grass",
+          "level": "Lv.14-17",
+          "percent": 5,
           "rate": "Rare",
           "why": "Trade for Cottonee in Nacrene City"
         }
@@ -993,39 +1108,78 @@
       "catches": [
         {
           "name": "Sandile",
-          "method": "Deep Sand Lv.15-18",
+          "dex": 551,
+          "types": [
+            "Ground",
+            "Dark"
+          ],
+          "method": "Deep Sand",
+          "level": "Lv.15-18",
+          "percent": 35,
           "rate": "Very Common",
           "top25": true,
           "why": "TOP 25: Moxie ability! Evolves to Krookodile - EQ spam beast for PvM & raids"
         },
         {
           "name": "Darumaka",
-          "method": "Deep Sand Lv.15-18",
+          "dex": 554,
+          "types": [
+            "Fire"
+          ],
+          "method": "Deep Sand",
+          "level": "Lv.15-18",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Darmanitan - huge Fire attacker with Sheer Force"
         },
         {
           "name": "Scraggy",
-          "method": "Deep Sand Lv.16-17",
+          "dex": 559,
+          "types": [
+            "Dark",
+            "Fighting"
+          ],
+          "method": "Deep Sand",
+          "level": "Lv.16-17",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Scrafty - bulky Fighting/Dark with Moxie"
         },
         {
           "name": "Dwebble",
-          "method": "Rock Smash Lv.16-19",
+          "dex": 557,
+          "types": [
+            "Bug",
+            "Rock"
+          ],
+          "method": "Rock Smash",
+          "level": "Lv.16-19",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Sturdy + Stealth Rock + Shell Smash potential"
         },
         {
           "name": "Sandshrew",
-          "method": "Lure Lv.21",
+          "dex": 27,
+          "types": [
+            "Ground"
+          ],
+          "method": "Lure",
+          "level": "Lv.21",
+          "percent": 10,
           "rate": "Lure Only",
-          "lure": true,
           "why": "Ground-type, Sand Rush Excadrill budget option"
         },
         {
           "name": "Sigilyph",
-          "method": "Shadow Lv.19-21",
+          "dex": 561,
+          "types": [
+            "Psychic",
+            "Flying"
+          ],
+          "method": "Shadow",
+          "level": "Lv.19-21",
+          "percent": 10,
           "rate": "Special",
           "why": "Psychic/Flying - Magic Guard ability is strong"
         }
@@ -1228,25 +1382,50 @@
       "catches": [
         {
           "name": "Minccino",
-          "method": "Grass Lv.19-22",
+          "dex": 572,
+          "types": [
+            "Normal"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Cinccino - Skill Link + Bullet Seed/Rock Blast"
         },
         {
           "name": "Gothita",
-          "method": "Grass Lv.19-22",
+          "dex": 574,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Gothitelle - Shadow Tag trapper"
         },
         {
           "name": "Solosis",
-          "method": "Grass Lv.19-22",
+          "dex": 577,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Evolves to Reuniclus - Magic Guard + Trick Room"
         },
         {
           "name": "Emolga",
-          "method": "Rustling Grass Lv.23-25",
+          "dex": 587,
+          "types": [
+            "Electric",
+            "Flying"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.23-25",
+          "percent": 10,
           "rate": "Special",
           "why": "Electric/Flying - cute and decent ingame"
         }
@@ -1385,13 +1564,26 @@
       "catches": [
         {
           "name": "Vanillite",
-          "method": "Grass Lv.20-23",
+          "dex": 582,
+          "types": [
+            "Ice"
+          ],
+          "method": "Grass",
+          "level": "Lv.20-23",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Ice-type if you need one early"
         },
         {
           "name": "Sneasel",
-          "method": "Rustling Grass Lv.28-29",
+          "dex": 215,
+          "types": [
+            "Dark",
+            "Ice"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.28-29",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Evolves to Weavile with Razor Claw at night - Pickpocket farming & Ice/Dark attacker"
@@ -1501,25 +1693,51 @@
       "catches": [
         {
           "name": "Deerling",
-          "method": "Grass Lv.23-25",
+          "dex": 585,
+          "types": [
+            "Normal",
+            "Grass"
+          ],
+          "method": "Grass",
+          "level": "Lv.23-25",
+          "percent": 35,
           "rate": "Very Common",
           "why": "4 seasonal forms - show all 4 to Route 6 scientist for Moon Stone"
         },
         {
           "name": "Karrablast",
-          "method": "Grass Lv.22-24",
+          "dex": 588,
+          "types": [
+            "Bug"
+          ],
+          "method": "Grass",
+          "level": "Lv.22-24",
+          "percent": 25,
           "rate": "Common",
           "why": "Trade-evolves to Escavalier - good Bug/Steel"
         },
         {
           "name": "Shelmet",
-          "method": "Grass Lv.22-24",
+          "dex": 616,
+          "types": [
+            "Bug"
+          ],
+          "method": "Grass",
+          "level": "Lv.22-24",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Trade-evolves to Accelgor - fast Bug"
         },
         {
           "name": "Foongus",
-          "method": "Grass Lv.23-25",
+          "dex": 590,
+          "types": [
+            "Grass",
+            "Poison"
+          ],
+          "method": "Grass",
+          "level": "Lv.23-25",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Amoonguss - Spore + Regenerator, great utility"
         }
@@ -1646,54 +1864,105 @@
       "catches": [
         {
           "name": "Drilbur",
-          "method": "Dust Clouds Lv.30-31",
+          "dex": 529,
+          "types": [
+            "Ground"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.30-31",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Ground-type powerhouse. Mold Breaker Excadrill for Mt. Silver XP farming"
         },
         {
           "name": "Excadrill",
-          "method": "Dust Clouds Lv.31",
+          "dex": 530,
+          "types": [
+            "Ground",
+            "Steel"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.31",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Already evolved! Sand Rush or Mold Breaker"
         },
         {
           "name": "Joltik",
-          "method": "Cave Lv.24-27",
+          "dex": 595,
+          "types": [
+            "Bug",
+            "Electric"
+          ],
+          "method": "Cave",
+          "level": "Lv.24-27",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Galvantula - Compound Eyes Thunder (91% acc!)"
         },
         {
           "name": "Ferroseed",
-          "method": "Cave Lv.24-26",
+          "dex": 597,
+          "types": [
+            "Grass",
+            "Steel"
+          ],
+          "method": "Cave",
+          "level": "Lv.24-26",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Ferrothorn - top wall, Stealth Rock + Leech Seed"
         },
         {
           "name": "Klink",
-          "method": "Cave Lv.25-27",
+          "dex": 599,
+          "types": [
+            "Steel"
+          ],
+          "method": "Cave",
+          "level": "Lv.25-27",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Klinklang - Steel-type Shift Gear sweeper"
         },
         {
           "name": "Tynamo",
-          "method": "Cave Lv.27",
+          "dex": 602,
+          "types": [
+            "Electric"
+          ],
+          "method": "Cave",
+          "level": "Lv.27",
+          "percent": 1,
           "rate": "Very Rare",
           "why": "Evolves to Eelektross - Levitate, no weaknesses!"
         },
         {
           "name": "Boldore",
-          "method": "Cave Lv.25-27",
+          "dex": 525,
+          "types": [
+            "Rock"
+          ],
+          "method": "Cave",
+          "level": "Lv.25-27",
+          "percent": 15,
           "rate": "Uncommon",
           "top25": true,
           "why": "TOP 25: Sturdy + Stealth Rock"
         },
         {
           "name": "Metang",
-          "method": "Lure Lv.30-31",
+          "dex": 375,
+          "types": [
+            "Steel",
+            "Psychic"
+          ],
+          "method": "Lure",
+          "level": "Lv.30-31",
+          "percent": 10,
           "rate": "Lure Only",
-          "lure": true,
           "why": "Evolves to Metagross! Pseudo-legendary Steel/Psychic"
         }
       ],
@@ -1770,13 +2039,25 @@
       "catches": [
         {
           "name": "Cubchoo",
-          "method": "Grass Lv.27-29",
+          "dex": 613,
+          "types": [
+            "Ice"
+          ],
+          "method": "Grass",
+          "level": "Lv.27-29",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Beartic - Ice-type physical attacker"
         },
         {
           "name": "Zebstrika",
-          "method": "Grass Lv.27-29",
+          "dex": 523,
+          "types": [
+            "Electric"
+          ],
+          "method": "Grass",
+          "level": "Lv.27-29",
+          "percent": 25,
           "rate": "Common",
           "why": "Fast Electric-type, no evolution needed"
         }
@@ -1821,26 +2102,53 @@
       "catches": [
         {
           "name": "Litwick",
-          "method": "Interior Lv.26-29",
+          "dex": 607,
+          "types": [
+            "Ghost",
+            "Fire"
+          ],
+          "method": "Interior",
+          "level": "Lv.26-29",
+          "percent": 35,
           "rate": "Very Common",
           "top25": true,
           "why": "TOP 25: Evolves to Chandelure with Dusk Stone - top special attacker for raids, Pumpkin Boss, PvM. Flash Fire/Infiltrator"
         },
         {
           "name": "Elgyem",
-          "method": "Exterior Lv.26-29",
+          "dex": 605,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Exterior",
+          "level": "Lv.26-29",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Beheeyem - Psychic-type, Analytic ability"
         },
         {
           "name": "Murkrow",
-          "method": "Shadow Lv.32-33",
+          "dex": 198,
+          "types": [
+            "Dark",
+            "Flying"
+          ],
+          "method": "Shadow",
+          "level": "Lv.32-33",
+          "percent": 10,
           "rate": "Special",
           "why": "Prankster! Alternative to Cottonee for gym reruns. Evolves to Honchkrow"
         },
         {
           "name": "Drifloon",
-          "method": "Shadow Lv.32-33",
+          "dex": 425,
+          "types": [
+            "Ghost",
+            "Flying"
+          ],
+          "method": "Shadow",
+          "level": "Lv.32-33",
+          "percent": 10,
           "rate": "Special",
           "why": "Evolves to Drifblim - Ghost/Flying, Aftermath/Unburden"
         }
@@ -1934,13 +2242,25 @@
       "catches": [
         {
           "name": "Cubchoo",
-          "method": "Grass Lv.27-29",
+          "dex": 613,
+          "types": [
+            "Ice"
+          ],
+          "method": "Grass",
+          "level": "Lv.27-29",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Beartic - Ice-type physical attacker"
         },
         {
           "name": "Zebstrika",
-          "method": "Grass Lv.27-29",
+          "dex": 523,
+          "types": [
+            "Electric"
+          ],
+          "method": "Grass",
+          "level": "Lv.27-29",
+          "percent": 25,
           "rate": "Common",
           "why": "Fast Electric-type, no evolution needed"
         }
@@ -2050,40 +2370,78 @@
       "catches": [
         {
           "name": "Boldore",
-          "method": "Cave Lv.28-31",
+          "dex": 525,
+          "types": [
+            "Rock"
+          ],
+          "method": "Cave",
+          "level": "Lv.28-31",
+          "percent": 35,
           "rate": "Very Common",
           "top25": true,
           "why": "TOP 25: Sturdy + Stealth Rock lead"
         },
         {
           "name": "Drilbur",
-          "method": "Dust Clouds Lv.33-34",
+          "dex": 529,
+          "types": [
+            "Ground"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.33-34",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Higher level than Chargestone Cave"
         },
         {
           "name": "Excadrill",
-          "method": "Dust Clouds Lv.33-34",
+          "dex": 530,
+          "types": [
+            "Ground",
+            "Steel"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.33-34",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Already evolved, higher level"
         },
         {
           "name": "Larvitar",
-          "method": "Dust Clouds Lv.33-34",
+          "dex": 246,
+          "types": [
+            "Rock",
+            "Ground"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.33-34",
+          "percent": 10,
           "rate": "Special",
           "why": "Pseudo-legendary! Evolves to Tyranitar"
         },
         {
           "name": "Cubchoo",
-          "method": "Cave Lv.28",
+          "dex": 613,
+          "types": [
+            "Ice"
+          ],
+          "method": "Cave",
+          "level": "Lv.28",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Ice-type option"
         },
         {
           "name": "Cryogonal",
-          "method": "Cave Lv.28-31",
+          "dex": 615,
+          "types": [
+            "Ice"
+          ],
+          "method": "Cave",
+          "level": "Lv.28-31",
+          "percent": 1,
           "rate": "Very Rare",
           "why": "Ice-type, no evolution, Levitate"
         }
@@ -2168,7 +2526,14 @@
       "catches": [
         {
           "name": "Stunfisk",
-          "method": "Puddles/Surf Lv.25-35",
+          "dex": 618,
+          "types": [
+            "Ground",
+            "Electric"
+          ],
+          "method": "Puddles/Surf",
+          "level": "Lv.25-35",
+          "percent": 25,
           "rate": "Common",
           "why": "Ground/Electric, unique typing"
         }
@@ -2268,20 +2633,39 @@
       "catches": [
         {
           "name": "Golett",
-          "method": "Interior Lv.30-33",
+          "dex": 622,
+          "types": [
+            "Ground",
+            "Ghost"
+          ],
+          "method": "Interior",
+          "level": "Lv.30-33",
+          "percent": 35,
           "rate": "Very Common",
           "top25": true,
           "why": "TOP 25: Evolves to Golurk at Lv.43 - No Guard ability for encounter rate boost in shiny/alpha hunts"
         },
         {
           "name": "Druddigon",
-          "method": "Interior/Exterior Lv.30-33",
+          "dex": 621,
+          "types": [
+            "Dragon"
+          ],
+          "method": "Interior/Exterior",
+          "level": "Lv.30-33",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Dragon-type, no evolution, Sheer Force + Life Orb"
         },
         {
           "name": "Mienfoo",
-          "method": "Dark Grass Lv.33-36",
+          "dex": 619,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Dark Grass",
+          "level": "Lv.33-36",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Mienshao - fast Fighting-type, Regenerator"
         }
@@ -2418,20 +2802,39 @@
       "catches": [
         {
           "name": "Yamask",
-          "method": "Cave Lv.19-22",
+          "dex": 562,
+          "types": [
+            "Ghost"
+          ],
+          "method": "Cave",
+          "level": "Lv.19-22",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Cofagrigus - bulky Ghost, Mummy ability"
         },
         {
           "name": "Larvesta",
-          "method": "Cave Lv.47-49",
+          "dex": 636,
+          "types": [
+            "Bug",
+            "Fire"
+          ],
+          "method": "Cave",
+          "level": "Lv.47-49",
+          "percent": 1,
           "rate": "Very Rare",
           "top25": true,
           "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona - top special attacker. Post-game only"
         },
         {
           "name": "Volcarona",
+          "dex": 637,
+          "types": [
+            "Bug",
+            "Fire"
+          ],
           "method": "Special encounter (post-game maze)",
+          "percent": 10,
           "rate": "One-time",
           "top25": true,
           "why": "TOP 25: End of Relic Castle maze post-game. Bug/Fire powerhouse"
@@ -2492,13 +2895,26 @@
       "catches": [
         {
           "name": "Palpitoad",
-          "method": "Grass Lv.30-33",
+          "dex": 536,
+          "types": [
+            "Water",
+            "Ground"
+          ],
+          "method": "Grass",
+          "level": "Lv.30-33",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Seismitoad - Water/Ground, Swift Swim"
         },
         {
           "name": "Shelmet",
-          "method": "Grass Lv.30-33",
+          "dex": 616,
+          "types": [
+            "Bug"
+          ],
+          "method": "Grass",
+          "level": "Lv.30-33",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Trade-evolves to Accelgor"
         }
@@ -2561,7 +2977,14 @@
       "catches": [
         {
           "name": "Stunfisk",
-          "method": "Surf Lv.25-35",
+          "dex": 618,
+          "types": [
+            "Ground",
+            "Electric"
+          ],
+          "method": "Surf",
+          "level": "Lv.25-35",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Ground/Electric"
         }
@@ -2596,13 +3019,26 @@
       "catches": [
         {
           "name": "Palpitoad",
-          "method": "Grass Lv.30-33",
+          "dex": 536,
+          "types": [
+            "Water",
+            "Ground"
+          ],
+          "method": "Grass",
+          "level": "Lv.30-33",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Seismitoad - Water/Ground, Swift Swim"
         },
         {
           "name": "Shelmet",
-          "method": "Grass Lv.30-33",
+          "dex": 616,
+          "types": [
+            "Bug"
+          ],
+          "method": "Grass",
+          "level": "Lv.30-33",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Trade-evolves to Accelgor"
         }
@@ -2653,19 +3089,38 @@
       "catches": [
         {
           "name": "Pawniard",
-          "method": "Grass Lv.31-34",
+          "dex": 624,
+          "types": [
+            "Dark",
+            "Steel"
+          ],
+          "method": "Grass",
+          "level": "Lv.31-34",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Bisharp - Dark/Steel, Defiant ability"
         },
         {
           "name": "Gothorita",
-          "method": "Grass Lv.32-34",
+          "dex": 575,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.32-34",
+          "percent": 25,
           "rate": "Common",
           "why": "Shadow Tag evolution line"
         },
         {
           "name": "Duosion",
-          "method": "Grass Lv.32-34",
+          "dex": 578,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.32-34",
+          "percent": 25,
           "rate": "Common",
           "why": "Magic Guard evolution line"
         }
@@ -2840,19 +3295,38 @@
       "catches": [
         {
           "name": "Bouffalant",
-          "method": "Grass Lv.34-35",
+          "dex": 626,
+          "types": [
+            "Normal"
+          ],
+          "method": "Grass",
+          "level": "Lv.34-35",
+          "percent": 25,
           "rate": "Common",
           "why": "Normal-type, Sap Sipper + Head Charge, no evolution needed"
         },
         {
           "name": "Rufflet",
-          "method": "Grass Lv.34-36",
+          "dex": 627,
+          "types": [
+            "Normal",
+            "Flying"
+          ],
+          "method": "Grass",
+          "level": "Lv.34-36",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Evolves to Braviary - strong Normal/Flying"
         },
         {
           "name": "Boldore",
-          "method": "Rock Smash Lv.40-42",
+          "dex": 525,
+          "types": [
+            "Rock"
+          ],
+          "method": "Rock Smash",
+          "level": "Lv.40-42",
+          "percent": 35,
           "rate": "Very Common",
           "top25": true,
           "why": "TOP 25: Sturdy lead"
@@ -2962,31 +3436,62 @@
       "catches": [
         {
           "name": "Fraxure",
-          "method": "Grass Lv.39-40",
+          "dex": 611,
+          "types": [
+            "Dragon"
+          ],
+          "method": "Grass",
+          "level": "Lv.39-40",
+          "percent": 5,
           "rate": "Rare",
           "why": "Evolves to Haxorus - Mold Breaker, massive Attack stat"
         },
         {
           "name": "Durant",
-          "method": "Cave Lv.37-42",
+          "dex": 632,
+          "types": [
+            "Bug",
+            "Steel"
+          ],
+          "method": "Cave",
+          "level": "Lv.37-42",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Bug/Steel, Hustle ability, strong physical attacker"
         },
         {
           "name": "Heatmor",
-          "method": "Grass Lv.37-40",
+          "dex": 631,
+          "types": [
+            "Fire"
+          ],
+          "method": "Grass",
+          "level": "Lv.37-40",
+          "percent": 25,
           "rate": "Common",
           "why": "Fire-type, Flash Fire ability"
         },
         {
           "name": "Mienfoo",
-          "method": "Cave Lv.39-41",
+          "dex": 619,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Cave",
+          "level": "Lv.39-41",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Regenerator Mienshao"
         },
         {
           "name": "Boldore",
-          "method": "Cave Lv.37-41",
+          "dex": 525,
+          "types": [
+            "Rock"
+          ],
+          "method": "Cave",
+          "level": "Lv.37-41",
+          "percent": 25,
           "rate": "Common",
           "top25": true,
           "why": "TOP 25: Sturdy + Stealth Rock"
@@ -3186,7 +3691,14 @@
       "catches": [
         {
           "name": "Scraggy",
-          "method": "Dark Grass Lv.32-35",
+          "dex": 559,
+          "types": [
+            "Dark",
+            "Fighting"
+          ],
+          "method": "Dark Grass",
+          "level": "Lv.32-35",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Moxie Scrafty path"
         }
@@ -3214,7 +3726,14 @@
       "catches": [
         {
           "name": "Frillish",
-          "method": "Surf Lv.25-35",
+          "dex": 592,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "method": "Surf",
+          "level": "Lv.25-35",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Jellicent - Water/Ghost, Cursed Body"
         }
@@ -3273,14 +3792,27 @@
       "catches": [
         {
           "name": "Larvesta Egg",
+          "dex": 636,
+          "types": [
+            "Bug",
+            "Fire"
+          ],
           "method": "Gift from NPC in house",
+          "percent": 10,
           "rate": "One-time",
           "top25": true,
           "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona at Lv.59"
         },
         {
           "name": "Scraggy",
-          "method": "Grass Lv.28-31",
+          "dex": 559,
+          "types": [
+            "Dark",
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.28-31",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Moxie evolution line"
         }
@@ -3305,7 +3837,13 @@
       "catches": [
         {
           "name": "Ditto",
-          "method": "Rustling Grass Lv.36-38",
+          "dex": 132,
+          "types": [
+            "Normal"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.36-38",
+          "percent": 10,
           "rate": "Special",
           "why": "Essential for breeding! Only reliable Unova location"
         }
@@ -3337,7 +3875,14 @@
       "catches": [
         {
           "name": "Frillish",
-          "method": "Surf Lv.25-35",
+          "dex": 592,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "method": "Surf",
+          "level": "Lv.25-35",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Jellicent - Water/Ghost, Cursed Body"
         }
@@ -3372,14 +3917,27 @@
       "catches": [
         {
           "name": "Larvesta Egg",
+          "dex": 636,
+          "types": [
+            "Bug",
+            "Fire"
+          ],
           "method": "Gift from NPC in house",
+          "percent": 10,
           "rate": "One-time",
           "top25": true,
           "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona at Lv.59"
         },
         {
           "name": "Scraggy",
-          "method": "Grass Lv.28-31",
+          "dex": 559,
+          "types": [
+            "Dark",
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.28-31",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Moxie evolution line"
         }
@@ -3412,7 +3970,13 @@
       "catches": [
         {
           "name": "Purrloin",
-          "method": "Grass Lv.4-5",
+          "dex": 509,
+          "types": [
+            "Dark"
+          ],
+          "method": "Grass",
+          "level": "Lv.4-5",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Dark-type, decent early game"
         }
@@ -3444,7 +4008,13 @@
       "catches": [
         {
           "name": "Basculin",
-          "method": "Surf Lv.25-35",
+          "dex": 550,
+          "types": [
+            "Water"
+          ],
+          "method": "Surf",
+          "level": "Lv.25-35",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Post-game only - decent water type"
         }
@@ -3506,7 +4076,12 @@
       "catches": [
         {
           "name": "Musharna",
+          "dex": 518,
+          "types": [
+            "Psychic"
+          ],
           "method": "Friday spawns",
+          "percent": 10,
           "rate": "Special",
           "why": "Teleport user"
         }
@@ -3572,27 +4147,52 @@
       "catches": [
         {
           "name": "Roggenrola",
-          "method": "Cave Lv.10-13",
+          "dex": 524,
+          "types": [
+            "Rock"
+          ],
+          "method": "Cave",
+          "level": "Lv.10-13",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Sturdy ability - Stealth Rock lead for gym runs"
         },
         {
           "name": "Drilbur",
-          "method": "Dust Clouds Lv.10-15",
+          "dex": 529,
+          "types": [
+            "Ground"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.10-15",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Evolves to Excadrill - elite Ground/Steel attacker + Mold Breaker"
         },
         {
           "name": "Boldore",
-          "method": "Cave Lv.28-31",
+          "dex": 525,
+          "types": [
+            "Rock"
+          ],
+          "method": "Cave",
+          "level": "Lv.28-31",
+          "percent": 25,
           "rate": "Common",
           "top25": true,
           "why": "TOP 25: Sturdy + Stealth Rock lead for story & gym reruns"
         },
         {
           "name": "Woobat",
-          "method": "Cave Lv.10-31",
+          "dex": 527,
+          "types": [
+            "Psychic",
+            "Flying"
+          ],
+          "method": "Cave",
+          "level": "Lv.10-31",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Swoobat with Simple - setup sweeper"
         }
@@ -3724,20 +4324,39 @@
       "catches": [
         {
           "name": "Yamask",
-          "method": "Cave Lv.19-22",
+          "dex": 562,
+          "types": [
+            "Ghost"
+          ],
+          "method": "Cave",
+          "level": "Lv.19-22",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Cofagrigus - bulky Ghost, Mummy ability"
         },
         {
           "name": "Larvesta",
-          "method": "Cave Lv.47-49",
+          "dex": 636,
+          "types": [
+            "Bug",
+            "Fire"
+          ],
+          "method": "Cave",
+          "level": "Lv.47-49",
+          "percent": 1,
           "rate": "Very Rare",
           "top25": true,
           "why": "TOP 25: Flame Body for egg hatching! Evolves to Volcarona - top special attacker. Post-game only"
         },
         {
           "name": "Volcarona",
+          "dex": 637,
+          "types": [
+            "Bug",
+            "Fire"
+          ],
           "method": "Special encounter (post-game maze)",
+          "percent": 10,
           "rate": "One-time",
           "top25": true,
           "why": "TOP 25: End of Relic Castle maze post-game. Bug/Fire powerhouse"
@@ -3789,13 +4408,26 @@
       "catches": [
         {
           "name": "Vanillite",
-          "method": "Grass Lv.20-23",
+          "dex": 582,
+          "types": [
+            "Ice"
+          ],
+          "method": "Grass",
+          "level": "Lv.20-23",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Ice-type if you need one early"
         },
         {
           "name": "Sneasel",
-          "method": "Rustling Grass Lv.28-29",
+          "dex": 215,
+          "types": [
+            "Dark",
+            "Ice"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.28-29",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Evolves to Weavile with Razor Claw at night - Pickpocket farming & Ice/Dark attacker"
@@ -3913,54 +4545,105 @@
       "catches": [
         {
           "name": "Drilbur",
-          "method": "Dust Clouds Lv.30-31",
+          "dex": 529,
+          "types": [
+            "Ground"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.30-31",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Ground-type powerhouse. Mold Breaker Excadrill for Mt. Silver XP farming"
         },
         {
           "name": "Excadrill",
-          "method": "Dust Clouds Lv.31",
+          "dex": 530,
+          "types": [
+            "Ground",
+            "Steel"
+          ],
+          "method": "Dust Clouds",
+          "level": "Lv.31",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Already evolved! Sand Rush or Mold Breaker"
         },
         {
           "name": "Joltik",
-          "method": "Cave Lv.24-27",
+          "dex": 595,
+          "types": [
+            "Bug",
+            "Electric"
+          ],
+          "method": "Cave",
+          "level": "Lv.24-27",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Galvantula - Compound Eyes Thunder (91% acc!)"
         },
         {
           "name": "Ferroseed",
-          "method": "Cave Lv.24-26",
+          "dex": 597,
+          "types": [
+            "Grass",
+            "Steel"
+          ],
+          "method": "Cave",
+          "level": "Lv.24-26",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Ferrothorn - top wall, Stealth Rock + Leech Seed"
         },
         {
           "name": "Klink",
-          "method": "Cave Lv.25-27",
+          "dex": 599,
+          "types": [
+            "Steel"
+          ],
+          "method": "Cave",
+          "level": "Lv.25-27",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Klinklang - Steel-type Shift Gear sweeper"
         },
         {
           "name": "Tynamo",
-          "method": "Cave Lv.27",
+          "dex": 602,
+          "types": [
+            "Electric"
+          ],
+          "method": "Cave",
+          "level": "Lv.27",
+          "percent": 1,
           "rate": "Very Rare",
           "why": "Evolves to Eelektross - Levitate, no weaknesses!"
         },
         {
           "name": "Boldore",
-          "method": "Cave Lv.25-27",
+          "dex": 525,
+          "types": [
+            "Rock"
+          ],
+          "method": "Cave",
+          "level": "Lv.25-27",
+          "percent": 15,
           "rate": "Uncommon",
           "top25": true,
           "why": "TOP 25: Sturdy + Stealth Rock"
         },
         {
           "name": "Metang",
-          "method": "Lure Lv.30-31",
+          "dex": 375,
+          "types": [
+            "Steel",
+            "Psychic"
+          ],
+          "method": "Lure",
+          "level": "Lv.30-31",
+          "percent": 10,
           "rate": "Lure Only",
-          "lure": true,
           "why": "Evolves to Metagross! Pseudo-legendary Steel/Psychic"
         }
       ],
@@ -3986,7 +4669,14 @@
       "catches": [
         {
           "name": "Stunfisk",
-          "method": "Puddles/Surf Lv.25-35",
+          "dex": 618,
+          "types": [
+            "Ground",
+            "Electric"
+          ],
+          "method": "Puddles/Surf",
+          "level": "Lv.25-35",
+          "percent": 25,
           "rate": "Common",
           "why": "Ground/Electric, unique typing"
         }
@@ -4130,7 +4820,13 @@
       "catches": [
         {
           "name": "Golduck",
-          "method": "Grass Lv.47-48",
+          "dex": 55,
+          "types": [
+            "Water"
+          ],
+          "method": "Grass",
+          "level": "Lv.47-48",
+          "percent": 25,
           "rate": "Common",
           "why": "Water-type, Cloud Nine ability"
         }
@@ -4184,7 +4880,14 @@
       "catches": [
         {
           "name": "Clefairy",
-          "method": "Rustling Grass Lv.60-65",
+          "dex": 35,
+          "types": [
+            "Normal",
+            "Fairy"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.60-65",
+          "percent": 10,
           "rate": "Special",
           "why": "Magic Guard Clefable path"
         }
@@ -4238,13 +4941,26 @@
       "catches": [
         {
           "name": "Heracross",
-          "method": "Grass Lv.50",
+          "dex": 214,
+          "types": [
+            "Bug",
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.50",
+          "percent": 5,
           "rate": "Rare",
           "why": "Bug/Fighting - Moxie or Guts, strong attacker"
         },
         {
           "name": "Pinsir",
-          "method": "Grass Lv.50",
+          "dex": 127,
+          "types": [
+            "Bug"
+          ],
+          "method": "Grass",
+          "level": "Lv.50",
+          "percent": 5,
           "rate": "Rare",
           "why": "Bug-type, Mold Breaker"
         }
@@ -4325,13 +5041,25 @@
       "catches": [
         {
           "name": "Tangela",
-          "method": "Dark Grass Lv.52-53",
+          "dex": 114,
+          "types": [
+            "Grass"
+          ],
+          "method": "Dark Grass",
+          "level": "Lv.52-53",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Tangrowth - Regenerator, bulky Grass"
         },
         {
           "name": "Luvdisc",
-          "method": "Fishing Lv.35-60",
+          "dex": 370,
+          "types": [
+            "Water"
+          ],
+          "method": "Fishing",
+          "level": "Lv.35-60",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Heart Scale farming"
         }
@@ -4413,26 +5141,53 @@
       "catches": [
         {
           "name": "Clefairy",
-          "method": "Grass Lv.52-54",
+          "dex": 35,
+          "types": [
+            "Normal",
+            "Fairy"
+          ],
+          "method": "Grass",
+          "level": "Lv.52-54",
+          "percent": 5,
           "rate": "Rare",
           "why": "Evolves to Clefable - Magic Guard, versatile Fairy"
         },
         {
           "name": "Sneasel",
-          "method": "Cave Lv.48",
+          "dex": 215,
+          "types": [
+            "Dark",
+            "Ice"
+          ],
+          "method": "Cave",
+          "level": "Lv.48",
+          "percent": 15,
           "rate": "Uncommon",
           "top25": true,
           "why": "TOP 25: Weavile path - Pickpocket farming"
         },
         {
           "name": "Piloswine",
-          "method": "Horde Lv.46-47",
+          "dex": 221,
+          "types": [
+            "Ice",
+            "Ground"
+          ],
+          "method": "Horde",
+          "level": "Lv.46-47",
+          "percent": 10,
           "rate": "Horde",
           "why": "Evolves to Mamoswine - Ice/Ground powerhouse"
         },
         {
           "name": "Boldore",
-          "method": "Rock Smash Lv.55-60",
+          "dex": 525,
+          "types": [
+            "Rock"
+          ],
+          "method": "Rock Smash",
+          "level": "Lv.55-60",
+          "percent": 35,
           "rate": "Very Common",
           "top25": true,
           "why": "TOP 25: Sturdy lead"
@@ -4510,13 +5265,25 @@
       "catches": [
         {
           "name": "Tangela",
-          "method": "Dark Grass Lv.52-53",
+          "dex": 114,
+          "types": [
+            "Grass"
+          ],
+          "method": "Dark Grass",
+          "level": "Lv.52-53",
+          "percent": 25,
           "rate": "Common",
           "why": "Evolves to Tangrowth - Regenerator, bulky Grass"
         },
         {
           "name": "Luvdisc",
-          "method": "Fishing Lv.35-60",
+          "dex": 370,
+          "types": [
+            "Water"
+          ],
+          "method": "Fishing",
+          "level": "Lv.35-60",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Heart Scale farming"
         }
@@ -4559,14 +5326,27 @@
       "catches": [
         {
           "name": "Shellder",
-          "method": "Fishing Lv.35-55",
+          "dex": 90,
+          "types": [
+            "Water"
+          ],
+          "method": "Fishing",
+          "level": "Lv.35-55",
+          "percent": 25,
           "rate": "Common",
           "top25": true,
           "why": "TOP 25: Cloyster - Skill Link build"
         },
         {
           "name": "Cloyster",
-          "method": "Rippling Water Fish Lv.55-60",
+          "dex": 91,
+          "types": [
+            "Water",
+            "Ice"
+          ],
+          "method": "Rippling Water Fish",
+          "level": "Lv.55-60",
+          "percent": 10,
           "rate": "Special",
           "top25": true,
           "why": "TOP 25: Already evolved! Check for Skill Link ability"
@@ -4600,26 +5380,52 @@
       "catches": [
         {
           "name": "Shellder",
-          "method": "Fishing Lv.35-55",
+          "dex": 90,
+          "types": [
+            "Water"
+          ],
+          "method": "Fishing",
+          "level": "Lv.35-55",
+          "percent": 25,
           "rate": "Common",
           "top25": true,
           "why": "TOP 25: Evolves to Cloyster with Water Stone - Skill Link + Icicle Spear for rich trainer reruns"
         },
         {
           "name": "Remoraid",
-          "method": "Fishing Lv.35-55",
+          "dex": 223,
+          "types": [
+            "Water"
+          ],
+          "method": "Fishing",
+          "level": "Lv.35-55",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Breeding chain piece for Water Spout Blastoise (Top 25)"
         },
         {
           "name": "Lapras",
-          "method": "Rippling Water Lv.60-65",
+          "dex": 131,
+          "types": [
+            "Water",
+            "Ice"
+          ],
+          "method": "Rippling Water",
+          "level": "Lv.60-65",
+          "percent": 10,
           "rate": "Special",
           "why": "Ice/Water, great Surf user"
         },
         {
           "name": "Spheal",
-          "method": "Surf Lv.35-55",
+          "dex": 363,
+          "types": [
+            "Ice",
+            "Water"
+          ],
+          "method": "Surf",
+          "level": "Lv.35-55",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Evolves to Walrein - bulky Ice/Water"
         }
@@ -4655,13 +5461,26 @@
       "catches": [
         {
           "name": "Mienfoo",
-          "method": "Grass Lv.49",
+          "dex": 619,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.49",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Regenerator Mienshao"
         },
         {
           "name": "Drifblim",
-          "method": "Dark Grass Lv.54",
+          "dex": 426,
+          "types": [
+            "Ghost",
+            "Flying"
+          ],
+          "method": "Dark Grass",
+          "level": "Lv.54",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Ghost/Flying, Aftermath"
         }
@@ -4726,26 +5545,51 @@
       "catches": [
         {
           "name": "Cottonee",
-          "method": "Grass Lv.47-48",
+          "dex": 546,
+          "types": [
+            "Grass",
+            "Fairy"
+          ],
+          "method": "Grass",
+          "level": "Lv.47-48",
+          "percent": 25,
           "rate": "Common",
           "top25": true,
           "why": "TOP 25: Highest level Cottonee - easiest catch here"
         },
         {
           "name": "Vulpix",
-          "method": "Grass Lv.47-48",
+          "dex": 37,
+          "types": [
+            "Fire"
+          ],
+          "method": "Grass",
+          "level": "Lv.47-48",
+          "percent": 25,
           "rate": "Common",
           "why": "Drought Ninetales for sun teams"
         },
         {
           "name": "Stantler",
-          "method": "Grass Lv.47-48",
+          "dex": 234,
+          "types": [
+            "Normal"
+          ],
+          "method": "Grass",
+          "level": "Lv.47-48",
+          "percent": 1,
           "rate": "Very Rare",
           "why": "Intimidate, rare catch"
         },
         {
           "name": "Ninetales",
-          "method": "Rustling Grass Lv.60-65",
+          "dex": 38,
+          "types": [
+            "Fire"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.60-65",
+          "percent": 10,
           "rate": "Special",
           "why": "Already evolved Drought user"
         }
@@ -4775,13 +5619,26 @@
       "catches": [
         {
           "name": "Mienfoo",
-          "method": "Grass Lv.49",
+          "dex": 619,
+          "types": [
+            "Fighting"
+          ],
+          "method": "Grass",
+          "level": "Lv.49",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Regenerator Mienshao"
         },
         {
           "name": "Drifblim",
-          "method": "Dark Grass Lv.54",
+          "dex": 426,
+          "types": [
+            "Ghost",
+            "Flying"
+          ],
+          "method": "Dark Grass",
+          "level": "Lv.54",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Ghost/Flying, Aftermath"
         }
@@ -4805,19 +5662,37 @@
       "catches": [
         {
           "name": "Gothita",
-          "method": "Grass Lv.19-22",
+          "dex": 574,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 25,
           "rate": "Common",
           "why": "Shadow Tag line"
         },
         {
           "name": "Solosis",
-          "method": "Grass Lv.19-22",
+          "dex": 577,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Magic Guard line"
         },
         {
           "name": "Vulpix",
-          "method": "Rustling Grass Lv.23-25",
+          "dex": 37,
+          "types": [
+            "Fire"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.23-25",
+          "percent": 10,
           "rate": "Special",
           "why": "Evolves to Ninetales - Drought ability for sun teams"
         }
@@ -4845,20 +5720,40 @@
       "catches": [
         {
           "name": "Cottonee",
-          "method": "Grass Lv.19-22",
+          "dex": 546,
+          "types": [
+            "Grass",
+            "Fairy"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 15,
           "rate": "Uncommon",
           "top25": true,
           "why": "TOP 25: Easier to find here than Pinwheel! Prankster for Tailwind + Memento"
         },
         {
           "name": "Zorua",
-          "method": "Horde Lv.18-19",
+          "dex": 570,
+          "types": [
+            "Dark"
+          ],
+          "method": "Horde",
+          "level": "Lv.18-19",
+          "percent": 10,
           "rate": "Horde",
           "why": "Evolves to Zoroark - Illusion ability, cool Dark-type"
         },
         {
           "name": "Venipede",
-          "method": "Grass Lv.20-21",
+          "dex": 543,
+          "types": [
+            "Bug",
+            "Poison"
+          ],
+          "method": "Grass",
+          "level": "Lv.20-21",
+          "percent": 35,
           "rate": "Very Common",
           "why": "Speed Boost Scolipede"
         }
@@ -4886,19 +5781,37 @@
       "catches": [
         {
           "name": "Gothita",
-          "method": "Grass Lv.19-22",
+          "dex": 574,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 25,
           "rate": "Common",
           "why": "Shadow Tag line"
         },
         {
           "name": "Solosis",
-          "method": "Grass Lv.19-22",
+          "dex": 577,
+          "types": [
+            "Psychic"
+          ],
+          "method": "Grass",
+          "level": "Lv.19-22",
+          "percent": 15,
           "rate": "Uncommon",
           "why": "Magic Guard line"
         },
         {
           "name": "Vulpix",
-          "method": "Rustling Grass Lv.23-25",
+          "dex": 37,
+          "types": [
+            "Fire"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.23-25",
+          "percent": 10,
           "rate": "Special",
           "why": "Evolves to Ninetales - Drought ability for sun teams"
         }
@@ -4938,7 +5851,12 @@
       "catches": [
         {
           "name": "Magikarp",
+          "dex": 129,
+          "types": [
+            "Water"
+          ],
           "method": "Buy from NPC for $500",
+          "percent": 10,
           "rate": "Guaranteed",
           "top25": true,
           "why": "TOP 25: Gyarados! Perfect Speed IV. Budget storyline sweeper with Dragon Dance"
@@ -4998,7 +5916,14 @@
       "catches": [
         {
           "name": "Hydreigon",
-          "method": "Rustling Grass Lv.64-65",
+          "dex": 635,
+          "types": [
+            "Dark",
+            "Dragon"
+          ],
+          "method": "Rustling Grass",
+          "level": "Lv.64-65",
+          "percent": 10,
           "rate": "Special",
           "why": "Pseudo-legendary! Dark/Dragon already fully evolved. Very rare spawn"
         }
