@@ -158,18 +158,28 @@ function toggleSettings() {
   }
 }
 
+function toggleNav() {
+  if (currentPanel === 'nav') {
+    closePanel();
+  } else {
+    openPanel('nav');
+  }
+}
+
 function openPanel(name) {
   closePanel();
   currentPanel = name;
-  var panelEl = name === 'typechart'
-    ? document.getElementById('typeChartPanel')
-    : document.getElementById('settingsPanel');
+  var panelIds = { typechart: 'typeChartPanel', settings: 'settingsPanel', nav: 'navPanel' };
+  var panelEl = document.getElementById(panelIds[name]);
   if (panelEl) {
     if (name === 'typechart' && window.__typechart && window.__typechart.renderPanel) {
       window.__typechart.renderPanel(panelEl);
     }
     if (name === 'settings' && window.__settings && window.__settings.renderPanel) {
       window.__settings.renderPanel(panelEl);
+    }
+    if (name === 'nav' && window.__navigation && window.__navigation.renderNavPanel) {
+      window.__navigation.renderNavPanel(panelEl);
     }
     panelEl.classList.add('open');
   }
@@ -185,8 +195,10 @@ function closePanel() {
 function updatePanelButtons() {
   var tcBtn = document.getElementById('btnTypeChart');
   var setBtn = document.getElementById('btnSettings');
+  var navBtn = document.getElementById('btnNav');
   if (tcBtn) tcBtn.classList.toggle('active', currentPanel === 'typechart');
   if (setBtn) setBtn.classList.toggle('active', currentPanel === 'settings');
+  if (navBtn) navBtn.classList.toggle('active', currentPanel === 'nav');
 }
 
 // --- Hotkey event listeners ---
@@ -206,6 +218,6 @@ async function init() {
   await restoreWindowState();
 }
 
-window.__app = { toggleMode, closeApp, toggleVisibility, showMap, showCatches, toggleDragLock, toggleTypeChart, toggleSettings, closePanel, init };
+window.__app = { toggleMode, closeApp, toggleVisibility, showMap, showCatches, toggleDragLock, toggleTypeChart, toggleSettings, toggleNav, closePanel, init };
 
 init();

@@ -63,11 +63,18 @@ function buildStepState(totalSteps, completedSteps, locationIdx) {
 // --- DOM-dependent functions (browser only) ---
 
 let regionData = null;
+let battleData = null;
 let currentProfile = null;
 
 async function loadRegionData() {
-  const response = await fetch('data/unova.json');
-  regionData = await response.json();
+  const [regionResp, battleResp] = await Promise.all([
+    fetch('data/unova.json'),
+    fetch('data/battles.json').catch(function() { return null; }),
+  ]);
+  regionData = await regionResp.json();
+  if (battleResp && battleResp.ok) {
+    battleData = await battleResp.json();
+  }
   return regionData;
 }
 
@@ -208,6 +215,12 @@ function renderFull() {
       stepEl.appendChild(textEl);
 
       container.appendChild(stepEl);
+
+      // Battle card for current step with a battle tag
+      if (isCurrent && step.tags && step.tags.battles && step.tags.battles.length > 0) {
+        var battleCard = renderBattleCard(location.name, step);
+        if (battleCard) container.appendChild(battleCard);
+      }
 
       // Scroll current step into view
       if (isCurrent) {
@@ -524,6 +537,211 @@ function renderIceTrayExpand(panel, catchData, caughtPokemon) {
   row.appendChild(pokeball);
 
   panel.appendChild(row);
+}
+
+/**
+ * Render battle card for a step that has a battle tag.
+ * Looks up trainer data from battles.json by matching location name and battle tag text.
+ */
+function renderBattleCard(locationName, step) {
+  if (!battleData || !step.tags || !step.tags.battles) return null;
+  if (!step.tags.battles.length) return null;
+
+  var ui = window.__ui;
+  if (!ui) return null;
+
+  // Find matching battle data — try location name and variants (e.g., "LOCATION|GYM")
+  var battleText = step.tags.battles[0]; // e.g., "Battle Cheren" or "Beat Gym Leader"
+  var trainerName = battleText.replace(/^(Battle|Beat|Fight|Defeat)\s+/i, '').replace(/\s*[-–].*/,'').trim();
+
+  // Search in multiple location key variants
+  var locationKeys = [locationName];
+  // Also try with suffixes like |GYM, |CHEREN, etc.
+  if (trainerName) {
+    locationKeys.push(locationName + '|' + trainerName.toUpperCase());
+    locationKeys.push(locationName + '|GYM');
+  }
+
+  var trainer = null;
+  var foundName = trainerName;
+  for (var ki = 0; ki < locationKeys.length; ki++) {
+    var locBattles = battleData[locationKeys[ki]];
+    if (!locBattles) continue;
+    // Try exact match first
+    if (locBattles[trainerName]) {
+      trainer = locBattles[trainerName];
+      break;
+    }
+    // Try partial match
+    var trainerNames = Object.keys(locBattles);
+    for (var ti = 0; ti < trainerNames.length; ti++) {
+      if (trainerName.toLowerCase().indexOf(trainerNames[ti].toLowerCase()) >= 0 ||
+          trainerNames[ti].toLowerCase().indexOf(trainerName.toLowerCase()) >= 0) {
+        trainer = locBattles[trainerNames[ti]];
+        foundName = trainerNames[ti];
+        break;
+      }
+    }
+    if (trainer) break;
+  }
+
+  if (!trainer || !trainer.teams || !trainer.teams.length) return null;
+
+  var card = document.createElement('div');
+  card.className = 'battle-card';
+
+  // Header
+  var header = document.createElement('div');
+  header.className = 'battle-card-header';
+  var titleEl = document.createElement('span');
+  titleEl.className = 'battle-card-title';
+  titleEl.textContent = 'VS ' + foundName;
+  header.appendChild(titleEl);
+  if (trainer.note) {
+    var noteEl = document.createElement('span');
+    noteEl.className = 'battle-card-note';
+    noteEl.textContent = trainer.note;
+    header.appendChild(noteEl);
+  }
+  card.appendChild(header);
+
+  // Get the right team based on starter (for pick1 trainers)
+  var profile = window.__profiles && window.__profiles.getActiveProfile();
+  var starter = profile ? profile.starter : null;
+  var teamsToShow = trainer.teams;
+
+  if (trainer.pick1 && starter && trainer.teams.length >= 3) {
+    // Find the team that matches the player's starter
+    var starterMap = { 'Snivy': 0, 'Tepig': 1, 'Oshawott': 2 };
+    var teamIdx = starterMap[starter];
+    if (teamIdx !== undefined && trainer.teams[teamIdx]) {
+      teamsToShow = [trainer.teams[teamIdx]];
+    }
+  }
+
+  // Render teams
+  teamsToShow.forEach(function(team, tidx) {
+    var teamEl = document.createElement('div');
+    teamEl.className = 'battle-team';
+
+    team.forEach(function(mon) {
+      if (mon.note) {
+        // Variant note (e.g., "If you picked Snivy")
+        var noteDiv = document.createElement('div');
+        noteDiv.className = 'battle-variant-note';
+        noteDiv.textContent = mon.note;
+        teamEl.appendChild(noteDiv);
+        return;
+      }
+
+      var monEl = document.createElement('div');
+      monEl.className = 'battle-pokemon';
+
+      // Small sprite
+      if (mon.name) {
+        // Look up dex number from the Pokemon name
+        var dex = getDexForName(mon.name);
+        if (dex) {
+          var sprite = document.createElement('img');
+          sprite.src = ui.spriteUrl(dex);
+          sprite.width = 28;
+          sprite.height = 28;
+          sprite.style.imageRendering = 'pixelated';
+          monEl.appendChild(sprite);
+        }
+      }
+
+      var monInfo = document.createElement('div');
+      var nameSpan = document.createElement('span');
+      nameSpan.className = 'battle-pokemon-name';
+      nameSpan.textContent = mon.name;
+      monInfo.appendChild(nameSpan);
+
+      var lvSpan = document.createElement('span');
+      lvSpan.className = 'battle-pokemon-lv';
+      lvSpan.textContent = ' Lv.' + mon.lv;
+      monInfo.appendChild(lvSpan);
+
+      // Type badges
+      if (mon.types) {
+        var typesWrap = document.createElement('div');
+        typesWrap.style.cssText = 'display:flex;gap:2px;margin-top:1px;';
+        mon.types.forEach(function(t) {
+          typesWrap.appendChild(ui.renderTypeBadgeEl(t));
+        });
+        monInfo.appendChild(typesWrap);
+      }
+
+      monEl.appendChild(monInfo);
+      teamEl.appendChild(monEl);
+    });
+
+    card.appendChild(teamEl);
+
+    // Separator between teams (if showing multiple)
+    if (tidx < teamsToShow.length - 1) {
+      var sep = document.createElement('div');
+      sep.style.cssText = 'height:1px;background:var(--border-subtle);margin:4px 0;';
+      card.appendChild(sep);
+    }
+  });
+
+  return card;
+}
+
+/**
+ * Look up a Pokemon's dex number by name from the catch data.
+ * Falls back to a built-in map for common battle Pokemon not in catches.
+ */
+var _dexCache = null;
+function getDexForName(name) {
+  if (!_dexCache) {
+    _dexCache = {};
+    // Build from catch data
+    if (regionData && regionData.locations) {
+      regionData.locations.forEach(function(loc) {
+        if (loc.catches) {
+          loc.catches.forEach(function(c) {
+            if (c.dex) _dexCache[c.name.toLowerCase()] = c.dex;
+          });
+        }
+      });
+    }
+    // Add common battle Pokemon not in wild encounters
+    var extras = {
+      snivy:495, servine:496, serperior:497,
+      tepig:498, pignite:499, emboar:500,
+      oshawott:501, dewott:502, samurott:503,
+      watchog:505, herdier:507, stoutland:508, liepard:510,
+      simisage:512, simisear:514, simipour:516,
+      musharna:518, unfezant:521, zebstrika:523,
+      gigalith:526, excadrill:530, conkeldurr:534,
+      seismitoad:537, leavanny:542, scolipede:545,
+      whimsicott:547, lilligant:549, krookodile:553,
+      darmanitan:555, scrafty:560, cofagrigus:563,
+      carracosta:565, archeops:567, garbodor:569,
+      cinccino:573, gothorita:575, gothitelle:576,
+      reuniclus:579, vanilluxe:584, sawsbuck:586,
+      galvantula:596, ferrothorn:598, klinklang:601,
+      eelektross:604, chandelure:609, haxorus:612,
+      beartic:614, mienshao:620, bisharp:625, bouffalant:626,
+      braviary:628, mandibuzz:630, hydreigon:635, volcarona:637,
+      reshiram:643, zekrom:644,
+      pansage:511, pansear:513, panpour:515,
+      purrloin:509, pidove:519, timburr:532, tympole:535,
+      sandile:551, scraggy:559, zorua:570, zoroark:571,
+      deerling:585, fraxure:611, mienfoo:619, pawniard:624,
+      deino:633, zweilous:634, larvesta:636,
+      lucario:448, riolu:447, arcanine:59, crobat:169,
+      spiritomb:442, garchomp:445, milotic:350, eelektrik:603,
+      boldore:525, swoobat:528, druddigon:621,
+      flygon:330, sigilyph:561, reuniclus:579,
+      golurk:623, lapras:131, weavile:461, absol:359,
+      metagross:376, salamence:373, glaceon:471,
+    };
+    Object.keys(extras).forEach(function(k) { _dexCache[k] = extras[k]; });
+  }
+  return _dexCache[name.toLowerCase()] || null;
 }
 
 async function completeStep(locIdx, stepIdx) {

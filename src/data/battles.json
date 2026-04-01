@@ -1,0 +1,1803 @@
+{
+  "NUVEMA TOWN": {
+    "Bianca": {
+      "note": "Starter depends on your pick",
+      "teams": [
+        [
+          {
+            "name": "Oshawott",
+            "lv": 5,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Snivy",
+            "lv": 5,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Tepig",
+            "lv": 5,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    },
+    "Cheren": {
+      "note": "Picks starter strong vs yours",
+      "teams": [
+        [
+          {
+            "name": "Tepig",
+            "lv": 5,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Oshawott",
+            "lv": 5,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Snivy",
+            "lv": 5,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "ACCUMULA TOWN": {
+    "N": {
+      "teams": [
+        [
+          {
+            "name": "Purrloin",
+            "lv": 7,
+            "types": [
+              "Dark"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "ROUTE 2": {
+    "Bianca": {
+      "note": "Her starter is weak to yours",
+      "teams": [
+        [
+          {
+            "name": "Lillipup",
+            "lv": 6,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Oshawott",
+            "lv": 7,
+            "types": [
+              "Water"
+            ],
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Lillipup",
+            "lv": 6,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Snivy",
+            "lv": 7,
+            "types": [
+              "Grass"
+            ],
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Lillipup",
+            "lv": 6,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Tepig",
+            "lv": 7,
+            "types": [
+              "Fire"
+            ],
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "STRIATON CITY": {
+    "Cheren": {
+      "note": "His starter is strong vs yours",
+      "teams": [
+        [
+          {
+            "name": "Tepig",
+            "lv": 8,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Purrloin",
+            "lv": 8,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Oshawott",
+            "lv": 8,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Purrloin",
+            "lv": 8,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Snivy",
+            "lv": 8,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Purrloin",
+            "lv": 8,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "STRIATON CITY|GYM": {
+    "Cilan": {
+      "note": "Gym Leader if you picked Oshawott",
+      "teams": [
+        [
+          {
+            "name": "Lillipup",
+            "lv": 12,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Pansage",
+            "lv": 14,
+            "types": [
+              "Grass"
+            ]
+          }
+        ]
+      ]
+    },
+    "Chili": {
+      "note": "Gym Leader if you picked Snivy",
+      "teams": [
+        [
+          {
+            "name": "Lillipup",
+            "lv": 12,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Pansear",
+            "lv": 14,
+            "types": [
+              "Fire"
+            ]
+          }
+        ]
+      ]
+    },
+    "Cress": {
+      "note": "Gym Leader if you picked Tepig",
+      "teams": [
+        [
+          {
+            "name": "Lillipup",
+            "lv": 12,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Panpour",
+            "lv": 14,
+            "types": [
+              "Water"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "NACRENE CITY": {
+    "N": {
+      "teams": [
+        [
+          {
+            "name": "Pidove",
+            "lv": 13,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Timburr",
+            "lv": 13,
+            "types": [
+              "Fighting"
+            ]
+          },
+          {
+            "name": "Tympole",
+            "lv": 13,
+            "types": [
+              "Water"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "NACRENE CITY|GYM": {
+    "Lenora": {
+      "note": "Gym Leader #2",
+      "teams": [
+        [
+          {
+            "name": "Herdier",
+            "lv": 18,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Watchog",
+            "lv": 20,
+            "types": [
+              "Normal"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "ROUTE 3": {
+    "Cheren": {
+      "note": "His starter is strong vs yours",
+      "teams": [
+        [
+          {
+            "name": "Tepig",
+            "lv": 14,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Purrloin",
+            "lv": 12,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Oshawott",
+            "lv": 14,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Purrloin",
+            "lv": 12,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Snivy",
+            "lv": 14,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Purrloin",
+            "lv": 12,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "CASTELIA CITY|GYM": {
+    "Burgh": {
+      "note": "Gym Leader #3",
+      "teams": [
+        [
+          {
+            "name": "Whirlipede",
+            "lv": 21,
+            "types": [
+              "Bug",
+              "Poison"
+            ]
+          },
+          {
+            "name": "Dwebble",
+            "lv": 21,
+            "types": [
+              "Bug",
+              "Rock"
+            ]
+          },
+          {
+            "name": "Leavanny",
+            "lv": 23,
+            "types": [
+              "Bug",
+              "Grass"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "NIMBASA CITY|N": {
+    "N": {
+      "teams": [
+        [
+          {
+            "name": "Sandile",
+            "lv": 22,
+            "types": [
+              "Ground",
+              "Dark"
+            ]
+          },
+          {
+            "name": "Scraggy",
+            "lv": 22,
+            "types": [
+              "Dark",
+              "Fighting"
+            ]
+          },
+          {
+            "name": "Darumaka",
+            "lv": 22,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Sigilyph",
+            "lv": 22,
+            "types": [
+              "Psychic",
+              "Flying"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "NIMBASA CITY|GYM": {
+    "Elesa": {
+      "note": "Gym Leader #4",
+      "teams": [
+        [
+          {
+            "name": "Emolga",
+            "lv": 25,
+            "types": [
+              "Electric",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Emolga",
+            "lv": 25,
+            "types": [
+              "Electric",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Zebstrika",
+            "lv": 27,
+            "types": [
+              "Electric"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "ROUTE 4|CHEREN": {
+    "Cheren": {
+      "note": "Team depends on your starter",
+      "teams": [
+        [
+          {
+            "name": "Pidove",
+            "lv": 20,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Pansage",
+            "lv": 20,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 20,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Pignite",
+            "lv": 22,
+            "types": [
+              "Fire",
+              "Fighting"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Pidove",
+            "lv": 20,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Pansear",
+            "lv": 20,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 20,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Dewott",
+            "lv": 22,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Pidove",
+            "lv": 20,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Panpour",
+            "lv": 20,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 20,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Servine",
+            "lv": 22,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "ROUTE 5": {
+    "Cheren": {
+      "note": "Team depends on your starter",
+      "teams": [
+        [
+          {
+            "name": "Liepard",
+            "lv": 24,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Pansage",
+            "lv": 24,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Tranquill",
+            "lv": 24,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Pignite",
+            "lv": 26,
+            "types": [
+              "Fire",
+              "Fighting"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Liepard",
+            "lv": 24,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Pansear",
+            "lv": 24,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Tranquill",
+            "lv": 24,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Dewott",
+            "lv": 26,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Liepard",
+            "lv": 24,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Panpour",
+            "lv": 24,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Tranquill",
+            "lv": 24,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Servine",
+            "lv": 26,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "DRIFTVEIL CITY|BIANCA": {
+    "Bianca": {
+      "note": "Team depends on your starter",
+      "teams": [
+        [
+          {
+            "name": "Herdier",
+            "lv": 26,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Simisear",
+            "lv": 26,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Musharna",
+            "lv": 26,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Dewott",
+            "lv": 28,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Herdier",
+            "lv": 26,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Simipour",
+            "lv": 26,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Musharna",
+            "lv": 26,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Servine",
+            "lv": 28,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Herdier",
+            "lv": 26,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Simisage",
+            "lv": 26,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Musharna",
+            "lv": 26,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Pignite",
+            "lv": 28,
+            "types": [
+              "Fire",
+              "Fighting"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "DRIFTVEIL CITY|GYM": {
+    "Clay": {
+      "note": "Gym Leader #5",
+      "teams": [
+        [
+          {
+            "name": "Krokorok",
+            "lv": 29,
+            "types": [
+              "Ground",
+              "Dark"
+            ]
+          },
+          {
+            "name": "Palpitoad",
+            "lv": 29,
+            "types": [
+              "Water",
+              "Ground"
+            ]
+          },
+          {
+            "name": "Excadrill",
+            "lv": 31,
+            "types": [
+              "Ground",
+              "Steel"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "CHARGESTONE CAVE": {
+    "N": {
+      "teams": [
+        [
+          {
+            "name": "Boldore",
+            "lv": 28,
+            "types": [
+              "Rock"
+            ]
+          },
+          {
+            "name": "Ferroseed",
+            "lv": 28,
+            "types": [
+              "Grass",
+              "Steel"
+            ]
+          },
+          {
+            "name": "Joltik",
+            "lv": 28,
+            "types": [
+              "Bug",
+              "Electric"
+            ]
+          },
+          {
+            "name": "Klink",
+            "lv": 28,
+            "types": [
+              "Steel"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "MISTRALTON CITY|GYM": {
+    "Skyla": {
+      "note": "Gym Leader #6",
+      "teams": [
+        [
+          {
+            "name": "Swoobat",
+            "lv": 33,
+            "types": [
+              "Psychic",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Unfezant",
+            "lv": 33,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Swanna",
+            "lv": 35,
+            "types": [
+              "Water",
+              "Flying"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "ROUTE 7|CHEREN": {
+    "Cheren": {
+      "note": "Team depends on your starter",
+      "teams": [
+        [
+          {
+            "name": "Unfezant",
+            "lv": 33,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 33,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Simisage",
+            "lv": 33,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Emboar",
+            "lv": 35,
+            "types": [
+              "Fire",
+              "Fighting"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Unfezant",
+            "lv": 33,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 33,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Simisear",
+            "lv": 33,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Samurott",
+            "lv": 35,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Unfezant",
+            "lv": 33,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 33,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Simipour",
+            "lv": 33,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Serperior",
+            "lv": 35,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "ROUTE 8|BIANCA": {
+    "Bianca": {
+      "note": "Team depends on your starter",
+      "teams": [
+        [
+          {
+            "name": "Stoutland",
+            "lv": 38,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Simisear",
+            "lv": 38,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Musharna",
+            "lv": 38,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Samurott",
+            "lv": 40,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Stoutland",
+            "lv": 38,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Simipour",
+            "lv": 38,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Musharna",
+            "lv": 38,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Serperior",
+            "lv": 40,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Stoutland",
+            "lv": 38,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Simisage",
+            "lv": 38,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Musharna",
+            "lv": 38,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Emboar",
+            "lv": 40,
+            "types": [
+              "Fire",
+              "Fighting"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "ICIRRUS CITY|GYM": {
+    "Brycen": {
+      "note": "Gym Leader #7",
+      "teams": [
+        [
+          {
+            "name": "Vanillish",
+            "lv": 37,
+            "types": [
+              "Ice"
+            ]
+          },
+          {
+            "name": "Cryogonal",
+            "lv": 37,
+            "types": [
+              "Ice"
+            ]
+          },
+          {
+            "name": "Beartic",
+            "lv": 39,
+            "types": [
+              "Ice"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "OPELUCID CITY|GYM": {
+    "Drayden": {
+      "note": "Gym Leader #8",
+      "teams": [
+        [
+          {
+            "name": "Fraxure",
+            "lv": 41,
+            "types": [
+              "Dragon"
+            ]
+          },
+          {
+            "name": "Druddigon",
+            "lv": 41,
+            "types": [
+              "Dragon"
+            ]
+          },
+          {
+            "name": "Haxorus",
+            "lv": 43,
+            "types": [
+              "Dragon"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "ROUTE 10": {
+    "Cheren": {
+      "note": "Pre-Elite Four battle",
+      "teams": [
+        [
+          {
+            "name": "Unfezant",
+            "lv": 43,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Simisage",
+            "lv": 43,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 43,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Emboar",
+            "lv": 45,
+            "types": [
+              "Fire",
+              "Fighting"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Unfezant",
+            "lv": 43,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Simisear",
+            "lv": 43,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 43,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Samurott",
+            "lv": 45,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Unfezant",
+            "lv": 43,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Simipour",
+            "lv": 43,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 43,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Serperior",
+            "lv": 45,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  },
+  "POKEMON LEAGUE": {
+    "Shauntal": {
+      "note": "Elite Four - Ghost",
+      "teams": [
+        [
+          {
+            "name": "Cofagrigus",
+            "lv": 48,
+            "types": [
+              "Ghost"
+            ]
+          },
+          {
+            "name": "Jellicent",
+            "lv": 48,
+            "types": [
+              "Water",
+              "Ghost"
+            ]
+          },
+          {
+            "name": "Golurk",
+            "lv": 48,
+            "types": [
+              "Ground",
+              "Ghost"
+            ]
+          },
+          {
+            "name": "Chandelure",
+            "lv": 50,
+            "types": [
+              "Ghost",
+              "Fire"
+            ]
+          }
+        ]
+      ]
+    },
+    "Grimsley": {
+      "note": "Elite Four - Dark",
+      "teams": [
+        [
+          {
+            "name": "Scrafty",
+            "lv": 48,
+            "types": [
+              "Dark",
+              "Fighting"
+            ]
+          },
+          {
+            "name": "Krookodile",
+            "lv": 48,
+            "types": [
+              "Ground",
+              "Dark"
+            ]
+          },
+          {
+            "name": "Liepard",
+            "lv": 48,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Bisharp",
+            "lv": 50,
+            "types": [
+              "Dark",
+              "Steel"
+            ]
+          }
+        ]
+      ]
+    },
+    "Caitlin": {
+      "note": "Elite Four - Psychic",
+      "teams": [
+        [
+          {
+            "name": "Reuniclus",
+            "lv": 48,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Musharna",
+            "lv": 48,
+            "types": [
+              "Psychic"
+            ]
+          },
+          {
+            "name": "Sigilyph",
+            "lv": 48,
+            "types": [
+              "Psychic",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Gothitelle",
+            "lv": 50,
+            "types": [
+              "Psychic"
+            ]
+          }
+        ]
+      ]
+    },
+    "Marshal": {
+      "note": "Elite Four - Fighting",
+      "teams": [
+        [
+          {
+            "name": "Throh",
+            "lv": 48,
+            "types": [
+              "Fighting"
+            ]
+          },
+          {
+            "name": "Sawk",
+            "lv": 48,
+            "types": [
+              "Fighting"
+            ]
+          },
+          {
+            "name": "Conkeldurr",
+            "lv": 48,
+            "types": [
+              "Fighting"
+            ]
+          },
+          {
+            "name": "Mienshao",
+            "lv": 50,
+            "types": [
+              "Fighting"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "N'S CASTLE|N": {
+    "N": {
+      "note": "Final battle - has legendary",
+      "teams": [
+        [
+          {
+            "name": "Zekrom",
+            "lv": 52,
+            "types": [
+              "Dragon",
+              "Electric"
+            ]
+          },
+          {
+            "name": "Carracosta",
+            "lv": 50,
+            "types": [
+              "Water",
+              "Rock"
+            ]
+          },
+          {
+            "name": "Vanilluxe",
+            "lv": 50,
+            "types": [
+              "Ice"
+            ]
+          },
+          {
+            "name": "Archeops",
+            "lv": 50,
+            "types": [
+              "Rock",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Zoroark",
+            "lv": 50,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Klinklang",
+            "lv": 50,
+            "types": [
+              "Steel"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "N'S CASTLE|GHETSIS": {
+    "Ghetsis": {
+      "note": "True final boss - Hydreigon is dangerous!",
+      "teams": [
+        [
+          {
+            "name": "Cofagrigus",
+            "lv": 52,
+            "types": [
+              "Ghost"
+            ]
+          },
+          {
+            "name": "Bouffalant",
+            "lv": 52,
+            "types": [
+              "Normal"
+            ]
+          },
+          {
+            "name": "Seismitoad",
+            "lv": 52,
+            "types": [
+              "Water",
+              "Ground"
+            ]
+          },
+          {
+            "name": "Bisharp",
+            "lv": 52,
+            "types": [
+              "Dark",
+              "Steel"
+            ]
+          },
+          {
+            "name": "Eelektross",
+            "lv": 52,
+            "types": [
+              "Electric"
+            ]
+          },
+          {
+            "name": "Hydreigon",
+            "lv": 54,
+            "types": [
+              "Dark",
+              "Dragon"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "UNDELLA TOWN|CYNTHIA": {
+    "Cynthia": {
+      "note": "Post-game champion - very tough!",
+      "teams": [
+        [
+          {
+            "name": "Spiritomb",
+            "lv": 75,
+            "types": [
+              "Ghost",
+              "Dark"
+            ]
+          },
+          {
+            "name": "Eelektross",
+            "lv": 75,
+            "types": [
+              "Electric"
+            ]
+          },
+          {
+            "name": "Milotic",
+            "lv": 75,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Braviary",
+            "lv": 75,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Lucario",
+            "lv": 75,
+            "types": [
+              "Fighting",
+              "Steel"
+            ]
+          },
+          {
+            "name": "Garchomp",
+            "lv": 77,
+            "types": [
+              "Dragon",
+              "Ground"
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "FINAL BATTLES|CHEREN": {
+    "Cheren": {
+      "note": "Post-game rematch at Victory Road",
+      "teams": [
+        [
+          {
+            "name": "Liepard",
+            "lv": 65,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Simisage",
+            "lv": 65,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "name": "Unfezant",
+            "lv": 65,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Gigalith",
+            "lv": 65,
+            "types": [
+              "Rock"
+            ]
+          },
+          {
+            "name": "Haxorus",
+            "lv": 65,
+            "types": [
+              "Dragon"
+            ]
+          },
+          {
+            "name": "Emboar",
+            "lv": 67,
+            "types": [
+              "Fire",
+              "Fighting"
+            ]
+          },
+          {
+            "note": "If you picked Snivy"
+          }
+        ],
+        [
+          {
+            "name": "Liepard",
+            "lv": 65,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Simisear",
+            "lv": 65,
+            "types": [
+              "Fire"
+            ]
+          },
+          {
+            "name": "Unfezant",
+            "lv": 65,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Gigalith",
+            "lv": 65,
+            "types": [
+              "Rock"
+            ]
+          },
+          {
+            "name": "Haxorus",
+            "lv": 65,
+            "types": [
+              "Dragon"
+            ]
+          },
+          {
+            "name": "Samurott",
+            "lv": 67,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "note": "If you picked Tepig"
+          }
+        ],
+        [
+          {
+            "name": "Liepard",
+            "lv": 65,
+            "types": [
+              "Dark"
+            ]
+          },
+          {
+            "name": "Simipour",
+            "lv": 65,
+            "types": [
+              "Water"
+            ]
+          },
+          {
+            "name": "Unfezant",
+            "lv": 65,
+            "types": [
+              "Normal",
+              "Flying"
+            ]
+          },
+          {
+            "name": "Gigalith",
+            "lv": 65,
+            "types": [
+              "Rock"
+            ]
+          },
+          {
+            "name": "Haxorus",
+            "lv": 65,
+            "types": [
+              "Dragon"
+            ]
+          },
+          {
+            "name": "Serperior",
+            "lv": 67,
+            "types": [
+              "Grass"
+            ]
+          },
+          {
+            "note": "If you picked Oshawott"
+          }
+        ]
+      ],
+      "pick1": true
+    }
+  }
+}

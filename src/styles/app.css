@@ -880,3 +880,145 @@ input[type="range"]::-webkit-slider-thumb {
 .guide-steps {
     scroll-behavior: smooth;
 }
+
+/* ── Navigation Panel ── */
+.nav-location-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nav-location-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.nav-location-item:hover {
+    background: var(--bg-card-hover);
+}
+
+.nav-location-item.current {
+    background: rgba(91, 141, 239, 0.1);
+    border-left: 2px solid var(--blue);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.nav-location-item.complete {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.nav-location-item.future {
+    color: var(--text-muted);
+    opacity: 0.4;
+}
+
+.nav-indicator {
+    width: 14px;
+    min-width: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.nav-location-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-location-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-location-progress {
+    font-size: 9px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.nav-catch-badge {
+    font-size: 9px;
+    color: var(--green);
+    background: rgba(46, 213, 115, 0.1);
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+/* ── Battle Card ── */
+.battle-card {
+    background: rgba(255, 71, 87, 0.06);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+    border-radius: var(--radius-md);
+    padding: 8px 10px;
+    margin: 4px 8px;
+    animation: slideDown 0.15s ease;
+}
+
+.battle-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.battle-card-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.battle-card-note {
+    font-size: 9px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.battle-team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.battle-pokemon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 4px 8px 4px 4px;
+}
+
+.battle-pokemon-name {
+    font-size: 11px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.battle-pokemon-lv {
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+.battle-variant-note {
+    font-size: 9px;
+    color: var(--purple);
+    font-style: italic;
+    padding: 2px 0;
+}

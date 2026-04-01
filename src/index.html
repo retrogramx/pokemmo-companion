@@ -46,15 +46,17 @@
 
         <!-- Type Chart Panel -->
         <div class="panel-overlay" id="typeChartPanel"></div>
+        <!-- Navigation Panel -->
+        <div class="panel-overlay" id="navPanel"></div>
         <!-- Settings Panel -->
         <div class="panel-overlay" id="settingsPanel"></div>
 
         <!-- Full: footer -->
         <div class="footer full-only">
-            <button class="footer-btn" onclick="window.__steps.undoSection()" title="Undo entire current section">Undo Sec.</button>
+            <button class="footer-btn" id="btnNav" onclick="window.__app.toggleNav()">Nav</button>
             <button class="footer-btn" id="btnTypeChart" onclick="window.__app.toggleTypeChart()">Types</button>
             <button class="footer-btn primary" onclick="window.__steps.completeCurrent()">Next</button>
-            <button class="footer-btn" onclick="window.__steps.completeSection()" title="Complete all remaining steps in current location">Skip Sec.</button>
+            <button class="footer-btn" onclick="window.__steps.completeSection()" title="Skip to next location">Skip</button>
         </div>
     </div>
 
@@ -79,6 +81,7 @@
     <script src="js/ui.js"></script>
     <script src="js/catches.js"></script>
     <script src="js/typechart.js"></script>
+    <script src="js/navigation.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/steps.js"></script>
     <script src="js/profiles.js"></script>
