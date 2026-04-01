@@ -104,18 +104,10 @@ function applyFontSize(size) {
  *
  * @param {number} value  0–1
  */
-async function applyOpacity(value) {
-  if (typeof window === 'undefined') return;
-  try {
-    const tauri = window.__TAURI__;
-    if (!tauri) return;
-    const { getCurrentWindow } = tauri.window;
-    if (getCurrentWindow) {
-      await getCurrentWindow().setOpacity(value);
-    }
-  } catch (_) {
-    // Non-fatal: Tauri not available or permission denied
-  }
+function applyOpacity(value) {
+  if (typeof document === 'undefined') return;
+  var app = document.getElementById('app');
+  if (app) app.style.opacity = String(value);
 }
 
 /**
@@ -127,6 +119,7 @@ async function applyOpacity(value) {
 function applyAllSettings(settings) {
   applyTheme(settings.theme);
   applyFontSize(settings.fontSize);
+  applyOpacity(settings.opacity);
 }
 
 /**
