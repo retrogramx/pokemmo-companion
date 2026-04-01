@@ -134,6 +134,12 @@ function renderCompact() {
   // Update header
   document.getElementById('headerLocation').textContent = loc.name;
   document.getElementById('headerProgress').textContent = `${locDone}/${loc.steps.length}`;
+
+  // Update expand bar count
+  var expandCount = document.getElementById('expandBarCount');
+  if (expandCount && current) {
+    expandCount.textContent = locDone + '/' + loc.steps.length + ' steps';
+  }
 }
 
 function renderFull() {
@@ -508,6 +514,13 @@ async function completeStep(locIdx, stepIdx) {
   if (!currentProfile) return;
   if (!currentProfile.completedSteps) currentProfile.completedSteps = {};
 
+  // Animate the step circle
+  var stepEl = document.querySelector('.step.current');
+  if (stepEl) {
+    stepEl.classList.add('completing');
+    await new Promise(function(resolve) { setTimeout(resolve, 200); });
+  }
+
   currentProfile.completedSteps[`${locIdx}-${stepIdx}`] = true;
   render();
   saveProfile();
@@ -573,9 +586,24 @@ function saveProfile() {
   }
 }
 
+function updatePill() {
+  var pill = document.getElementById('pill');
+  if (!pill || !regionData) return;
+  var current = findCurrentStep();
+  if (current) {
+    var loc = regionData.locations[current.location];
+    var completed = getCompletedSteps();
+    var locDone = loc.steps.filter(function(_, i) { return completed[current.location + '-' + i]; }).length;
+    pill.textContent = loc.name + ' \u00B7 ' + locDone + '/' + loc.steps.length;
+  } else {
+    pill.textContent = 'Complete!';
+  }
+}
+
 function render() {
   renderCompact();
   renderFull();
+  updatePill();
 }
 
 function setProfile(profile) {
@@ -593,5 +621,6 @@ if (typeof window !== 'undefined') {
   window.__steps = {
     loadRegionData, render, setProfile, completeCurrent, completeStep, undoLast, clearAll,
     getRegionData: function() { return regionData; },
+    findCurrentStep: findCurrentStep,
   };
 }

@@ -36,7 +36,10 @@
         <!-- Compact: current step -->
         <div class="compact-step" id="compactStep"></div>
         <div class="compact-next" id="compactNext"></div>
-        <div class="expand-bar" onclick="window.__app.toggleMode()">▼ EXPAND GUIDE</div>
+        <div class="expand-bar" onclick="window.__app.toggleMode()">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1,1 5,5 9,1"/></svg>
+            <span id="expandBarCount"></span>
+        </div>
 
         <!-- Full: scrollable step list -->
         <div class="guide-steps full-only" id="guideSteps"></div>
