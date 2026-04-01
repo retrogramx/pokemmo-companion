@@ -470,6 +470,17 @@ function renderPanel(panelEl) {
     (val) => { settings.theme = val; applyTheme(val); save(); }
   ));
 
+  // Starter picker
+  panelEl.appendChild(renderSelectRow(
+    'Starter', profile.starter || 'Tepig',
+    [
+      { value: 'Snivy', label: 'Snivy' },
+      { value: 'Tepig', label: 'Tepig' },
+      { value: 'Oshawott', label: 'Oshawott' },
+    ],
+    (val) => { profile.starter = val; if (window.__profiles) window.__profiles.saveActiveProfile(); if (window.__steps) window.__steps.render(); }
+  ));
+
   // --- Behavior section ---
   panelEl.appendChild(renderSectionTitle('Behavior'));
 
