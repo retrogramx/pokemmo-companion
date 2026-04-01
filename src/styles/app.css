@@ -183,7 +183,7 @@
     color: var(--text-secondary);
     cursor: pointer;
     font-size: 12px;
-    transition: background 0.15s, color 0.15s;
+    transition: background var(--transition-normal), color var(--transition-normal);
 }
 
 .header-btn:hover {
@@ -203,7 +203,7 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-sm);
-    transition: color 0.15s, background 0.15s;
+    transition: color var(--transition-normal), background var(--transition-normal);
     white-space: nowrap;
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
@@ -241,7 +241,7 @@
     font-size: 12px;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: background 0.12s, color 0.12s;
+    transition: background var(--transition-normal), color var(--transition-normal);
 }
 
 .profile-option:hover {
@@ -253,7 +253,7 @@
     opacity: 0;
     color: var(--red);
     font-size: 11px;
-    transition: opacity 0.12s;
+    transition: opacity var(--transition-normal);
 }
 
 .profile-option:hover .delete-btn {
@@ -271,7 +271,7 @@
     cursor: pointer;
     border-top: 1px solid var(--border-subtle);
     margin-top: 4px;
-    transition: background 0.12s;
+    transition: background var(--transition-normal);
 }
 
 .profile-new:hover {
@@ -317,7 +317,7 @@
     color: var(--text-muted);
     cursor: pointer;
     font-size: 14px;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    transition: background var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .compact-step .done-btn:hover {
@@ -346,7 +346,7 @@
     color: var(--text-muted);
     font-size: 10px;
     cursor: pointer;
-    transition: background 0.15s, color 0.15s;
+    transition: background var(--transition-normal), color var(--transition-normal);
 }
 
 .expand-bar:hover {
@@ -373,7 +373,7 @@
     gap: 8px;
     padding: 6px 12px;
     cursor: pointer;
-    transition: background 0.12s;
+    transition: background var(--transition-normal);
 }
 
 .step:hover {
@@ -416,7 +416,7 @@
     justify-content: center;
     font-size: 8px;
     margin-top: 2px;
-    transition: background 0.15s, border-color 0.15s;
+    transition: background var(--transition-normal), border-color var(--transition-normal);
 }
 
 .step.current .step-circle {
@@ -487,7 +487,7 @@
     font-family: var(--font-pixel);
     cursor: pointer;
     text-align: center;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    transition: background var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
     letter-spacing: 0.3px;
 }
 
@@ -566,7 +566,7 @@
     font-size: var(--font-size-content);
     outline: none;
     margin-bottom: 12px;
-    transition: border-color 0.15s;
+    transition: border-color var(--transition-normal);
 }
 
 .modal input[type="text"]:focus {
@@ -598,7 +598,7 @@
     font-family: var(--font-body);
     cursor: pointer;
     text-align: center;
-    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    transition: border-color var(--transition-normal), color var(--transition-normal), background var(--transition-normal);
 }
 
 .modal .starter-btn:hover {
@@ -625,7 +625,7 @@
     font-size: 12px;
     cursor: pointer;
     border: 1px solid var(--border-subtle);
-    transition: background 0.15s, color 0.15s;
+    transition: background var(--transition-normal), color var(--transition-normal);
 }
 
 .modal .btn-cancel {
@@ -662,7 +662,7 @@
     color: var(--green);
     cursor: pointer;
     display: none;
-    transition: background 0.15s, box-shadow 0.15s;
+    transition: background var(--transition-normal), box-shadow var(--transition-normal);
     z-index: 300;
     -webkit-app-region: no-drag;
 }
@@ -684,7 +684,7 @@
     padding: 10px;
     margin: 4px 8px 4px;
     box-shadow: inset 0 0 12px rgba(91, 141, 239, 0.05);
-    transition: max-height 0.25s ease, opacity 0.25s ease, padding 0.25s ease, margin 0.25s ease;
+    transition: max-height var(--transition-slow), opacity var(--transition-slow), padding var(--transition-slow), margin var(--transition-slow);
     overflow: hidden;
 }
 
@@ -725,7 +725,7 @@
 .catch-banner-chevron {
     font-size: 8px;
     color: var(--text-muted);
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-normal);
     margin-left: 2px;
 }
 
@@ -744,7 +744,7 @@
     border-radius: 5px;
     padding: 8px;
     margin-bottom: 6px;
-    transition: opacity 0.25s ease;
+    transition: opacity var(--transition-slow);
 }
 
 .catch-card .catch-name {
@@ -766,7 +766,7 @@
     align-items: center;
     gap: 8px;
     padding: 5px 8px;
-    transition: opacity 0.25s ease;
+    transition: opacity var(--transition-slow);
 }
 
 .catch-row .catch-name {
@@ -778,6 +778,55 @@
 .catch-card.caught,
 .catch-row.caught {
     opacity: 0.5;
+}
+
+/* ── Catch Card Layout Utilities ── */
+.catch-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.catch-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+}
+
+.catch-row-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.catch-row-name-line {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+}
+
+.catch-row-name {
+    font-size: 12px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* ── Battle Card Layout Utilities ── */
+.battle-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 8px 0;
+}
+
+/* ── Banner Icon Placeholder ── */
+.banner-icon {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    background: rgba(91, 141, 239, 0.2);
+    border-radius: 3px;
+    border: 1px solid rgba(91, 141, 239, 0.3);
 }
 
 /* ── Ice Tray ── */
@@ -796,7 +845,7 @@
     justify-content: center;
     cursor: pointer;
     position: relative;
-    transition: all 0.2s ease;
+    transition: all var(--transition-normal);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.07);
 }
@@ -886,7 +935,7 @@
     text-align: center;
     justify-content: center;
     padding: 4px 2px;
-    transition: outline 0.15s ease, transform 0.15s ease;
+    transition: outline var(--transition-normal), transform var(--transition-normal);
 }
 
 .type-grid .type-badge.selected {
@@ -1030,7 +1079,7 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 6px 8px;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: background 0.15s;
+    transition: background var(--transition-normal);
     font-size: 11px;
     color: var(--text-secondary);
 }
@@ -1161,4 +1210,39 @@ input[type="range"]::-webkit-slider-thumb {
     color: var(--purple);
     font-style: italic;
     padding: 2px 0;
+}
+
+/* ── Enhanced Hover States ── */
+
+/* Completed steps get subtle hover feedback */
+.step.done:hover {
+    opacity: 0.6;
+    background: var(--bg-card-hover);
+}
+
+/* Catch banner header hover */
+.catch-banner-header:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-sm);
+}
+
+/* Catch card hover */
+.catch-card:hover {
+    background: rgba(46, 213, 115, 0.1);
+}
+
+/* Catch row hover */
+.catch-row:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+}
+
+/* Footer primary button stronger hover */
+.footer-btn.primary:hover {
+    box-shadow: 0 0 8px rgba(46, 213, 115, 0.3);
+}
+
+/* Nav location hover improvement */
+.nav-location-item.complete:hover {
+    opacity: 0.8;
 }

@@ -145,11 +145,6 @@ async function toggleVisibility() {
   }
 }
 
-// --- Placeholders ---
-
-function showMap() { console.log('Map — coming in v2'); }
-function showCatches() { console.log('Catches — coming in v2'); }
-
 // --- Panel management ---
 
 var currentPanel = null; // null, 'typechart', 'settings'
@@ -258,7 +253,7 @@ function initDragging() {
   });
 }
 
-window.__app = { toggleMode, closeApp, toggleVisibility, showMap, showCatches, toggleDragLock, toggleTypeChart, toggleSettings, toggleNav, closePanel, init };
+window.__app = { toggleMode, closeApp, toggleVisibility, toggleDragLock, toggleTypeChart, toggleSettings, toggleNav, closePanel, init };
 
 init().then(function() {
   initDragging();

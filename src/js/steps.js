@@ -351,7 +351,7 @@ function renderCatchBanner(location, caughtPokemon) {
   var title = document.createElement('div');
   title.className = 'catch-banner-title';
   var icon = document.createElement('div');
-  icon.style.cssText = 'width:14px;height:14px;min-width:14px;background:rgba(91,141,239,0.2);border-radius:3px;border:1px solid rgba(91,141,239,0.3);';
+  icon.className = 'banner-icon';
   title.appendChild(icon);
 
   var parts = [];
@@ -401,7 +401,7 @@ function renderCatchBanner(location, caughtPokemon) {
   if (hasBattles) {
     if (hasCatches) {
       var divider = document.createElement('div');
-      divider.style.cssText = 'height:1px;background:var(--border-subtle);margin:8px 0;';
+      divider.className = 'battle-divider';
       body.appendChild(divider);
     }
     renderBattleSection(body, locationBattles);
@@ -594,11 +594,11 @@ function renderCardLayout(container, catches, caughtPokemon) {
 
       // Info column
       var info = document.createElement('div');
-      info.style.cssText = 'flex:1;min-width:0;';
+      info.className = 'catch-info';
 
       // Name + star + type badges
       var nameRow = document.createElement('div');
-      nameRow.style.cssText = 'display:flex;align-items:center;gap:6px;flex-wrap:wrap;';
+      nameRow.className = 'catch-name-row';
       var nameSpan = document.createElement('span');
       nameSpan.className = 'catch-name';
       nameSpan.textContent = c.name;
@@ -646,11 +646,11 @@ function renderCardLayout(container, catches, caughtPokemon) {
 
       // Name + type badges + stat pills
       var rowInfo = document.createElement('div');
-      rowInfo.style.cssText = 'flex:1;min-width:0;';
+      rowInfo.className = 'catch-row-info';
       var rowNameLine = document.createElement('div');
-      rowNameLine.style.cssText = 'display:flex;align-items:center;gap:4px;margin-bottom:2px;';
+      rowNameLine.className = 'catch-row-name-line';
       var rowName = document.createElement('span');
-      rowName.style.cssText = 'font-size:12px;color:var(--text-primary);font-weight:500;';
+      rowName.className = 'catch-row-name';
       rowName.textContent = c.name;
       rowNameLine.appendChild(rowName);
       if (c.types) {

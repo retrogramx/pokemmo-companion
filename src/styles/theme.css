@@ -28,6 +28,9 @@
     --font-size-content: 13px;
     --bg-opacity: 0.92;
     --panel-bg: #1a1430;
+    --transition-fast: 0.1s ease;
+    --transition-normal: 0.15s ease;
+    --transition-slow: 0.25s ease;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,7 +126,7 @@ body {
     height: auto;
     display: block;
     transform-origin: center center;
-    transition: transform 0.1s ease;
+    transition: transform var(--transition-fast);
     user-select: none;
 }
 
@@ -250,7 +253,7 @@ body {
     justify-content: center;
     cursor: pointer;
     border-radius: 50%;
-    transition: all 0.25s ease;
+    transition: all var(--transition-slow);
     opacity: 0.3;
 }
 
