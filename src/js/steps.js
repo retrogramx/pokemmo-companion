@@ -445,6 +445,32 @@ function renderBattleSection(container, battles) {
           typesWrap.style.cssText = 'display:flex;gap:2px;margin-top:2px;';
           mon.types.forEach(function(t) { typesWrap.appendChild(ui.renderTypeBadgeEl(t)); });
           monInfo.appendChild(typesWrap);
+
+          // Weakness hints — show what types are super effective
+          var tc = window.__typechart;
+          if (tc && tc.getTypeData && tc.getTypeData()) {
+            var data = tc.getTypeData();
+            var matchups = tc.getDefensiveMatchups(data.chart, data.types, mon.types);
+            if (matchups.weak.length > 0) {
+              var weakWrap = document.createElement('div');
+              weakWrap.style.cssText = 'display:flex;align-items:center;gap:2px;margin-top:2px;flex-wrap:wrap;';
+              var weakLabel = document.createElement('span');
+              weakLabel.style.cssText = 'font-size:8px;color:var(--text-muted);';
+              weakLabel.textContent = 'weak:';
+              weakWrap.appendChild(weakLabel);
+              matchups.weak.forEach(function(w) {
+                var badge = ui.renderTypeBadgeEl(w.type);
+                badge.style.fontSize = '6px';
+                badge.style.padding = '0 3px';
+                badge.style.lineHeight = '11px';
+                if (w.multiplier >= 4) {
+                  badge.style.outline = '1px solid var(--red)';
+                }
+                weakWrap.appendChild(badge);
+              });
+              monInfo.appendChild(weakWrap);
+            }
+          }
         }
         monEl.appendChild(monInfo);
         teamEl.appendChild(monEl);
@@ -850,7 +876,8 @@ function renderBattleCard(locationName, step) {
  */
 var _dexCache = null;
 function getDexForName(name) {
-  if (!_dexCache) {
+  // Rebuild cache if regionData changed (e.g., first load)
+  if (!_dexCache || (!_dexCache._hasRegionData && regionData)) {
     _dexCache = {};
     // Build from catch data
     if (regionData && regionData.locations) {
@@ -895,6 +922,7 @@ function getDexForName(name) {
       metagross:376, salamence:373, glaceon:471,
     };
     Object.keys(extras).forEach(function(k) { _dexCache[k] = extras[k]; });
+    _dexCache._hasRegionData = !!regionData;
   }
   return _dexCache[name.toLowerCase()] || null;
 }
