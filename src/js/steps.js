@@ -362,30 +362,38 @@ function renderCardLayout(container, catches, caughtPokemon) {
 
       container.appendChild(card);
     } else {
-      // Compact row for non-top25
+      // Compact row for non-top25 — uses medium sprite with full info
       var row = document.createElement('div');
       row.className = 'catch-row' + (caught ? ' caught' : '');
 
-      // Small sprite with type overlay
-      var spriteSmall = ui.renderSpriteEl(c.dex, 'sm');
+      // Medium sprite with type overlay
+      var spriteMd = ui.renderSpriteEl(c.dex, 'md');
       if (c.types) {
         var typeOverlaySm = document.createElement('div');
         typeOverlaySm.className = 'type-overlay';
         for (var t3 = 0; t3 < c.types.length; t3++) {
           typeOverlaySm.appendChild(ui.renderTypeBadgeMiniEl(c.types[t3]));
         }
-        spriteSmall.appendChild(typeOverlaySm);
+        spriteMd.appendChild(typeOverlaySm);
       }
-      row.appendChild(spriteSmall);
+      row.appendChild(spriteMd);
 
-      // Name + compact pills
+      // Name + type badges + stat pills — use available horizontal space
       var rowInfo = document.createElement('div');
-      rowInfo.style.cssText = 'flex:1;min-width:0;display:flex;align-items:center;gap:6px;';
+      rowInfo.style.cssText = 'flex:1;min-width:0;';
+      var rowNameLine = document.createElement('div');
+      rowNameLine.style.cssText = 'display:flex;align-items:center;gap:4px;margin-bottom:2px;';
       var rowName = document.createElement('span');
-      rowName.className = 'catch-name';
+      rowName.style.cssText = 'font-size:12px;color:var(--text-primary);font-weight:500;';
       rowName.textContent = c.name;
-      rowInfo.appendChild(rowName);
-      rowInfo.appendChild(ui.renderStatPillsEl(c.method, null, c.percent || 0));
+      rowNameLine.appendChild(rowName);
+      if (c.types) {
+        for (var t4 = 0; t4 < c.types.length; t4++) {
+          rowNameLine.appendChild(ui.renderTypeBadgeEl(c.types[t4]));
+        }
+      }
+      rowInfo.appendChild(rowNameLine);
+      rowInfo.appendChild(ui.renderStatPillsEl(c.method, c.level || '', c.percent || 0));
       row.appendChild(rowInfo);
 
       // Pokeball toggle
@@ -415,7 +423,9 @@ function renderIceTrayLayout(container, catches, caughtPokemon) {
 
   var grid = document.createElement('div');
   grid.className = 'ice-tray';
-  grid.style.gridTemplateColumns = 'repeat(' + Math.min(catches.length, 8) + ', 1fr)';
+  // For 4-8, fit in one row. For 9+, use 2 balanced rows.
+  var cols = catches.length <= 8 ? catches.length : Math.ceil(catches.length / 2);
+  grid.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
 
   var expandPanel = document.createElement('div');
   expandPanel.className = 'ice-tray-expand';

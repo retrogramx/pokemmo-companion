@@ -168,12 +168,14 @@ function renderStatPillsEl(encounter, level, percent) {
 }
 
 function renderSpriteEl(dex, size) {
+  var s = size || 'lg';
+  var px = s === 'sm' ? 24 : s === 'md' ? 36 : 48;
   var wrap = document.createElement('div');
-  wrap.className = 'sprite-box sprite-box-' + (size || 'lg');
+  wrap.className = 'sprite-box sprite-box-' + s;
   var img = document.createElement('img');
   img.src = spriteUrl(dex);
-  img.width = size === 'sm' ? 24 : 48;
-  img.height = size === 'sm' ? 24 : 48;
+  img.width = px;
+  img.height = px;
   img.style.imageRendering = 'pixelated';
   img.className = 'sprite-img';
   wrap.appendChild(img);

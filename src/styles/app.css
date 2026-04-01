@@ -710,16 +710,16 @@ button, input, select, a,
 /* Type overlay works on both sprite-box (catch cards) and ice-tray-cell */
 .type-overlay {
     position: absolute;
-    bottom: 1px;
-    right: 1px;
+    bottom: 2px;
+    right: 2px;
     display: flex;
     gap: 1px;
 }
 
 .ice-tray-cell .star-overlay {
     position: absolute;
-    top: -3px;
-    right: -3px;
+    top: 1px;
+    right: 1px;
     z-index: 1;
     filter: drop-shadow(0 0 2px rgba(255, 192, 72, 0.6));
 }

@@ -136,6 +136,13 @@ body {
     border-radius: 6px;
 }
 
+.sprite-box-md {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 5px;
+}
+
 .sprite-box-sm {
     width: 24px;
     height: 24px;
@@ -149,6 +156,10 @@ body {
 
 .sprite-box-lg .sprite-img {
     transform: scale(1.2);
+}
+
+.sprite-box-md .sprite-img {
+    transform: scale(1.25);
 }
 
 .sprite-box-sm .sprite-img {
