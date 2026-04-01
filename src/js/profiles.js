@@ -119,5 +119,6 @@ if (typeof window !== 'undefined') {
   window.__profiles = {
     init, switchProfile, deleteProfileByName, toggleDropdown,
     openModal, closeModal, selectStarter, createProfile, saveActiveProfile,
+    getActiveProfile: () => activeProfile,
   };
 }

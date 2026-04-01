@@ -48,13 +48,55 @@ function toggleMode() {
   window.__steps.render();
 }
 
-async function hide() {
-  // Save before closing
-  if (window.__profiles) {
-    await window.__profiles.saveActiveProfile();
+async function saveWindowState() {
+  if (!window.__TAURI__ || !window.__profiles) return;
+  try {
+    const win = window.__TAURI__.window.getCurrentWindow();
+    const pos = await win.outerPosition();
+    const size = await win.innerSize();
+    // Store on the active profile object before saving
+    const profile = window.__profiles.getActiveProfile();
+    if (profile) {
+      profile.windowPosition = { x: pos.x, y: pos.y };
+      profile.windowSize = { width: size.width, height: size.height };
+      profile.windowMode = currentMode;
+      await window.__profiles.saveActiveProfile();
+    }
+  } catch (e) {
+    console.warn('Failed to save window state:', e);
   }
+}
+
+async function restoreWindowState() {
+  if (!window.__TAURI__) return;
+  const profile = window.__profiles.getActiveProfile();
+  if (!profile) return;
+  const win = window.__TAURI__.window.getCurrentWindow();
+  try {
+    if (profile.windowPosition) {
+      await win.setPosition(new window.__TAURI__.window.LogicalPosition(profile.windowPosition.x, profile.windowPosition.y));
+    }
+    if (profile.windowSize) {
+      await win.setSize(new window.__TAURI__.window.LogicalSize(profile.windowSize.width, profile.windowSize.height));
+    }
+    if (profile.windowMode) {
+      currentMode = profile.windowMode;
+      appEl.className = `app ${currentMode}`;
+      if (dragUnlocked) appEl.classList.add('drag-unlocked');
+    }
+  } catch (e) {
+    console.warn('Failed to restore window state:', e);
+  }
+}
+
+async function hide() {
+  await saveWindowState();
   if (window.__TAURI__) {
-    window.__TAURI__.window.getCurrentWindow().close();
+    try {
+      await window.__TAURI__.window.getCurrentWindow().destroy();
+    } catch (e) {
+      window.close();
+    }
   }
 }
 
@@ -101,6 +143,7 @@ if (window.__TAURI__) {
 async function init() {
   await window.__steps.loadRegionData();
   await window.__profiles.init();
+  await restoreWindowState();
 }
 
 window.__app = { toggleMode, hide, show, showMap, showCatches, toggleDragLock, init };
