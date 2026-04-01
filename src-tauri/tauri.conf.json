@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "identifier": "com.retrogramx.pokemmo-companion",
   "build": {
-    "frontendDist": "../src",
-    "withGlobalTauri": true
+    "frontendDist": "../src"
   },
   "app": {
     "macOSPrivateApi": true,
+    "withGlobalTauri": true,
     "windows": [
       {
         "title": "PokeMMO Companion",
