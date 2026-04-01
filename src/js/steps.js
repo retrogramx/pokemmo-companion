@@ -426,8 +426,8 @@ function renderBattleSection(container, battles) {
         if (dex) {
           var sprite = document.createElement('img');
           sprite.src = ui.spriteUrl(dex);
-          sprite.width = 32;
-          sprite.height = 32;
+          sprite.width = 36;
+          sprite.height = 36;
           sprite.style.imageRendering = 'pixelated';
           monEl.appendChild(sprite);
         }
@@ -455,14 +455,14 @@ function renderBattleSection(container, battles) {
               var weakWrap = document.createElement('div');
               weakWrap.style.cssText = 'display:flex;align-items:center;gap:2px;margin-top:2px;flex-wrap:wrap;';
               var weakLabel = document.createElement('span');
-              weakLabel.style.cssText = 'font-size:8px;color:var(--text-muted);';
+              weakLabel.style.cssText = 'font-size:9px;color:var(--text-muted);';
               weakLabel.textContent = 'weak:';
               weakWrap.appendChild(weakLabel);
               matchups.weak.forEach(function(w) {
                 var badge = ui.renderTypeBadgeEl(w.type);
-                badge.style.fontSize = '6px';
-                badge.style.padding = '0 3px';
-                badge.style.lineHeight = '11px';
+                badge.style.fontSize = '7px';
+                badge.style.padding = '0 4px';
+                badge.style.lineHeight = '12px';
                 if (w.multiplier >= 4) {
                   badge.style.outline = '1px solid var(--red)';
                 }

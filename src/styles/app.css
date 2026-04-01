@@ -372,22 +372,24 @@ button, input, select, a,
     align-items: center;
     gap: 6px;
     padding: 8px 12px;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 2px solid var(--border-medium);
     flex-shrink: 0;
+    background: var(--bg-panel);
 }
 
 .footer-btn {
     flex: 1;
-    padding: 6px 0;
+    padding: 7px 0;
     border-radius: var(--radius-md);
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
-    font-size: 11px;
-    font-family: var(--font-body);
+    font-size: 0.42rem;
+    font-family: var(--font-pixel);
     cursor: pointer;
     text-align: center;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
+    letter-spacing: 0.3px;
 }
 
 .footer-btn:hover {
@@ -571,10 +573,11 @@ button, input, select, a,
 /* ── Catch Banner ── */
 .catch-banner {
     background: rgba(91, 141, 239, 0.08);
-    border: 1px solid rgba(91, 141, 239, 0.2);
+    border: 2px solid rgba(91, 141, 239, 0.25);
     border-radius: var(--radius-md);
     padding: 10px;
     margin: 4px 8px 4px;
+    box-shadow: inset 0 0 12px rgba(91, 141, 239, 0.05);
     transition: max-height 0.25s ease, opacity 0.25s ease, padding 0.25s ease, margin 0.25s ease;
     overflow: hidden;
 }
@@ -605,7 +608,8 @@ button, input, select, a,
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 10px;
+    font-family: var(--font-pixel);
+    font-size: 0.42rem;
     color: var(--blue);
     font-weight: 600;
     text-transform: uppercase;
@@ -797,69 +801,83 @@ button, input, select, a,
 
 /* ── Settings Panel ── */
 .settings-section {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .settings-section-title {
     font-family: var(--font-pixel);
     font-size: 0.4rem;
-    color: var(--text-secondary);
-    margin-bottom: 8px;
+    color: var(--green);
+    margin-bottom: 10px;
+    margin-top: 16px;
     text-transform: uppercase;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-subtle);
+    letter-spacing: 0.5px;
 }
 
 .settings-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 8px 10px;
+    margin-bottom: 2px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.settings-row:hover {
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .settings-label {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-primary);
 }
 
 .settings-value {
     font-size: 12px;
     color: var(--text-secondary);
+    text-align: right;
 }
 
 /* ── Slider ── */
 input[type="range"] {
     -webkit-appearance: none;
-    width: 100px;
-    height: 4px;
+    width: 140px;
+    height: 6px;
     background: var(--bg-elevated);
-    border-radius: 2px;
+    border-radius: 3px;
     outline: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: var(--blue);
     cursor: pointer;
+    box-shadow: 0 0 4px rgba(91, 141, 239, 0.3);
 }
 
 /* ── Progress Bar ── */
 .progress-bar {
     width: 100%;
-    height: 6px;
+    height: 8px;
     background: var(--bg-elevated);
-    border-radius: 3px;
+    border-radius: 4px;
     overflow: hidden;
-    margin-top: 4px;
+    margin-top: 6px;
+    border: 1px solid var(--border-subtle);
 }
 
 .progress-bar-fill {
     height: 100%;
-    background: var(--green);
+    background: linear-gradient(90deg, var(--green), var(--blue));
     border-radius: 3px;
     transition: width 0.3s ease;
+    box-shadow: 0 0 6px rgba(46, 213, 115, 0.3);
 }
 
 /* ── Step completion animation ── */
@@ -981,9 +999,11 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .battle-card-title {
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
     color: var(--red);
+    font-family: var(--font-pixel);
+    font-size: 0.45rem;
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
@@ -1012,18 +1032,19 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .battle-pokemon-name {
-    font-size: 11px;
+    font-size: 13px;
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .battle-pokemon-lv {
-    font-size: 9px;
+    font-size: 11px;
     color: var(--text-muted);
+    margin-left: 2px;
 }
 
 .battle-variant-note {
-    font-size: 9px;
+    font-size: 10px;
     color: var(--purple);
     font-style: italic;
     padding: 2px 0;
