@@ -134,21 +134,22 @@ button, input, select, a,
     white-space: nowrap;
 }
 
-/* Overall % chip — same size as header buttons */
+/* Overall % chip — matches header button size but wider for text */
 .header-progress-total {
     font-family: var(--font-pixel);
-    font-size: 0.32rem;
-    color: var(--text-secondary);
-    width: 24px;
+    font-size: 0.38rem;
+    color: var(--green);
     height: 24px;
+    padding: 0 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid rgba(46, 213, 115, 0.15);
     border-radius: var(--radius-sm);
     white-space: nowrap;
     flex-shrink: 0;
+    text-shadow: 0 0 6px rgba(46, 213, 115, 0.3);
 }
 
 .header-right {
