@@ -1,9 +1,7 @@
 /**
- * Steps module — rendering, highlighting, and completion logic
- * for the PokeMMO Companion guide.
+ * Steps module — rendering, highlighting, and completion logic.
  */
 
-// Tag key to CSS class mapping
 const TAG_CLASS_MAP = {
   items: 'hl-item',
   battles: 'hl-battle',
@@ -16,42 +14,25 @@ const TAG_CLASS_MAP = {
 
 /**
  * Highlight tagged words in step text with styled spans.
- * @param {string} text - The step text to highlight.
- * @param {object|undefined} tags - Object with keys like items, battles, pokemon, etc.
- * @returns {string} HTML string with highlighted words.
  */
 function highlightText(text, tags) {
   if (!tags) return text;
-
   let result = text;
-
-  for (const [tagKey, className] of Object.entries(TAG_CLASS_MAP)) {
-    const words = tags[tagKey];
-    if (!words || !Array.isArray(words)) continue;
-
-    for (const word of words) {
-      // Escape special regex characters in the word
-      const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      result = result.replace(
-        new RegExp(escaped, 'g'),
-        `<span class="${className}">${word}</span>`
-      );
+  for (const [tagKey, cssClass] of Object.entries(TAG_CLASS_MAP)) {
+    const values = tags[tagKey];
+    if (!values) continue;
+    for (const value of values) {
+      result = result.replace(value, `<span class="${cssClass}">${value}</span>`);
     }
   }
-
   return result;
 }
 
 /**
- * Get the next step position after the given one.
- * @param {Array} locations - Array of location objects with steps arrays.
- * @param {number} locIdx - Current location index.
- * @param {number} stepIdx - Current step index.
- * @returns {{ location: number, step: number } | null}
+ * Get the next step position, advancing to the next location if needed.
  */
 function getNextStep(locations, locIdx, stepIdx) {
-  const currentLocation = locations[locIdx];
-  if (stepIdx + 1 < currentLocation.steps.length) {
+  if (stepIdx + 1 < locations[locIdx].steps.length) {
     return { location: locIdx, step: stepIdx + 1 };
   }
   if (locIdx + 1 < locations.length) {
@@ -61,30 +42,21 @@ function getNextStep(locations, locIdx, stepIdx) {
 }
 
 /**
- * Build an array of { done, current } states for each step in a location.
- * The first non-done step is marked as current.
- * @param {number} totalSteps - Total number of steps.
- * @param {object} completedSteps - Map of "locIdx-stepIdx" to true for completed steps.
- * @param {number} locationIdx - The location index (used for key lookup).
- * @returns {Array<{ done: boolean, current: boolean }>}
+ * Build state array for a location's steps.
  */
 function buildStepState(totalSteps, completedSteps, locationIdx) {
   const states = [];
   let foundCurrent = false;
-
   for (let i = 0; i < totalSteps; i++) {
     const key = `${locationIdx}-${i}`;
     const done = !!completedSteps[key];
-
     let current = false;
     if (!done && !foundCurrent) {
       current = true;
       foundCurrent = true;
     }
-
     states.push({ done, current });
   }
-
   return states;
 }
 
@@ -93,35 +65,24 @@ function buildStepState(totalSteps, completedSteps, locationIdx) {
 let regionData = null;
 let currentProfile = null;
 
-/**
- * Fetch and cache region data from unova.json.
- */
 async function loadRegionData() {
   const response = await fetch('data/unova.json');
   regionData = await response.json();
   return regionData;
 }
 
-/**
- * Get the completed steps map from the current profile.
- */
 function getCompletedSteps() {
   if (!currentProfile || !currentProfile.completedSteps) return {};
   return currentProfile.completedSteps;
 }
 
-/**
- * Find the current (first incomplete) step across all locations.
- */
 function findCurrentStep() {
   if (!regionData || !regionData.locations) return null;
   const completed = getCompletedSteps();
-
   for (let locIdx = 0; locIdx < regionData.locations.length; locIdx++) {
     const location = regionData.locations[locIdx];
     for (let stepIdx = 0; stepIdx < location.steps.length; stepIdx++) {
-      const key = `${locIdx}-${stepIdx}`;
-      if (!completed[key]) {
+      if (!completed[`${locIdx}-${stepIdx}`]) {
         return { location: locIdx, step: stepIdx };
       }
     }
@@ -129,12 +90,8 @@ function findCurrentStep() {
   return null;
 }
 
-/**
- * Render the compact view — current step and next step preview.
- * Note: Uses innerHTML with internally-generated highlight markup only.
- */
 function renderCompact() {
-  if (!regionData) return;
+  if (!regionData || !currentProfile) return;
 
   const compactStep = document.getElementById('compactStep');
   const compactNext = document.getElementById('compactNext');
@@ -142,96 +99,125 @@ function renderCompact() {
 
   const current = findCurrentStep();
   if (!current) {
-    compactStep.textContent = 'All steps complete!';
-    compactNext.textContent = '';
+    compactStep.innerHTML = '<div style="padding:4px;color:var(--green);">All steps complete!</div>';
+    compactNext.innerHTML = '';
     return;
   }
 
   const loc = regionData.locations[current.location];
   const step = loc.steps[current.step];
-  compactStep.innerHTML = highlightText(step.text, step.tags); // safe: data is from local JSON only
+  const completed = getCompletedSteps();
+  const locDone = loc.steps.filter((_, i) => completed[`${current.location}-${i}`]).length;
 
+  // Render compact step with circle + text + done button
+  compactStep.innerHTML = `
+    <div class="step-circle" style="border-color:var(--blue);position:relative;width:16px;height:16px;min-width:16px;margin-top:2px;">
+      <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 6px rgba(91,141,239,0.5);"></span>
+    </div>
+    <div class="step-text">${highlightText(step.text, step.tags)}</div>
+    <button class="header-btn" onclick="window.__steps.completeCurrent()" title="Complete (Ctrl+Shift+D)" style="margin-left:auto;flex-shrink:0;">✓</button>
+  `;
+
+  // Next step preview
   const next = getNextStep(regionData.locations, current.location, current.step);
   if (next) {
     const nextLoc = regionData.locations[next.location];
     const nextStep = nextLoc.steps[next.step];
-    compactNext.innerHTML = highlightText(nextStep.text, nextStep.tags); // safe: data is from local JSON only
+    compactNext.innerHTML = `
+      <div style="width:12px;height:12px;min-width:12px;border-radius:50%;border:1.5px solid #3d3560;"></div>
+      <span>${nextStep.text}</span>
+    `;
   } else {
-    compactNext.textContent = 'Last step!';
+    compactNext.innerHTML = '<span>Last step!</span>';
   }
 
-  // Update header with current location name
-  const header = document.getElementById('locationHeader');
-  if (header) {
-    header.textContent = loc.name;
-  }
+  // Update header
+  document.getElementById('headerLocation').textContent = loc.name;
+  document.getElementById('headerProgress').textContent = `${locDone}/${loc.steps.length}`;
 }
 
-/**
- * Render the full step list view with numbered steps,
- * current highlighting, and location dividers.
- * Note: Uses innerHTML with internally-generated highlight markup only.
- */
 function renderFull() {
-  if (!regionData) return;
+  if (!regionData || !currentProfile) return;
 
   const container = document.getElementById('guideSteps');
   if (!container) return;
 
   const completed = getCompletedSteps();
+  const current = findCurrentStep();
   let html = '';
-  let globalStepNum = 1;
 
-  for (let locIdx = 0; locIdx < regionData.locations.length; locIdx++) {
+  // Show current location + a couple upcoming
+  const startLoc = current ? current.location : 0;
+  const endLoc = Math.min(startLoc + 3, regionData.locations.length);
+
+  for (let locIdx = startLoc; locIdx < endLoc; locIdx++) {
     const location = regionData.locations[locIdx];
     const states = buildStepState(location.steps.length, completed, locIdx);
 
-    html += `<div class="location-divider">${location.name}</div>`;
+    if (locIdx > startLoc) {
+      html += `<div class="location-divider"><span>${location.name}</span></div>`;
+    }
 
     for (let stepIdx = 0; stepIdx < location.steps.length; stepIdx++) {
       const step = location.steps[stepIdx];
       const state = states[stepIdx];
-      const classes = [];
-      if (state.done) classes.push('step-done');
-      if (state.current) classes.push('step-current');
+      const isCurrent = current && current.location === locIdx && current.step === stepIdx;
 
-      html += `<div class="step ${classes.join(' ')}" data-loc="${locIdx}" data-step="${stepIdx}">`;
-      html += `<span class="step-num">${globalStepNum}.</span> `;
-      html += highlightText(step.text, step.tags);
-      html += '</div>';
-      globalStepNum++;
+      const cls = `step${isCurrent ? ' current' : ''}${state.done ? ' done' : ''}`;
+      const numCls = isCurrent ? 'step-num current-num' : 'step-num';
+
+      // Catch tip for current step
+      let catchTip = '';
+      if (isCurrent && location.catches) {
+        const top = location.catches.filter(c => c.top25);
+        if (top.length > 0) {
+          catchTip = `<div class="catch-tip">🌿 <strong>${top[0].name}</strong> — ${top[0].why}</div>`;
+        }
+      }
+
+      html += `
+        <div class="${cls}" onclick="window.__steps.completeStep(${locIdx},${stepIdx})">
+          <span class="${numCls}">${String(stepIdx + 1).padStart(2, '0')}</span>
+          <div class="step-circle"></div>
+          <div class="step-text">
+            ${highlightText(step.text, step.tags)}
+            ${catchTip}
+          </div>
+        </div>`;
     }
   }
 
-  container.innerHTML = html; // safe: all data sourced from local JSON file
+  container.innerHTML = html;
+
+  // Update header
+  if (current) {
+    const loc = regionData.locations[current.location];
+    const locDone = loc.steps.filter((_, i) => completed[`${current.location}-${i}`]).length;
+    document.getElementById('headerLocation').textContent = loc.name;
+    document.getElementById('headerProgress').textContent = `${locDone}/${loc.steps.length}`;
+  }
 }
 
-/**
- * Mark a step as completed, auto-advance, re-render, and save via Tauri if available.
- */
 async function completeStep(locIdx, stepIdx) {
   if (!currentProfile) return;
   if (!currentProfile.completedSteps) currentProfile.completedSteps = {};
 
-  const key = `${locIdx}-${stepIdx}`;
-  currentProfile.completedSteps[key] = true;
-
+  currentProfile.completedSteps[`${locIdx}-${stepIdx}`] = true;
   render();
 
   // Save via Tauri if available
   if (typeof window !== 'undefined' && window.__TAURI__) {
     try {
-      const { invoke } = window.__TAURI__.core;
-      await invoke('save_profile', { profile: currentProfile });
+      await window.__TAURI__.core.invoke('save_profile', {
+        name: currentProfile.name,
+        data: JSON.stringify(currentProfile),
+      });
     } catch (e) {
-      console.error('Failed to save profile via Tauri:', e);
+      console.error('Failed to save profile:', e);
     }
   }
 }
 
-/**
- * Find and complete the current (first incomplete) step.
- */
 function completeCurrent() {
   const current = findCurrentStep();
   if (current) {
@@ -239,26 +225,22 @@ function completeCurrent() {
   }
 }
 
-/**
- * Render both compact and full views.
- */
 function render() {
   renderCompact();
   renderFull();
 }
 
-/**
- * Set the active profile and re-render.
- */
 function setProfile(profile) {
   currentProfile = profile;
   render();
 }
 
-// Export pure functions for testing (Node/Vitest)
-export { highlightText, getNextStep, buildStepState };
+// Export for testing (ESM)
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { highlightText, getNextStep, buildStepState };
+}
 
-// Attach DOM functions to window for browser use
+// Attach to window for browser
 if (typeof window !== 'undefined') {
   window.__steps = { loadRegionData, render, setProfile, completeCurrent, completeStep };
 }

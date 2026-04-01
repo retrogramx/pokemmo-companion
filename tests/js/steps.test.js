@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { highlightText, getNextStep, buildStepState } from '../../src/js/steps.js';
+const { highlightText, getNextStep, buildStepState } = require('../../src/js/steps.js');
 
 describe('highlightText', () => {
   it('wraps items in hl-item spans', () => {
