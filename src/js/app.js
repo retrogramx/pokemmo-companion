@@ -63,6 +63,14 @@ function showCatches() {
   console.log('Catches view — coming in v2');
 }
 
+// Enable window dragging from the header
+document.getElementById('dragHeader').addEventListener('mousedown', (e) => {
+  if (e.target.closest('button, .profile-trigger, .profile-dropdown, .no-drag')) return;
+  if (window.__TAURI__) {
+    window.__TAURI__.window.getCurrentWindow().startDragging();
+  }
+});
+
 // Listen for Tauri hotkey events
 if (window.__TAURI__) {
   window.__TAURI__.event.listen('hotkey-toggle', () => {
