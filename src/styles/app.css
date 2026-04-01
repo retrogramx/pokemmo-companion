@@ -134,14 +134,19 @@ button, input, select, a,
     white-space: nowrap;
 }
 
-/* Overall % chip */
+/* Overall % chip — same size as header buttons */
 .header-progress-total {
     font-family: var(--font-pixel);
     font-size: 0.32rem;
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 3px 6px;
-    border-radius: 3px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -179,12 +184,16 @@ button, input, select, a,
     font-size: 0.35rem;
     color: var(--text-secondary);
     cursor: pointer;
-    padding: 3px 6px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--radius-sm);
     transition: color 0.15s, background 0.15s;
     white-space: nowrap;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
 }
 
 .profile-trigger:hover {
