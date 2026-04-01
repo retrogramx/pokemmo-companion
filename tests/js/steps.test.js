@@ -17,9 +17,14 @@ describe('highlightText', () => {
     expect(result).toContain('<span class="hl-pokemon">Tepig</span>');
   });
 
-  it('returns plain text when no tags', () => {
+  it('auto-highlights directions even without tags', () => {
     const result = highlightText('Just walk north', undefined);
-    expect(result).toBe('Just walk north');
+    expect(result).toContain('<span class="hl-direction">NORTH</span>');
+  });
+
+  it('returns plain text when no tags and no directions', () => {
+    const result = highlightText('Talk to the guy', undefined);
+    expect(result).toBe('Talk to the guy');
   });
 
   it('handles multiple tags of same type', () => {

@@ -12,19 +12,38 @@ const TAG_CLASS_MAP = {
   hiddenItems: 'hl-hidden-item',
 };
 
+// Direction patterns for auto-highlighting — match compass words not inside HTML tags
+// Full words: north, south, east, west. Abbreviations only when uppercase: NE, NW, SE, SW
+var DIRECTION_FULL_REGEX = /\b(north|south|east|west)\b/gi;
+var DIRECTION_ABBR_REGEX = /\b(NE|NW|SE|SW)\b/g;
+
 /**
  * Highlight tagged words in step text with styled spans.
+ * Also auto-detects directions (compass words → cyan uppercase).
  */
 function highlightText(text, tags) {
-  if (!tags) return text;
-  let result = text;
-  for (const [tagKey, cssClass] of Object.entries(TAG_CLASS_MAP)) {
-    const values = tags[tagKey];
-    if (!values) continue;
-    for (const value of values) {
-      result = result.replace(value, `<span class="${cssClass}">${value}</span>`);
+  var result = text;
+
+  // 1. Apply explicit tags first
+  if (tags) {
+    for (var tagKey in TAG_CLASS_MAP) {
+      var cssClass = TAG_CLASS_MAP[tagKey];
+      var values = tags[tagKey];
+      if (!values) continue;
+      for (var vi = 0; vi < values.length; vi++) {
+        result = result.replace(values[vi], '<span class="' + cssClass + '">' + values[vi] + '</span>');
+      }
     }
   }
+
+  // 2. Auto-highlight directions (full compass words + uppercase abbreviations)
+  result = result.replace(DIRECTION_FULL_REGEX, function(match) {
+    return '<span class="hl-direction">' + match.toUpperCase() + '</span>';
+  });
+  result = result.replace(DIRECTION_ABBR_REGEX, function(match) {
+    return '<span class="hl-direction">' + match + '</span>';
+  });
+
   return result;
 }
 
@@ -169,8 +188,8 @@ function renderFull() {
     const location = regionData.locations[locIdx];
     const states = buildStepState(location.steps.length, completed, locIdx);
 
-    // Catch banner for the current location
-    if (locIdx === startLoc && location.catches && location.catches.length > 0 && window.__catches) {
+    // Location banner (catches + battles) for current location
+    if (locIdx === startLoc) {
       var caughtPokemon = (currentProfile && currentProfile.caughtPokemon) ? currentProfile.caughtPokemon : {};
       var banner = renderCatchBanner(location, caughtPokemon);
       if (banner) container.appendChild(banner);
@@ -216,12 +235,6 @@ function renderFull() {
 
       container.appendChild(stepEl);
 
-      // Battle card for current step with a battle tag
-      if (isCurrent && step.tags && step.tags.battles && step.tags.battles.length > 0) {
-        var battleCard = renderBattleCard(location.name, step);
-        if (battleCard) container.appendChild(battleCard);
-      }
-
       // Scroll current step into view
       if (isCurrent) {
         (function(el) {
@@ -246,17 +259,16 @@ function renderFull() {
  * Render the catch banner for a location.
  */
 function renderCatchBanner(location, caughtPokemon) {
-  if (!location.catches || location.catches.length === 0) return null;
-  if (!window.__catches) return null;
+  var hasCatches = location.catches && location.catches.length > 0 && window.__catches;
+  var locationBattles = getLocationBattles(location.name);
+  var hasBattles = locationBattles && locationBattles.length > 0;
 
-  var sorted = window.__catches.sortCatches(location.catches);
-  var layout = window.__catches.chooseBannerLayout(sorted.length);
-  if (layout === 'none') return null;
+  if (!hasCatches && !hasBattles) return null;
 
   var banner = document.createElement('div');
   banner.className = 'catch-banner';
 
-  var collapsed = window.__catches.isBannerCollapsed();
+  var collapsed = window.__catches && window.__catches.isBannerCollapsed();
   if (collapsed) banner.classList.add('collapsed');
 
   // Header
@@ -268,10 +280,17 @@ function renderCatchBanner(location, caughtPokemon) {
   var icon = document.createElement('div');
   icon.style.cssText = 'width:14px;height:14px;min-width:14px;background:rgba(91,141,239,0.2);border-radius:3px;border:1px solid rgba(91,141,239,0.3);';
   title.appendChild(icon);
+
+  var parts = [];
+  var sorted = hasCatches ? window.__catches.sortCatches(location.catches) : [];
+  if (hasCatches) parts.push(sorted.length + ' Pok\u00e9mon');
+  if (hasBattles) parts.push(locationBattles.length + ' Battle' + (locationBattles.length > 1 ? 's' : ''));
   var titleText = document.createElement('span');
-  titleText.textContent = sorted.length + ' Pok\u00e9mon';
+  titleText.textContent = parts.join(' \u00b7 ');
   title.appendChild(titleText);
   header.appendChild(title);
+
+  var layout = hasCatches ? window.__catches.chooseBannerLayout(sorted.length) : 'none';
 
   if (layout === 'icetray') {
     var hint = document.createElement('span');
@@ -283,7 +302,7 @@ function renderCatchBanner(location, caughtPokemon) {
   header.addEventListener('click', function() {
     var isCollapsed = banner.classList.contains('collapsed');
     banner.classList.toggle('collapsed');
-    window.__catches.setBannerCollapsed(!isCollapsed);
+    if (window.__catches) window.__catches.setBannerCollapsed(!isCollapsed);
   });
 
   banner.appendChild(header);
@@ -291,14 +310,137 @@ function renderCatchBanner(location, caughtPokemon) {
   var body = document.createElement('div');
   body.className = 'catch-banner-body';
 
-  if (layout === 'cards') {
-    renderCardLayout(body, sorted, caughtPokemon);
-  } else {
-    renderIceTrayLayout(body, sorted, caughtPokemon);
+  // Catches section
+  if (hasCatches && layout !== 'none') {
+    if (layout === 'cards') {
+      renderCardLayout(body, sorted, caughtPokemon);
+    } else {
+      renderIceTrayLayout(body, sorted, caughtPokemon);
+    }
+  }
+
+  // Battles section (inside same banner, below catches)
+  if (hasBattles) {
+    if (hasCatches) {
+      var divider = document.createElement('div');
+      divider.style.cssText = 'height:1px;background:var(--border-subtle);margin:8px 0;';
+      body.appendChild(divider);
+    }
+    renderBattleSection(body, locationBattles);
   }
 
   banner.appendChild(body);
   return banner;
+}
+
+/**
+ * Get all battles for a location from battleData.
+ * Returns array of {name, trainer} objects.
+ */
+function getLocationBattles(locationName) {
+  if (!battleData) return [];
+  var results = [];
+  // Check exact location name and variants
+  var keysToCheck = [locationName];
+  // Also check keys that start with the location name (e.g., "STRIATON CITY|GYM")
+  Object.keys(battleData).forEach(function(key) {
+    if (key === locationName || key.indexOf(locationName + '|') === 0) {
+      var trainers = battleData[key];
+      Object.keys(trainers).forEach(function(tName) {
+        results.push({ name: tName, trainer: trainers[tName], locationKey: key });
+      });
+    }
+  });
+  return results;
+}
+
+/**
+ * Render battle section inside the banner.
+ */
+function renderBattleSection(container, battles) {
+  var ui = window.__ui;
+  if (!ui) return;
+
+  var profile = window.__profiles && window.__profiles.getActiveProfile();
+  var starter = profile ? profile.starter : null;
+
+  battles.forEach(function(b) {
+    var card = document.createElement('div');
+    card.className = 'battle-card';
+    card.style.margin = '0';
+    card.style.marginBottom = '6px';
+
+    // Header: VS name + note
+    var header = document.createElement('div');
+    header.className = 'battle-card-header';
+    var titleEl = document.createElement('span');
+    titleEl.className = 'battle-card-title';
+    titleEl.textContent = 'VS ' + b.name;
+    header.appendChild(titleEl);
+    if (b.trainer.note) {
+      var noteEl = document.createElement('span');
+      noteEl.className = 'battle-card-note';
+      noteEl.textContent = b.trainer.note;
+      header.appendChild(noteEl);
+    }
+    card.appendChild(header);
+
+    // Pick the right team for starter-dependent battles
+    var teamsToShow = b.trainer.teams;
+    if (b.trainer.pick1 && starter && b.trainer.teams.length >= 3) {
+      var starterMap = { 'Snivy': 0, 'Tepig': 1, 'Oshawott': 2 };
+      var idx = starterMap[starter];
+      if (idx !== undefined && b.trainer.teams[idx]) {
+        teamsToShow = [b.trainer.teams[idx]];
+      }
+    }
+
+    // Render Pokemon team
+    teamsToShow.forEach(function(team) {
+      var teamEl = document.createElement('div');
+      teamEl.className = 'battle-team';
+      team.forEach(function(mon) {
+        if (mon.note) {
+          var noteDiv = document.createElement('div');
+          noteDiv.className = 'battle-variant-note';
+          noteDiv.textContent = mon.note;
+          teamEl.appendChild(noteDiv);
+          return;
+        }
+        var monEl = document.createElement('div');
+        monEl.className = 'battle-pokemon';
+        var dex = getDexForName(mon.name);
+        if (dex) {
+          var sprite = document.createElement('img');
+          sprite.src = ui.spriteUrl(dex);
+          sprite.width = 28;
+          sprite.height = 28;
+          sprite.style.imageRendering = 'pixelated';
+          monEl.appendChild(sprite);
+        }
+        var monInfo = document.createElement('div');
+        var nameSpan = document.createElement('span');
+        nameSpan.className = 'battle-pokemon-name';
+        nameSpan.textContent = mon.name;
+        monInfo.appendChild(nameSpan);
+        var lvSpan = document.createElement('span');
+        lvSpan.className = 'battle-pokemon-lv';
+        lvSpan.textContent = ' Lv.' + mon.lv;
+        monInfo.appendChild(lvSpan);
+        if (mon.types) {
+          var typesWrap = document.createElement('div');
+          typesWrap.style.cssText = 'display:flex;gap:2px;margin-top:1px;';
+          mon.types.forEach(function(t) { typesWrap.appendChild(ui.renderTypeBadgeEl(t)); });
+          monInfo.appendChild(typesWrap);
+        }
+        monEl.appendChild(monInfo);
+        teamEl.appendChild(monEl);
+      });
+      card.appendChild(teamEl);
+    });
+
+    container.appendChild(card);
+  });
 }
 
 /**
@@ -313,11 +455,24 @@ function renderCardLayout(container, catches, caughtPokemon) {
     var caught = window.__catches.isCaught(caughtPokemon, c.name);
 
     if (c.top25) {
-      // Full card for top25
+      // Full card for top25: pokeball | sprite | info
       var card = document.createElement('div');
       card.className = 'catch-card' + (caught ? ' caught' : '');
 
-      // Sprite (no type overlay — types shown on name line)
+      // Pokeball toggle (left side)
+      (function(catchData, cardEl) {
+        var pokeball = ui.renderPokeballToggle(caught, function(e) {
+          e.stopPropagation();
+          var profile = window.__profiles.getActiveProfile();
+          if (!profile) return;
+          profile.caughtPokemon = window.__catches.toggleCaught(profile.caughtPokemon || {}, catchData.name);
+          window.__profiles.saveActiveProfile();
+          window.__steps.render();
+        });
+        cardEl.appendChild(pokeball);
+      })(c, card);
+
+      // Sprite
       card.appendChild(ui.renderSpriteEl(c.dex, 'lg'));
 
       // Info column
@@ -351,8 +506,14 @@ function renderCardLayout(container, catches, caughtPokemon) {
       }
       card.appendChild(info);
 
-      // Pokeball toggle
-      (function(catchData) {
+      container.appendChild(card);
+    } else {
+      // Compact row for non-top25: pokeball | sprite | info
+      var row = document.createElement('div');
+      row.className = 'catch-row' + (caught ? ' caught' : '');
+
+      // Pokeball toggle (left side)
+      (function(catchData, rowEl) {
         var pokeball = ui.renderPokeballToggle(caught, function(e) {
           e.stopPropagation();
           var profile = window.__profiles.getActiveProfile();
@@ -361,19 +522,13 @@ function renderCardLayout(container, catches, caughtPokemon) {
           window.__profiles.saveActiveProfile();
           window.__steps.render();
         });
-        card.appendChild(pokeball);
-      })(c);
+        rowEl.appendChild(pokeball);
+      })(c, row);
 
-      container.appendChild(card);
-    } else {
-      // Compact row for non-top25 — uses medium sprite with full info
-      var row = document.createElement('div');
-      row.className = 'catch-row' + (caught ? ' caught' : '');
-
-      // Medium sprite (no type overlay — types shown on name line)
+      // Medium sprite
       row.appendChild(ui.renderSpriteEl(c.dex, 'md'));
 
-      // Name + type badges + stat pills — use available horizontal space
+      // Name + type badges + stat pills
       var rowInfo = document.createElement('div');
       rowInfo.style.cssText = 'flex:1;min-width:0;';
       var rowNameLine = document.createElement('div');
@@ -390,19 +545,6 @@ function renderCardLayout(container, catches, caughtPokemon) {
       rowInfo.appendChild(rowNameLine);
       rowInfo.appendChild(ui.renderStatPillsEl(c.method, c.level || '', c.percent || 0));
       row.appendChild(rowInfo);
-
-      // Pokeball toggle
-      (function(catchData) {
-        var pokeball = ui.renderPokeballToggle(caught, function(e) {
-          e.stopPropagation();
-          var profile = window.__profiles.getActiveProfile();
-          if (!profile) return;
-          profile.caughtPokemon = window.__catches.toggleCaught(profile.caughtPokemon || {}, catchData.name);
-          window.__profiles.saveActiveProfile();
-          window.__steps.render();
-        });
-        row.appendChild(pokeball);
-      })(c);
 
       container.appendChild(row);
     }
