@@ -1080,13 +1080,14 @@ function showHiddenItemPopout(itemName, imageUrl) {
   // Zoom hint
   var zoomHint = document.createElement('div');
   zoomHint.style.cssText = 'font-size:9px;color:var(--text-muted);text-align:center;margin-top:4px;';
-  zoomHint.textContent = 'scroll to zoom \u00b7 drag to pan';
+  zoomHint.textContent = 'click to zoom \u00b7 double-click to reset';
   popout.appendChild(zoomHint);
 
   // Zoom + pan state
   var scale = 1;
   var panX = 0, panY = 0;
   var isDragging = false;
+  var didDrag = false;
   var dragStartX = 0, dragStartY = 0;
   var panStartX = 0, panStartY = 0;
 
@@ -1103,6 +1104,34 @@ function showHiddenItemPopout(itemName, imageUrl) {
     zoomHint.textContent = Math.round(scale * 100) + '%';
   });
 
+  // Click to zoom in, double-click to reset
+  imgWrap.addEventListener('click', function(e) {
+    if (didDrag) { didDrag = false; return; }
+    if (scale >= 3) {
+      // Reset zoom
+      scale = 1;
+      panX = 0;
+      panY = 0;
+    } else {
+      // Zoom into click position
+      scale = Math.min(5, scale + 0.5);
+    }
+    updateTransform();
+    imgWrap.style.cursor = scale > 1 ? 'grab' : 'zoom-in';
+    zoomHint.textContent = Math.round(scale * 100) + '%' + (scale > 1 ? ' \u00b7 click to zoom more \u00b7 drag to pan' : '');
+  });
+
+  imgWrap.addEventListener('dblclick', function(e) {
+    e.preventDefault();
+    scale = 1;
+    panX = 0;
+    panY = 0;
+    updateTransform();
+    imgWrap.style.cursor = 'zoom-in';
+    zoomHint.textContent = 'click to zoom \u00b7 double-click to reset';
+  });
+
+  // Drag to pan when zoomed
   imgWrap.addEventListener('mousedown', function(e) {
     if (scale <= 1) return;
     isDragging = true;
@@ -1116,8 +1145,11 @@ function showHiddenItemPopout(itemName, imageUrl) {
 
   document.addEventListener('mousemove', function onMove(e) {
     if (!isDragging) return;
-    panX = panStartX + (e.clientX - dragStartX);
-    panY = panStartY + (e.clientY - dragStartY);
+    var dx = e.clientX - dragStartX;
+    var dy = e.clientY - dragStartY;
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) didDrag = true;
+    panX = panStartX + dx;
+    panY = panStartY + dy;
     updateTransform();
   });
 
