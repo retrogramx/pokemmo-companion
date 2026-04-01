@@ -56,7 +56,7 @@ function showCatches() {
   console.log('Catches view — coming in v2');
 }
 
-// Drag lock/unlock
+// Drag lock/unlock — uses native CSS drag region for zero-latency dragging
 let dragUnlocked = false;
 
 function toggleDragLock() {
@@ -65,18 +65,6 @@ function toggleDragLock() {
   document.getElementById('btnLock').title = dragUnlocked ? 'Lock position' : 'Unlock to drag';
   appEl.classList.toggle('drag-unlocked', dragUnlocked);
 }
-
-// When unlocked, drag from anywhere. When locked, drag from header only.
-document.addEventListener('mousedown', (e) => {
-  if (!window.__TAURI__) return;
-  if (e.target.closest('button, .profile-trigger, .profile-dropdown, .no-drag, input, .guide-steps, .footer')) return;
-
-  if (dragUnlocked) {
-    window.__TAURI__.window.getCurrentWindow().startDragging();
-  } else if (e.target.closest('.header')) {
-    window.__TAURI__.window.getCurrentWindow().startDragging();
-  }
-});
 
 // Listen for Tauri hotkey events
 if (window.__TAURI__) {
