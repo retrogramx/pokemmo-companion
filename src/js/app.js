@@ -16,15 +16,24 @@ async function resizeWindow(width, height) {
   }
 }
 
-async function setWindowVisible(visible) {
+async function hideWindow() {
   if (!window.__TAURI__) return;
   const win = window.__TAURI__.window.getCurrentWindow();
-  if (visible) {
-    await win.unminimize();
-    await win.setFocus();
-  } else {
-    await win.minimize();
+  try { await win.hide(); } catch(e1) {
+    try { await win.minimize(); } catch(e2) {
+      // Last resort: just close
+      await win.close();
+    }
   }
+}
+
+async function showWindow() {
+  if (!window.__TAURI__) return;
+  const win = window.__TAURI__.window.getCurrentWindow();
+  try { await win.show(); } catch(e1) {
+    try { await win.unminimize(); } catch(e2) {}
+  }
+  try { await win.setFocus(); } catch(e) {}
 }
 
 function toggleMode() {
@@ -40,12 +49,11 @@ function toggleMode() {
 }
 
 function hide() {
-  // Actually hide the native window — use Ctrl+Shift+G to bring it back
-  setWindowVisible(false);
+  hideWindow();
 }
 
 function show() {
-  setWindowVisible(true);
+  showWindow();
 }
 
 function showMap() {
@@ -57,7 +65,9 @@ function showCatches() {
 }
 
 // Drag lock/unlock — uses native CSS drag region for zero-latency dragging
-let dragUnlocked = false;
+// Default: unlocked (draggable from anywhere)
+let dragUnlocked = true;
+appEl.classList.add('drag-unlocked');
 
 function toggleDragLock() {
   dragUnlocked = !dragUnlocked;
@@ -69,10 +79,10 @@ function toggleDragLock() {
 // Listen for Tauri hotkey events
 if (window.__TAURI__) {
   let isHidden = false;
-  window.__TAURI__.event.listen('hotkey-toggle', () => {
+  window.__TAURI__.event.listen('hotkey-toggle', async () => {
     isHidden = !isHidden;
-    if (isHidden) hide();
-    else show();
+    if (isHidden) await hideWindow();
+    else await showWindow();
   });
   window.__TAURI__.event.listen('hotkey-complete', () => {
     window.__steps.completeCurrent();

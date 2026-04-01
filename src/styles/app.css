@@ -13,27 +13,30 @@
     display: none;
 }
 
-.app.drag-unlocked {
-    border-color: rgba(91, 141, 239, 0.4);
-}
-
 /* ── Drag Region ── */
+/* Locked: only header is draggable */
 .header {
     -webkit-app-region: drag;
 }
+button, input, select, a,
+.no-drag, .profile-trigger, .profile-dropdown {
+    -webkit-app-region: no-drag;
+}
+
+/* Unlocked: entire window is draggable */
 .app.drag-unlocked {
     -webkit-app-region: drag;
+    border-color: rgba(91, 141, 239, 0.4);
 }
-/* Interactive elements must never be draggable */
-button, input, select, a,
-.no-drag,
-.profile-trigger,
-.profile-dropdown,
-.guide-steps,
-.footer,
-.expand-bar,
-.compact-step .done-btn,
-.step {
+/* Only truly interactive elements stay clickable when unlocked */
+.app.drag-unlocked button,
+.app.drag-unlocked input,
+.app.drag-unlocked .step,
+.app.drag-unlocked .expand-bar,
+.app.drag-unlocked .profile-trigger,
+.app.drag-unlocked .profile-dropdown,
+.app.drag-unlocked .footer-btn,
+.app.drag-unlocked .done-btn {
     -webkit-app-region: no-drag;
 }
 
